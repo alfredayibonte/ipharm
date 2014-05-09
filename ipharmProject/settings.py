@@ -17,7 +17,7 @@ BASE_DIR = lambda *x: os.path.join(os.path.dirname(os.path.dirname(__file__)), *
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g9(#%1jfk*7)i)652z5%cvz@@gsz@!#c$k@(kx63t%s78gl2o)'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
