@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from django.views import generic
+from users.models import Customer
 
-# Create your views here.
-def login(request):
-    return render(request, 'connect.html')
+
+class Main(generic.View):
+    model = Customer
+    template_name = 'registration/main_dashboard.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)

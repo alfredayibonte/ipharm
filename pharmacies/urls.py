@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
+import views
 
-from views import login
 urlpatterns = patterns(
     '',
-    url(r'^login/', login, name='login' ),
+    url(r'^main/$', views.Main.as_view(), name='main'),
 
 
 )
