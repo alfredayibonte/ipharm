@@ -12,6 +12,7 @@ class MyRegistrationForm(forms.ModelForm):
     )
     username = forms.CharField(
         max_length=40,
+<<<<<<< HEAD
         widget=forms.TextInput(attrs={'placeholder': 'Username'})
     )
     first_name = forms.CharField(
@@ -22,6 +23,9 @@ class MyRegistrationForm(forms.ModelForm):
     last_name = forms.CharField(
         max_length=40,
         widget=forms.TextInput(attrs={'placeholder': 'Last Name'})
+=======
+        widget=forms.TextInput(attrs={'placeholder': 'username'})
+>>>>>>> ec65e5038f38012b5edd77711d18ca082d3a7d42
     )
 
     password1 = forms.CharField(
@@ -34,6 +38,7 @@ class MyRegistrationForm(forms.ModelForm):
         widget=forms.PasswordInput(attrs={'placeholder': 'Repeat'})
     )
 
+<<<<<<< HEAD
     oneliner = forms.CharField(
         max_length=100,
         required=False,
@@ -43,6 +48,11 @@ class MyRegistrationForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = ('email', 'username', 'first_name', 'last_name', 'password1', 'password2', 'oneliner')
+=======
+    class Meta:
+        model = Customer
+        fields = ('username', 'email', 'password1', 'password2')
+>>>>>>> ec65e5038f38012b5edd77711d18ca082d3a7d42
 
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
@@ -96,7 +106,11 @@ class EditUserForm(forms.ModelForm):
 
     class Meta:
         model = Customer
+<<<<<<< HEAD
         fields = ('username', 'first_name', 'last_name', 'location')
+=======
+        fields = ('username', 'first_name', 'last_name')
+>>>>>>> ec65e5038f38012b5edd77711d18ca082d3a7d42
         exclude = ('password1', 'password2', 'email')
 
     def save(self, commit=True):
