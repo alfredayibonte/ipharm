@@ -19,6 +19,21 @@
 	<link href="{% static 'css/rtl.min.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/themes.min.css' %}" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <style>
+        textarea, input[type="text"], input[type="password"], .uneditable-input
+        {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border linear .2s,box-shadow linear .2s;
+    -moz-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s,box-shadow linear .2s;
+    transition: border linear .2s,box-shadow linear .2s;
+            
+}
+    </style>
 
 	<!--[if lt IE 9]>
 		<script src="assets/javascripts/ie.min.js"></script>
@@ -562,6 +577,7 @@
 			New users table
 -->
 <!-- /12. $NEW_USERS_TABLE -->
+              {% block content %}
 
 <!-- 13. $RECENT_TASKS =============================================================================
 
@@ -588,8 +604,11 @@
 				<!-- / Javascript -->
 
 
+
+
 			</div>
 <!-- /13. $RECENT_TASKS -->
+             {% endblock %}
 
 		</div>
 	</div> <!-- / #content-wrapper -->
