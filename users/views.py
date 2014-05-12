@@ -21,9 +21,10 @@ class Register(View):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
+        print form.errors
         if form.is_valid():
             form.save()
             user = auth.authenticate(email=form.cleaned_data['email'], password=form.cleaned_data['password1'])
             auth.login(request, user)
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
