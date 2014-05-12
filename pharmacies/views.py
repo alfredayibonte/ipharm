@@ -9,3 +9,14 @@ class Main(generic.View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+
+class Chart(generic.ListView):
+    template_name = 'registration/chart_dashboard.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+class Chart(generic.View):
+    template_name = 'registration/chart_dashboard.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)

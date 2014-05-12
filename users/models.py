@@ -58,9 +58,10 @@ class Customer(AbstractBaseUser, PermissionsMixin):
 
     Username, password and email are required. Other fields are optional.
     """
-    lat = models.IntegerField()
-    lng = models.IntegerField()
-    location = models.CharField(_('location'), max_length=80, blank=True)
+    is_pharmacy = models.BooleanField(default=True)
+    is_customer = models.BooleanField(default=False)
+    mobile = models.CharField(max_length=100)
+    address = models.CharField(_('address'), max_length=100, blank=True)
     images = models.ImageField(upload_to='pic_folder/', default='pic_folder/None/no-img.jpg')
 
     username = models.CharField(_('username'), max_length=30, unique=True,

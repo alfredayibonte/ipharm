@@ -1,11 +1,136 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>iPharm</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom Theme CSS -->
+    <link href="{% static 'css/grayscale.css' %}" rel="stylesheet">
+
 </head>
-<body>
-<p>search</p>
-<input type="text" placeholder="search">
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    <img style="height: 30%; width: 30%"src="{% static 'img/ipharm2.png' %}">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="page-scroll">
+                        <a href="#page-top">Home</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#product"><span style="color: #13B5EA;">Product</span></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about"><span style="color: #13B5EA;">About Us</span></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#search-box"><span style="color: #13B5EA;">Search</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <section class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading"><img style="height: 70%; width: 70%"src="{% static 'img/ipharm2.png' %}"></h1>
+                        <p class="jumbotron intro-text" style="color: #13B5EA">iPharma is a web application that connects healthcare providers with their patrons by allowing them to access information about drugs available at the pharmacy...</p>
+                        <div class="page-scroll">
+                            <a href="#about" class="btn btn-circle">
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>The Product</h2>
+                <p>iPharm is a service that allows you to locate pharmacies with the medicine you need to fill a prescription.
+                </p>
+                <p>It also allows pharmacies to also confirm priscriptions and also recommend alternatives from the consulting physicians where necessary
+                </p>
+                <p>Pharmacies can signup <a href="#contact">here</a> and patrons can search in the text field <a class="page-scroll" href="#search-box">below...</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="content-section1 text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Join iPharm</h2>
+                    <p>iPharm is revolutionizing the healthcare industry, join us make Ghana a better place</p>
+                    <p>
+                        <span><img style="height: 10%; width: 10%"src="img/rss.png"></span>
+                        <span><img style="height: 10%; width: 10%"src="img/twitter.png"></span>
+                        <span><img style="height: 10%; width: 10%"src="img/facebook.png"></span>
+                        <span> <img style="height: 10%; width: 10%"src="img/google-plus.png"></span>
+                    </p>            
+                    <a href="signup.html" class="btn btn-default btn-lg">Sign up here</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="search-box" class="container content-section text-center">
+        <div class="row">
+            <div class="jumbotron">
+                <form>
+                    <span><input type="text" class="search square"><input type="button" value="Search"></span>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="map"></div>
+
+    <!-- Core JavaScript Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/grayscale.js' %}"></script>
 
 </body>
+
 </html>

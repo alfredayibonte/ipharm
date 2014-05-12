@@ -5,8 +5,8 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1/ipharm</jdbc-url>
-      <user-name>postgres</user-name>
-      <user-password>dfcbdfc6dfccdfd8dfcfdfce</user-password>
+      <user-name>alfred</user-name>
+      <user-password>dfe0dfcbdfc4dfcf</user-password>
       <libraries />
     </data-source>
   </component>
