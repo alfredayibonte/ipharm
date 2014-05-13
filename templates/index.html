@@ -1,142 +1,339 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>iPharm</title>
+    <title>ipharm</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Stylesheets -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
-    <!-- Custom Theme CSS -->
-    <link href="{% static 'css/grayscale.css' %}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
 
-</head>
+  </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="#page-top">
-                    <img style="height: 30%; width: 30%"src="{% static 'img/ipharm2.png' %}">
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="page-scroll">
-                        <a href="#page-top">Home</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#product"><span style="color: #13B5EA;">Product</span></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about"><span style="color: #13B5EA;">About Us</span></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#search-box"><span style="color: #13B5EA;">Search</span></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+  <body>
+  
+    <header id="site-header" class="site-header">
+      <div class="container">
+        <h1><a class="site-title pull-left" href="{% url 'home' %}"><i class="fa fa-flask"></i> ipharm</a></h1>
+        <div class="btn-users text-right">
+            <span style="font-size: 120%; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Sans-Serif'; color: #FFF;">Are you a pharmacy?</span>
+          <a class="btn btn-login" href="{% url 'users:login' %}">Login</a> |
+          <a class="btn btn-register" href="{% url 'users:register' %}">Register</a>
         </div>
-        <!-- /.container -->
-    </nav>
+      </div><!-- /container -->
+      
+      <div class="container">
+          
+        <div class="header-description">
+          <h2>find your drug</h2>
+            <!-- search box-->
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="input-group input-group-lg centered">{% csrf_token %}
+                        <input type="text" class="form-control rounded" placeholder="search for drug" id="search" autocomplete="off">
+                        <span class="input-group-addon btn-primary"><i class="icon-search"></i></span>
+                    </div>
+                    <div id="popups" style="position: absolute;">
 
-    <section class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading"><img style="height: 70%; width: 70%"src="{% static 'img/ipharm2.png' %}"></h1>
-                        <form class="col-lg-12">
-                            <div>
-                                <input class="input-lg icon-2x " title="Don't worry." placeholder="Enter drug" type="text">
-                                <button class="btn btn-lg btn-primary" type="button"><i class="icon-1x icon-search"></i></button>
-                            </div>
-                        </form>
-
-                        <div class="page-scroll">
-                            <a href="#about" class="btn btn-circle">
-                                <i class="fa fa-angle-double-down animated"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="product" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>The Product</h2>
-                <p>iPharm is a service that allows you to locate pharmacies with the medicine you need to fill a prescription.
-                </p>
-                <p>It also allows pharmacies to also confirm priscriptions and also recommend alternatives from the consulting physicians where necessary
-                </p>
-                <p>Pharmacies can signup <a href="#contact">here</a> and patrons can search in the text field <a class="page-scroll" href="#search-box">below...</a></p>
+            <!-- end of search box-->
+
+        </div><!-- /.header-description -->
+        
+        <div class="header-features">
+          <div class="row">
+            <div class="col-sm-6 header-feature">
+              <h3><i class="fa fa-random"></i> &nbsp; Extremely flexible</h3>
+              <p>Proin ut iaculis nisl. Nulla dignissim neque magna, id hendrerit metus. Mauris non turpis eu arcu volutpat cursus. Etiam hendrerit erat ac eros auctor at eleifend lacus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu dignissim risus.</p>
             </div>
-        </div>
-    </section>
+            <div class="col-sm-6 header-feature">
+              <h3> <i class="fa fa-group"></i> &nbsp; Developer for developer</h3>
+              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hac habitasse platea dictumst. Nulla et porta nunc. Duis volutpat tristique nisl ac adipiscing. Sed eget nibh sit amet enim faucibus porta.</p>
+            </div>
+          </div>
+        </div><!-- /.header-features -->
+            
+      </div><!-- /.container -->
+    </header>
+    
+    <section id="slider" class="slider text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
 
-    <section id="about" class="content-section1 text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Join iPharm</h2>
-                    <p>iPharm is revolutionizing the healthcare industry, join us make Ghana a better place</p>
-                    <p>
-                        <span><img style="height: 10%; width: 10%"src="img/rss.png"></span>
-                        <span><img style="height: 10%; width: 10%"src="img/twitter.png"></span>
-                        <span><img style="height: 10%; width: 10%"src="img/facebook.png"></span>
-                        <span> <img style="height: 10%; width: 10%"src="img/google-plus.png"></span>
-                    </p>            
-                    <a href="signup.html" class="btn btn-default btn-lg">Sign up here</a>
+            <div id="slider-carousel" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="item active">
+                  <!-- img-->
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="item">
+                  <!-- img-->
+                </div>
+                <div class="item">
+                  <!-- img-->
+                </div>
+              </div>
+              <a class="carousel-control lef" href="#slider-carousel" data-slide="prev">&lsaquo;</a>
+              <a class="carousel-control right-side" href="#slider-carousel" data-slide="next">&rsaquo;</a>
+            </div><!-- /slider-carousel -->
 
-    <section id="search-box" class="container content-section text-center">
+          </div><!-- /span12 -->
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </section>
+       
+    <section id="features" class="features">
+      <div class="container">
         <div class="row">
-            <div class="jumbotron">
-                <form>
-                    <span><input type="text" class="search square"><input type="button" value="Search"></span>
-                </form>
+
+          <div class="col-sm-3">
+            <div class="feature">
+              <i class="fa fa-globe fa fa-2x pull-left"></i>
+              <h4>Used by Millions</h4>
+              <p>Curabitur fringilla, elit pulvinar auctor tincidunt, arcu nibh adipiscing velit, at tincidunt libero nisl sit amet nisl.</p>
             </div>
-        </div>
+          </div><!-- /span3 -->
+
+          <div class="col-sm-3">
+            <div class="feature">
+              <i class="fa fa-wrench fa fa-2x pull-left"></i>
+              <h4>Developers Friendly</h4>
+              <p>Nullam ac magna sit amet Justo eu vulputate fermentum.</p>
+            </div>
+          </div><!-- /span3 -->
+
+          <div class="col-sm-3">
+            <div class="feature">
+              <i class="fa fa-desktop fa fa-2x pull-left"></i>
+              <h4>Responsive</h4>
+              <p>From desktop tto mobile. Dignissim et dolor. Proin facilisis nulla vitae dui luctus ac pulvinar magna tincidunt.</p>
+            </div>
+          </div><!-- /span3 -->
+
+          <div class="col-sm-3">
+            <div class="feature">
+              <i class="fa fa-thumbs-up fa fa-2x pull-left"></i>
+              <h4>Flat Design</h4>
+              <p>keeping up with trends, can impact your success. Integer.</p>
+            </div>
+          </div><!-- /span3 -->
+
+        </div><!-- /row -->
+      </div><!-- /container -->
     </section>
 
-    <div id="map"></div>
+    <section id="testimonials" class="testimonials">
+      <div class="container">
 
-    <!-- Core JavaScript Files -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <div id="testimonials-carousel" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="row">
+                <div class="col-sm-12">
+                  <blockquote>
+                    <div>
+                      <i class="fa fa-quote-left"></i>
+                      <p>Curabitur fringilla, elit pulvinar auctor tincidunt, arcu nibh adipiscing velit, at tincidunt libero nisl sit amet nisl. Proin facilisis nulla vitae dui luctus ac pulvinar magna tincidunt.</p>
+                      <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-sm-12">
+                  <blockquote>
+                    <div>
+                      <i class="fa fa-quote-left"></i>
+                      <p>Curabitur fringilla, elit pulvinar auctor tincidunt, arcu nibh adipiscing velit, at tincidunt libero nisl sit amet nisl. Proin facilisis nulla vitae dui luctus ac pulvinar magna</p>
+                      <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-sm-12">
+                  <blockquote>
+                    <div>
+                      <i class="fa fa-quote-left"></i>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                      <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control lef" href="#testimonials-carousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right-side" href="#testimonials-carousel" data-slide="next">&rsaquo;</a>
+        </div><!-- /testimonials-carousel -->
 
-    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+      </div><!-- /container -->
+    </section>
+    
+    <section id="prices" class="prices">
+      <div class="container">
+        <div class="row">
+        
+          <div class="col-sm-4">
+            <div class="plan plan-1">
+              <h4 class="plan-title"><a href="#">Starter Plan</a></h4>
+              <ul class="list-unstyled plan-features">
+                <li><a href="#">Quisque convallis</a></li>
+                <li><a href="#">Eros ut tincidunt</a></li>
+                <li><a href="#">Pellentesque ac</a></li>
+                <li><a href="#">Sed tempor metus</a></li>
+              </ul>
+              <p class="plan-price text-center"><a href="#">Free</a></p>
+            </div>
+          </div><!-- /span4 -->
+          
+          <div class="col-sm-4">
+            <div class="plan plan-2">
+              <h4 class="plan-title"><a href="#">Business Plan</a></h4>
+              <ul class="list-unstyled plan-features">
+                <li><a href="#">Quisque convallis</a></li>
+                <li><a href="#">Eros ut tincidunt</a></li>
+                <li><a href="#">Pellentesque ac</a></li>
+                <li><a href="#">Sed tempor metus</a></li>
+                <li><a href="#">Morbi eu ante</a></li>
+                <li><a href="#">Eu ante iaculis</a></li>
+                <li><a href="#">Interdum non at turpis</a></li>
+              </ul>
+              <p class="plan-price text-center"><a href="#">$19 / month</a></p>
+            </div>
+          </div><!-- /span4 -->
+          
+           <div class="col-sm-4">
+            <div class="plan plan-3">
+              <h4 class="plan-title"><a href="#">Pro Plan</a></h4>
+              <ul class="list-unstyled plan-features">
+                <li><a href="#">Quisque convallis</a></li>
+                <li><a href="#">Eros ut tincidunt</a></li>
+                <li><a href="#">Pellentesque ac</a></li>
+                <li><a href="#">Sed tempor metus</a></li>
+                <li><a href="#">Cras vel risus</a></li>
+                <li><a href="#">Tortor nullam condimentum</a></li>
+                <li><a href="#">Dignissim arcu</a></li>
+                <li><a href="#">Vulputate volutpat</a></li>
+                <li><a href="#">Elit ultrices in</a></li>
+              </ul>
+              <p class="plan-price text-center"><a href="#">$29 / month</a></p>
+            </div>
+          </div><!-- /span4 -->
+          
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </section>
+    
+    <section id="contact" class="contact">
+      <div id="map"></div> 
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <h2>Feedbacks & Questions</h2>
+            <p><i class="fa fa-bullhorn fa fa-4x pull-left fa fa-muted"></i> I'd love to hear from you. Duis dapibus varius rhoncus. Aenean mauris urna, ultrices vitae faucibus quis, posuere id augue. Morbi id eros in nisl pretium ultrices ac nec dui. Praesent felis risus, pretium a semper et, pretium commodo nibh.</p>
+          </div>
+          <div class="col-sm-6">
+            <br>
+            <p>There are different ways to keep in touch:</p>
+            
+            <ul class="unstyled inline social">
+              <li><a href="#"><i class="fa fa-phone"></i></a></li>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-github-alt"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+            
+            <ul class="list-inline text-center">
+              <li><a href="#">Our Ticket System</a></li>
+              <li><a href="#">Our Forum</a></li>
+              <li><a href="#">Following Contact Form</a></li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form text-center">
+        <i class="fa fa-envelope contact-form-btn closes"></i>
+        <div class="container contact-form-inner">
+          <div class="row">
+            <form id="contact-form" class="contact-form" role="form">
+              <div class="form-group">
+                <input type="text" class="form-control input-lg" name="name" placeholder="Full Name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control input-lg" name="email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control input-lg" name="message" placeholder="Message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-success btn-block btn-lg">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'js/grayscale.js' %}"></script>
+    </section>
+    
+    <section id="subscribe" class="subscribe">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <p>No, not again. I am not going to miss it one more time!</p>
+            <form id="subsc-form" class="subsc-form">
+              <div class="input-group">
+                <input type="email" name="subscriber" class="form-control input-lg" placeholder="You Email" required>
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-custom">Subscribe</button>
+                </span>
+              </div><!-- /input-group -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1 class="footer-title pull-left"><a href="#"><i class="fa fa-flask"></i> Beaker</a></h1>
+            <p class="pull-right copyright">&copy; All Right Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-</body>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 
+
+  </body>
 </html>

@@ -12,7 +12,7 @@ urlpatterns = patterns(
     (r'^facebook/', include('django_facebook.urls'),),
     (r'^accounts/', include('django_facebook.auth_urls', namespace='accounts')),
     (r'^user/', include('users.urls', namespace='users')),
-
+    (r'^inventory/', include('inventories.urls', namespace='inventories')),
     (r'^pharmacy/', include('pharmacies.urls', namespace='pharmacies')),
     url(r'^password_change/$', 'django.contrib.auth.views.password_change', name='password_change'),
     url(r'^password_change/done/$', 'django.contrib.auth.views.password_change_done', name='password_change_done'),
