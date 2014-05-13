@@ -37,17 +37,17 @@
       </div><!-- /container -->
       
       <div class="container">
-          
+
         <div class="header-description">
           <h2>find your drug</h2>
             <!-- search box-->
-            <div class="row">
+            <div class="row" style="margin-top: 0px;padding-top: 0px;">
                 <div class="col-sm-8 col-sm-offset-2">
                     <div class="input-group input-group-lg centered">{% csrf_token %}
                         <input type="text" class="form-control rounded" placeholder="search for drug" id="search" autocomplete="off">
                         <span class="input-group-addon btn-primary"><i class="icon-search"></i></span>
                     </div>
-                    <div id="popups" style="position: absolute;">
+                    <div id="popups" style="position: absolute; color:white; font-size: 120%; list-style: none;">
 
                     </div>
                 </div>

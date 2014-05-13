@@ -20,7 +20,7 @@ def search(request):
     drugs = []
     if request.POST and request.POST['search'] != '':
         search_text = request.POST['search']
-        drugs = Drug.objects.filter(name__icontains=search_text)
+        drugs = Drug.objects.filter(drug__icontains=search_text)
         return render_to_response('search.html', {'drugs': drugs})
     elif request.POST and request.POST['search_text'] == '':
         return render_to_response('search.html', {'drugs': drugs})

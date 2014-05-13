@@ -27,6 +27,7 @@ INSTALLED_APPS = (
     'pharmacies',
     'users',
     'south',
+
 )
 
 MIDDLEWARE_CLASSES = (
