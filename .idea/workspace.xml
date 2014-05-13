@@ -73,19 +73,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="11" selection-start="320" selection-end="320" vertical-scroll-proportion="0.27227724" vertical-offset="0" max-vertical-offset="720">
+            <state line="11" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inventories/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="3" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+            <state line="5" column="3" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0990099" vertical-offset="0" max-vertical-offset="606">
               <folding />
             </state>
           </provider>
@@ -170,7 +170,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
+    <option name="x" value="-2667" />
     <option name="y" value="-4" />
     <option name="width" value="1301" />
     <option name="height" value="772" />
@@ -662,7 +662,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <frame x="-2667" y="-4" width="1301" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1002,13 +1002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventories/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="3" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inventories/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="0" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
@@ -1018,7 +1011,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="11" selection-start="320" selection-end="320" vertical-scroll-proportion="0.27227724" vertical-offset="0" max-vertical-offset="720">
+        <state line="11" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventories/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="3" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0990099" vertical-offset="0" max-vertical-offset="606">
           <folding />
         </state>
       </provider>

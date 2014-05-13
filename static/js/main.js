@@ -9,7 +9,7 @@ function init(){
         };
         if(search)
         {
-           
+
             $.ajax({
                 url:"/inventory/search/",
                 dataType:"html",
