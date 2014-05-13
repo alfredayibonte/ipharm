@@ -364,7 +364,7 @@ input[type=text]{
 }
 
 input[type=button], input[type=button]:hover {
-    position:relative; 
+    position:relative;
     left:-6px;
     border:1px solid #adc5cf;
     background: #e4f1f9; /* Old browsers */
@@ -394,3 +394,5 @@ input[type=button], input[type=button]:hover {
 .content-section1 {
     padding-top: 50px;
 }
+
+

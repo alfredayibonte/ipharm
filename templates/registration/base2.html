@@ -1,39 +1,62 @@
 {% load static %}
 <!DOCTYPE html>
+
+
+
 <!--[if IE 8]>         <html class="ie8"> <![endif]-->
 <!--[if IE 9]>         <html class="ie9 gt-ie8"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="gt-ie8 gt-ie9 not-ie"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>iPharm</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin" rel="stylesheet" type="text/css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Dashboard - PixelAdmin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-    <!-- Pixel Admin's stylesheets -->
-    <link href={% static 'css/bootstrap.min.css' %} rel="stylesheet" type="text/css">
-    <link href="{% static 'css/ipharm.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/widgets.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/rtl.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/themes.min.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+	<!-- Open Sans font from Google CDN -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin" rel="stylesheet" type="text/css">
 
-    <!--[if lt IE 9]>
+	<link href={% static 'css/bootstrap.min.css' %} rel="stylesheet" type="text/css">
+	<link href="{% static 'css/ipharm.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/widgets.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/rtl.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/themes.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+
+	<!--[if lt IE 9]>
 		<script src="assets/javascripts/ie.min.js"></script>
 	<![endif]-->
 </head>
 
+
+<!-- 1. $BODY ======================================================================================
+	
+	Body
+
+	Classes:
+	* 'theme-{THEME NAME}'
+	* 'right-to-left'      - Sets text direction to right-to-left
+	* 'main-menu-right'    - Places the main menu on the right side
+	* 'no-main-menu'       - Hides the main menu
+	* 'main-navbar-fixed'  - Fixes the main navigation
+	* 'main-menu-fixed'    - Fixes the main menu
+	* 'main-menu-animated' - Animate main menu
+-->
 <body class="theme-default main-menu-animated">
 
+<script>var init = [];</script>
+<!-- Demo script --> <script src="assets/demo/demo.js"></script> <!-- / Demo script -->
 
 <div id="main-wrapper">
 
 
-<!-- start navbar-->
+<!-- 2. $MAIN_NAVIGATION ===========================================================================
+
+	Main navigation
+-->
 	<div id="main-navbar" class="navbar navbar-inverse" role="navigation">
 		<!-- Main menu toggle -->
 		<button type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i><span class="hide-menu-text">HIDE MENU</span></button>
-
+		
 		<div class="navbar-inner">
 			<!-- Main navbar header -->
 			<div class="navbar-header">
@@ -69,6 +92,18 @@
 					<div class="right clearfix">
 						<ul class="nav navbar-nav pull-right right-navbar-nav">
 
+<!-- 3. $NAVBAR_ICON_BUTTONS =======================================================================
+
+							Navbar Icon Buttons
+
+							NOTE: .nav-icon-btn triggers a dropdown menu on desktop screens only. On small screens .nav-icon-btn acts like a hyperlink.
+
+							Classes:
+							* 'nav-icon-btn-info'
+							* 'nav-icon-btn-success'
+							* 'nav-icon-btn-warning'
+							* 'nav-icon-btn-danger' 
+-->
 							<li class="nav-icon-btn nav-icon-btn-danger dropdown">
 								<a href="#notifications" class="dropdown-toggle" data-toggle="dropdown">
 									<span class="label">5</span>
@@ -77,7 +112,7 @@
 								</a>
 
 								<!-- NOTIFICATIONS -->
-
+								
 								<!-- Javascript -->
 								<script>
 									init.push(function () {
@@ -86,45 +121,80 @@
 								</script>
 								<!-- / Javascript -->
 
-                                <div class="dropdown-menu widget-notifications no-padding" style="width: 300px">
-                                    <div class="notifications-list" id="main-navbar-notifications">
+								<div class="dropdown-menu widget-notifications no-padding" style="width: 300px">
+									<div class="notifications-list" id="main-navbar-notifications">
+
+										<div class="notification">
+											<div class="notification-title text-danger">SYSTEM</div>
+											<div class="notification-description"><strong>Error 500</strong>: Syntax error in index.php at line <strong>461</strong>.</div>
+											<div class="notification-ago">12h ago</div>
+											<div class="notification-icon fa fa-hdd-o bg-danger"></div>
+										</div> <!-- / .notification -->
 
 
+									</div> <!-- / .notifications-list -->
+									<a href="#" class="notifications-link">MORE NOTIFICATIONS</a>
+								</div> <!-- / .dropdown-menu -->
+							</li>
+							<li class="nav-icon-btn nav-icon-btn-success dropdown">
+								<a href="#messages" class="dropdown-toggle" data-toggle="dropdown">
+									<span class="label">10</span>
+									<i class="nav-icon fa fa-envelope"></i>
+									<span class="small-screen-text">Income messages</span>
+								</a>
 
-                                        <div class="notification">
-                                            <div class="notification-title text-success">SYSTEM</div>
-                                            <div class="notification-description">Server <strong>up</strong>.</div>
-                                            <div class="notification-ago">12h ago</div>
-                                            <div class="notification-icon fa fa-hdd-o bg-success"></div>
-                                        </div> <!-- / .notification -->
+								<!-- MESSAGES -->
+								
+								<!-- Javascript -->
+								<script>
+									init.push(function () {
+										$('#main-navbar-messages').slimScroll({ height: 250 });
+									});
+								</script>
+								<!-- / Javascript -->
 
-                                    </div> <!-- / .notifications-list -->
-                                    <a href="#" class="notifications-link">MORE NOTIFICATIONS</a>
-                                </div> <!-- / .dropdown-menu -->
-                            </li>
-                            <li class="nav-icon-btn nav-icon-btn-success dropdown">
-                                <a href="#messages" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="label">10</span>
-                                    <i class="nav-icon fa fa-envelope"></i>
-                                    <span class="small-screen-text">Income messages</span>
-                                </a>
-
-                                <!-- MESSAGES -->
-
-                                <!-- Javascript -->
-                                <script>
-                                    init.push(function () {
-                                        $('#main-navbar-messages').slimScroll({ height: 250 });
-                                    });
-                                </script>
-                                <!-- / Javascript -->
-
-                                <div class="dropdown-menu widget-messages-alt no-padding" style="width: 300px;">
+								<div class="dropdown-menu widget-messages-alt no-padding" style="width: 300px;">
 									<div class="messages-list" id="main-navbar-messages">
 
+										<div class="message">
+											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
+											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+											<div class="message-description">
+												from <a href="#">Robert Jang</a>
+												&nbsp;&nbsp;·&nbsp;&nbsp;
+												2h ago
+											</div>
+										</div> <!-- / .message -->
 
+										<div class="message">
+											<img src="assets/demo/avatars/3.jpg" alt="" class="message-avatar">
+											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+											<div class="message-description">
+												from <a href="#">Michelle Bortz</a>
+												&nbsp;&nbsp;·&nbsp;&nbsp;
+												2h ago
+											</div>
+										</div> <!-- / .message -->
 
+										<div class="message">
+											<img src="assets/demo/avatars/4.jpg" alt="" class="message-avatar">
+											<a href="#" class="message-subject">Lorem ipsum dolor sit amet.</a>
+											<div class="message-description">
+												from <a href="#">Timothy Owens</a>
+												&nbsp;&nbsp;·&nbsp;&nbsp;
+												2h ago
+											</div>
+										</div> <!-- / .message -->
 
+										<div class="message">
+											<img src="assets/demo/avatars/5.jpg" alt="" class="message-avatar">
+											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+											<div class="message-description">
+												from <a href="#">Denise Steiner</a>
+												&nbsp;&nbsp;·&nbsp;&nbsp;
+												2h ago
+											</div>
+										</div> <!-- / .message -->
 
 										<div class="message">
 											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
@@ -135,6 +205,17 @@
 												2h ago
 											</div>
 										</div> <!-- / .message -->
+
+										<div class="message">
+											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
+											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+											<div class="message-description">
+												from <a href="#">Robert Jang</a>
+												&nbsp;&nbsp;·&nbsp;&nbsp;
+												2h ago
+											</div>
+										</div> <!-- / .message -->
+
 
 									</div> <!-- / .messages-list -->
 									<a href="#" class="messages-link">MORE MESSAGES</a>
@@ -169,6 +250,30 @@
 	</div> <!-- / #main-navbar -->
 <!-- /2. $END_MAIN_NAVIGATION -->
 
+
+<!-- 4. $MAIN_MENU =================================================================================
+
+		Main menu
+		
+		Notes:
+		* to make the menu item active, add a class 'active' to the <li>
+		  example: <li class="active">...</li>
+		* multilevel submenu example:
+			<li class="mm-dropdown">
+			  <a href="#"><span class="mm-text">Submenu item text 1</span></a>
+			  <ul>
+				<li>...</li>
+				<li class="mm-dropdown">
+				  <a href="#"><span class="mm-text">Submenu item text 2</span></a>
+				  <ul>
+					<li>...</li>
+					...
+				  </ul>
+				</li>
+				...
+			  </ul>
+			</li>
+-->
 	<div id="main-menu" role="navigation">
 		<div id="main-menu-inner">
 			<div class="menu-content top" id="menu-content-demo">
@@ -190,64 +295,127 @@
 				</div>
 			</div>
 			<ul class="navigation">
-                <li class="mm-dropdown">
-					<a href="#"><i class="menu-icon fa fa-th"></i><span class="mm-text">Edit Profile</span><span class="label label-warning">Updated</span></a>
+				<li>
+					<a href="index.html"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">Dashboard</span></a>
+				</li>
+				<li class="mm-dropdown">
+					<a href="#"><i class="menu-icon fa fa-th"></i><span class="mm-text">Layouts</span><span class="label label-warning">Updated</span></a>
 					<ul>
 						<li>
-							<a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Change password</span></a>
+							<a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Grid</span></a>
 						</li>
 						<li>
 							<a tabindex="-1" href="layouts-main-menu.html"><i class="menu-icon fa fa-th-list"></i><span class="mm-text">Main menu</span><span class="label label-warning">Updated</span></a>
 						</li>
 					</ul>
 				</li>
-                <li class="mm-dropdown">
-					<a href="#"><i class="menu-icon icon-envelope"></i><span class="mm-text">Send notification</span></a>
-                    <ul>
-                        <li>
-                            <a tabindex="-1" href="#"><span class="mm-text ">Email notification</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="mm-text mmc-dropdown-delay animated fadeIn">SMS</span></a>
-                        </li>
+				<li>
+					<a href="stat-panels.html"><i class="menu-icon fa fa-tasks"></i><span class="mm-text">Stat panels</span></a>
+				</li>
+				<li>
+					<a href="widgets.html"><i class="menu-icon fa fa-flask"></i><span class="mm-text">Widgets</span></a>
+				</li>
 
+				<li>
+					<a href="tables.html"><i class="menu-icon fa fa-table"></i><span class="mm-text">Tables</span></a>
+				</li>
+				<li>
+					<a href="charts.html"><i class="menu-icon fa fa-bar-chart-o"></i><span class="mm-text">Charts</span></a>
+				</li>
+				<li class="mm-dropdown">
+					<a href="#"><i class="menu-icon fa fa-files-o"></i><span class="mm-text">Pages</span><span class="label label-success">16</span></a>
+					<ul>
+
+						<li>
+							<a tabindex="-1" href="pages-signin-alt.html"><span class="mm-text">Sign In Alt</span></a>
+						</li>
+						<li>
+							<a tabindex="-1" href="pages-signup-alt.html"><span class="mm-text">Sign Up Alt</span></a>
+						</li>
+						<li>
+							<a tabindex="-1" href="pages-invoice.html"><span class="mm-text">Invoice</span></a>
+						</li>
+						<li>
+							<a tabindex="-1" href="pages-404.html"><span class="mm-text">Error 404</span></a>
+						</li>
+						<li>
+							<a tabindex="-1" href="pages-500.html"><span class="mm-text">Error 500</span></a>
+						</li>
+						<li class="mm-dropdown">
+							<a href="#"><i class="menu-icon fa fa-envelope"></i><span class="mm-text">Messages</span></a>
+							<ul>
+								<li>
+									<a tabindex="-1" href="pages-inbox.html"><span class="mm-text">Inbox</span></a>
+								</li>
+								<li>
+									<a tabindex="-1" href="pages-show-email.html"><span class="mm-text">Show message</span></a>
+								</li>
+								<li>
+									<a tabindex="-1" href="pages-new-email.html"><span class="mm-text">New message</span></a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a tabindex="-1" href="pages-blank.html"><span class="mm-text">Blank page</span></a>
+						</li>
 					</ul>
 				</li>
-
-                <li>
-					<a href="charts.html"><i class="menu-icon fa fa-bar-chart-o"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Charts</span></a>
+				<li>
+					<a href="complete-ui.html"><i class="menu-icon fa fa-briefcase"></i><span class="mm-text">Complete UI</span></a>
 				</li>
-                <li class="mm-dropdown">
-					<a href="#"><i class="menu-icon fa fa-check-square"></i><span class="mm-text">Form components</span></a>
+				<li>
+					<a href="color-builder.html"><i class="menu-icon fa fa-tint"></i><span class="mm-text">Color Builder</span></a>
+				</li>
+				<li class="mm-dropdown">
+					<a href="#"><i class="menu-icon fa fa-sitemap"></i><span class="mm-text">Menu levels</span><span class="badge badge-primary">6</span></a>
 					<ul>
 						<li>
-							<a tabindex="-1" href="forms-layouts.html"><span class="mm-text">Layouts</span></a>
+							<a tabindex="-1" href="#"><span class="mm-text">Menu level 1.1</span><span class="badge badge-danger">12</span><span class="label label-info">21</span></a>
 						</li>
 						<li>
-							<a tabindex="-1" href="forms-general.html"><span class="mm-text">General</span></a>
+							<a tabindex="-1" href="#"><span class="mm-text">Menu level 1.2</span></a>
 						</li>
-						<li>
-							<a tabindex="-1" href="forms-advanced.html"><span class="mm-text">Advanced</span></a>
-						</li>
-						<li>
-							<a tabindex="-1" href="forms-pickers.html"><span class="mm-text">Pickers</span></a>
-						</li>
-						<li>
-							<a tabindex="-1" href="forms-validation.html"><span class="mm-text">Validation</span></a>
-						</li>
-						<li>
-							<a tabindex="-1" href="forms-editors.html"><span class="mm-text">Editors</span></a>
+						<li class="mm-dropdown">
+							<a tabindex="-1" href="#"><span class="mm-text">Menu level 1.3</span><span class="label label-warning">5</span></a>
+							<ul>
+								<li>
+									<a tabindex="-1" href="#"><span class="mm-text">Menu level 2.1</span></a>
+								</li>
+								<li class="mm-dropdown">
+									<a tabindex="-1" href="#"><span class="mm-text">Menu level 2.2</span></a>
+									<ul>
+										<li class="mm-dropdown">
+											<a tabindex="-1" href="#"><span class="mm-text">Menu level 3.1</span></a>
+											<ul>
+												<li>
+													<a tabindex="-1" href="#"><span class="mm-text">Menu level 4.1</span></a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a tabindex="-1" href="#"><span class="mm-text">Menu level 3.2</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a tabindex="-1" href="#"><span class="mm-text">Menu level 2.2</span></a>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</li>
-
-
 			</ul> <!-- / .navigation -->
-
+			<div class="menu-content">
+				<a href="pages-invoice.html" class="btn btn-primary btn-block btn-outline dark">Create Invoice</a>
+			</div>
 		</div> <!-- / #main-menu-inner -->
 	</div> <!-- / #main-menu -->
 <!-- /4. $MAIN_MENU -->
-
+<!-- start of my code-->
+{% block content %}
+    <div id="content-wrapper">
+    </div>
+{% endblock %}
 	<div id="main-menu-bg"></div>
 </div> <!-- / #main-wrapper -->
 
@@ -262,11 +430,14 @@
 
 <!-- Pixel Admin's javascripts -->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/jquery.js' %}"></script>
 <script src="{% static 'js/ipharm.min.js' %}"></script>
 
-
-
+<script type="text/javascript">
+	init.push(function () {
+		// Javascript code here
+	})
+	window.PixelAdmin.start(init);
+</script>
 
 </body>
 </html>
