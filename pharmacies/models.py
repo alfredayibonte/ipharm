@@ -52,7 +52,7 @@ class Pharmacy(AbstractBaseUser, PermissionsMixin):
     address = models.CharField(_('address'), max_length=100, blank=True)
     images = models.ImageField(upload_to='pic_folder/', default='pic_folder/None/no-img.jpg')
 
-    username = models.CharField(_('username'), max_length=30, blank=True, unique=True,
+    username = models.CharField(_('username'), max_length=30, blank=True, unique=False,
                                 help_text=_('Required. 30 characters or fewer. Letters, numbers and '
                                             '@/./+/-/_ characters'),
                                 validators=[

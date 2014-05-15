@@ -81,10 +81,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
 							<ul class="dropdown-menu">
-								<li><a href="#">First item</a></li>
-								<li><a href="#">Second item</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Third item</a></li>
+
 							</ul>
 						</li>
 					</ul> <!-- / .navbar-nav -->
@@ -156,65 +153,6 @@
 								<div class="dropdown-menu widget-messages-alt no-padding" style="width: 300px;">
 									<div class="messages-list" id="main-navbar-messages">
 
-										<div class="message">
-											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-											<div class="message-description">
-												from <a href="#">Robert Jang</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/3.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-											<div class="message-description">
-												from <a href="#">Michelle Bortz</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/4.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet.</a>
-											<div class="message-description">
-												from <a href="#">Timothy Owens</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/5.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-											<div class="message-description">
-												from <a href="#">Denise Steiner</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet.</a>
-											<div class="message-description">
-												from <a href="#">Robert Jang</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
-
-										<div class="message">
-											<img src="assets/demo/avatars/2.jpg" alt="" class="message-avatar">
-											<a href="#" class="message-subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-											<div class="message-description">
-												from <a href="#">Robert Jang</a>
-												&nbsp;&nbsp;·&nbsp;&nbsp;
-												2h ago
-											</div>
-										</div> <!-- / .message -->
 
 
 									</div> <!-- / .messages-list -->
@@ -239,7 +177,7 @@
 									<li><a href="#"><span class="badge badge-primary pull-right">New</span>Account</a></li>
 									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
 									<li class="divider"></li>
-									<li><a href="pages-signin.html"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+									<li><a href="{% url 'logout' %}"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
 								</ul>
 							</li>
 						</ul> <!-- / .navbar-nav -->
@@ -287,30 +225,30 @@
 					<img src="assets/demo/avatars/1.jpg" alt="" class="">
 					<div class="btn-group">
 						<a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-envelope"></i></a>
-						<a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-user"></i></a>
+						<a href="#" class="btn btn-xs btn-primry btn-outline dark"><i class="fa fa-user"></i></a>
 						<a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-cog"></i></a>
-						<a href="#" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a>
+						<a href="{% url 'logout' %}" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a>
 					</div>
 					<a href="#" class="close">&times;</a>
 				</div>
 			</div>
 			<ul class="navigation">
 				<li>
-					<a href="index.html"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">Dashboard</span></a>
+					<a href="{% url 'pharmacies:main' %}"><i class="menu-icon icon-home"></i><span class="mm-text">Home</span></a>
 				</li>
 				<li class="mm-dropdown">
-					<a href="#"><i class="menu-icon fa fa-th"></i><span class="mm-text">Layouts</span><span class="label label-warning">Updated</span></a>
+					<a href="#"><i class="menu-icon fa fa-user"></i><span class="mm-text">Settings</span></a>
 					<ul>
 						<li>
-							<a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Grid</span></a>
+							<a tabindex="-1" href="#"><span class="mm-text">Edit Profile</span></a>
 						</li>
 						<li>
-							<a tabindex="-1" href="layouts-main-menu.html"><i class="menu-icon fa fa-th-list"></i><span class="mm-text">Main menu</span><span class="label label-warning">Updated</span></a>
+							<a tabindex="-1" href="#"><i class="menu-icon fa fa-th-list"></i><span class="mm-text">Change password</span><span class="label label-warning">Updated</span></a>
 						</li>
 					</ul>
 				</li>
 				<li>
-					<a href="stat-panels.html"><i class="menu-icon fa fa-tasks"></i><span class="mm-text">Stat panels</span></a>
+					<a href="{% url 'inventories:add' %}"><i class="menu-icon fa fa-plus"></i><span class="mm-text">Add drugs</span></a>
 				</li>
 				<li>
 					<a href="widgets.html"><i class="menu-icon fa fa-flask"></i><span class="mm-text">Widgets</span></a>
@@ -342,10 +280,10 @@
 							<a tabindex="-1" href="pages-500.html"><span class="mm-text">Error 500</span></a>
 						</li>
 						<li class="mm-dropdown">
-							<a href="#"><i class="menu-icon fa fa-envelope"></i><span class="mm-text">Messages</span></a>
+							<a href="#"><i class="menu-icon fa fa-envelope"></i><span class="mm-text">Send notification</span></a>
 							<ul>
 								<li>
-									<a tabindex="-1" href="pages-inbox.html"><span class="mm-text">Inbox</span></a>
+									<a tabindex="-1" href="#" id="email"><span class="mm-text">email</span></a>
 								</li>
 								<li>
 									<a tabindex="-1" href="pages-show-email.html"><span class="mm-text">Show message</span></a>

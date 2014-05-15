@@ -32,6 +32,14 @@ class MyRegistrationForm(forms.ModelForm):
                 return self.cleaned_data
         raise forms.ValidationError('Passwords do not match')
 
+    def clean_email(self):
+        email = self.cleaned_data["email"]
+        try:
+            Pharmacy.objects.get(email=email)
+        except User.DoesNotExist:
+            return email
+        raise forms.ValidationError('email already in use')
+
     def save(self, commit=True):
         user = super(MyRegistrationForm, self).save(commit=False)
         user.set_password(self.cleaned_data['password'])

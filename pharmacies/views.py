@@ -22,7 +22,7 @@ class Main(generic.View):
     def dispatch(self, *args, **kwargs):
         return super(Main, self).dispatch(*args, **kwargs)
 
-@login_required
+
 class Chart(generic.ListView):
     template_name = 'registration/chart_dashboard.html'
     def get(self, request, *args, **kwargs):

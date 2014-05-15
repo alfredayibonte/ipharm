@@ -4,6 +4,7 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, render_to_response
 
 # Create your views here.
+from django.utils.decorators import method_decorator
 from django.views import generic
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
@@ -30,7 +31,6 @@ def search(request):
     return render_to_response('search.html', {'drugs': drugs})
 
 
-@login_required
 class AddDrug(View):
     form_class = DrugForm
     initial = {}
@@ -46,3 +46,7 @@ class AddDrug(View):
             form.save()
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(AddDrug, self).dispatch(*args, **kwargs)
