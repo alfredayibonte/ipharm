@@ -25,7 +25,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'inventories',
     'pharmacies',
-    'users',
     'south',
 
 )
@@ -43,7 +42,7 @@ ROOT_URLCONF = 'ipharmProject.urls'
 
 WSGI_APPLICATION = 'ipharmProject.wsgi.application'
 
-AUTH_USER_MODEL = 'users.Customer'
+AUTH_USER_MODEL = 'pharmacies.Pharmacy'
 
 DATABASES = {
     'default': dj_database_url.config()

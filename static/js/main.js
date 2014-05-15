@@ -7,6 +7,12 @@ function init(){
             'search':search,
             'csrfmiddlewaretoken':token
         };
+        $("#first_heading").hide();
+        //$("#hide_me").hide();
+        $("#find").css({top:"-50px", height:"100%", marginTop:"-16%", marginLeft:'-10%'});
+        $("#site-header").css({height:"100%", position:"fixed"});
+        $(".text-right").css({marginTop:"-0.5%"});
+
         if(search)
         {
 

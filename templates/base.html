@@ -59,18 +59,8 @@
 			<div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse">
 				<div>
 					<ul class="nav navbar-nav">
-						<li>
-							<a href="#">Home</a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">First item</a></li>
-								<li><a href="#">Second item</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Third item</a></li>
-							</ul>
-						</li>
+
+
 					</ul> <!-- / .navbar-nav -->
 
 					<div class="right clearfix">
@@ -89,11 +79,7 @@
 							* 'nav-icon-btn-danger'
 -->
 							<li class="nav-icon-btn nav-icon-btn-danger dropdown">
-								<a href="#notifications" class="dropdown-toggle" data-toggle="dropdown">
-									<span class="label">5</span>
-									<i class="nav-icon fa fa-bullhorn"></i>
-									<span class="small-screen-text">Notifications</span>
-								</a>
+
 
 								<!-- NOTIFICATIONS -->
 
@@ -122,11 +108,7 @@
                                 </div> <!-- / .dropdown-menu -->
                             </li>
                             <li class="nav-icon-btn nav-icon-btn-success dropdown">
-                                <a href="#messages" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="label">10</span>
-                                    <i class="nav-icon fa fa-envelope"></i>
-                                    <span class="small-screen-text">Income messages</span>
-                                </a>
+
 
                                 <!-- MESSAGES -->
 
@@ -177,7 +159,7 @@
 									<li><a href="#"><span class="badge badge-primary pull-right">New</span>Account</a></li>
 									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
 									<li class="divider"></li>
-									<li><a href="pages-signin.html"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+									<li><a href="{% url 'logout' %}"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
 								</ul>
 							</li>
 						</ul> <!-- / .navbar-nav -->
@@ -204,7 +186,7 @@
 						<a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-envelope"></i></a>
 						<a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-user"></i></a>
 						<a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-cog"></i></a>
-						<a href="#" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a>
+						<a href="{% url 'logout' %}" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a>
 					</div>
 					<a href="#" class="close">&times;</a>
 				</div>

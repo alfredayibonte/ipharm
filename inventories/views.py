@@ -1,11 +1,14 @@
+from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, render_to_response
 
 # Create your views here.
 from django.views import generic
-from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
+from django.views.generic.base import View
+from inventories.forms import DrugForm
 from inventories.models import Drug
-from ipharmProject.utils import json_response
 
 
 class DrugSearch(generic.ListView):
@@ -26,3 +29,20 @@ def search(request):
         return render_to_response('search.html', {'drugs': drugs})
     return render_to_response('search.html', {'drugs': drugs})
 
+
+@login_required
+class AddDrug(View):
+    form_class = DrugForm
+    initial = {}
+    template_name = 'add_drug.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:main'))
+        return render(request, self.template_name, {'form': form})

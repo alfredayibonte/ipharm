@@ -1,0 +1,1650 @@
+html.preview,
+body.preview {
+	height: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+html.preview {
+	padding-top: 60px;
+}
+/*********************************************************
+	STYLE RESETS
+*********************************************************/
+h1, h2, h3, h4, h5 {
+	font-family: 'Oswald';
+}
+a:focus {
+    outline: none;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: none;
+}
+.form-control:focus {
+	border-color: #999999;
+	outline: 0 none;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+    outline: 0 none;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: #f5f5f5;
+    cursor: text;
+    opacity: 1;
+}
+.btn {
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+}
+h2.pageTitle {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 0 0 20px;
+	padding-bottom: 15px;
+}
+.table-bottom-radius {
+    border-collapse: separate;
+}
+.table-bottom-radius {
+    border: solid #dddddd 1px;
+    border-radius: 0 0 4px 4px;
+    border-left:0px;
+	border-top-width: 0;
+}
+.table-bottom-radius td, .table-curved th {
+    border-left: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+}
+.table-bottom-radius tr:last-child td:first-child {
+    border-radius: 0 0 0 4px;
+}
+.table-bottom-radius tr:last-child td:last-child {
+    border-radius: 0 0 4px 0;
+}
+.table-curved {
+    border-collapse: separate;
+}
+.table-curved {
+    border: solid #ccc 1px;
+    border-radius: 6px;
+    border-left:0px;
+}
+.table-curved td, .table-curved th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+.table-curved th {
+    border-top: none;
+}
+.table-curved th:first-child {
+    border-radius: 6px 0 0 0;
+}
+.table-curved th:last-child {
+    border-radius: 0 6px 0 0;
+}
+.table-curved th:only-child{
+    border-radius: 6px 6px 0 0;
+}
+.table-curved tr:last-child td:first-child {
+    border-radius: 0 0 0 6px;
+}
+.table-curved tr:last-child td:last-child {
+    border-radius: 0 0 6px 0;
+}
+.pagination{
+	font-size: 12px;
+	float: right;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+    background-color: #f5f5f5;
+    border-color: #DDDDDD;
+    color: #999999;
+    cursor: default;
+}
+.progress-bar {
+	-moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+
+/*********************************************************
+	MARKDOWN EDITOR
+*********************************************************/
+
+.md-editor {
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+.md-editor>.md-header,.md-editor .md-footer {
+	display: block;
+	padding: 6px 4px;
+	margin: 0;
+}
+.md-editor > .md-header {
+	border-bottom: 1px solid #ccc;
+}
+.md-editor > .md-header i {
+	font-size: 14px;
+}
+.md-editor>.md-preview {
+	min-height: 10px;
+	padding: 10px 20px;
+}
+.md-editor>textarea {
+	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+	font-size: 14px;
+	outline: 0 none;
+	margin: 0;
+	display: block;
+	width: 100%;
+	resize: vertical !important;
+	border: 0;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	background: none;
+}
+.md-editor>textarea:focus {
+	box-shadow: none;
+}
+.md-editor.active {
+	border-color: #999999;
+	outline: 0;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+/*********************************************************
+	NAVBAR
+*********************************************************/
+
+.navbar-inverse {
+	background-color: #333333;
+	border: 0 none;
+}
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+    margin-left: 0;
+}
+.navbar-inverse .navbar-nav > li > a {
+	color: #BBBBBB;
+	font-family: 'Lato';
+	font-size: 14px;
+	font-weight: 400;
+	padding: 20px 15px;
+	text-transform: uppercase;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+	background-color: #444444;
+}
+.navbar-brand {
+	float: left;
+	height: auto;
+	margin-right: 30px;
+	padding: 15px 0 11px;
+}
+.navbar-brand img {
+    display: block;
+    height: 34px;
+}
+.primaryNav {
+	margin-bottom: 0;
+	z-index: 2;
+}
+.secondaryNav {
+	background: #EEEEEE;
+	border-bottom: 1px solid #DDDDDD;
+	font-size: 12px;
+	min-height: inherit;
+	margin-bottom: 25px;
+	z-index: 1;
+}
+.secondaryNav .catNav {
+	margin-left: 0;
+}
+.secondaryNav .navbar-nav > li > a {
+	color: #555555;
+	padding: 10px 12px;
+}
+.secondaryNav .navbar-nav > li > a:hover,
+.secondaryNav .navbar-nav > li > a:focus {
+    background-color: #ddd;
+}
+#userMenu span {
+	float: left;
+}
+#userMenu i {
+	line-height: 20px;
+	display: block;
+	float: right;
+	margin-left: 4px;
+
+}
+.navbar .navbar-nav .open .dropdown-menu {
+	left: auto;
+	right: 0;
+}
+.navbar .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > li > a:focus,
+.navbar .navbar-nav .open .dropdown-menu > .active > a,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+    background-color: #777;
+    color: #FFFFFF;
+}
+.previewNav {
+	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+	-moz-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+	box-shadow: 0 2px 3px rgba(0,0,0,.3);
+}
+.previewNav .closeframe {
+	border-right: 1px dashed #999999;
+    float: left;
+    font-size: 20px;
+    line-height: 60px;
+    margin: 0 25px;
+    padding-right: 25px;
+}
+.previewNav .closeframe a {
+	color: #ccc;
+}
+.previewNav .logo {
+	float: left;
+	height: auto;
+	margin: 0 25px 0 0;
+	padding: 15px 0 9px;
+}
+.previewNav .logo img {
+	display: block;
+    height: 36px;
+}
+.previewNav .info {
+	float: right;
+	line-height: 60px;
+	margin: 0 25px;
+}
+.previewNav .info a {
+	color: #fff;
+}
+.previewNav .buy {
+	float: right;
+	margin: 13px 25px;
+}
+@media(max-width:767px){
+	.previewNav .logo {
+		display: none;
+	}
+}
+@media(max-width:500px){
+	.previewNav .buy {
+		display: none;
+	}
+	.previewNav .info {
+		font-size: 12px;
+		margin: 0 25px 0 0;
+	}
+}
+/*********************************************************
+	MAIN WRAP STYLE
+*********************************************************/
+
+.mainWrap .main {
+	float: left;
+	padding: 0 15px;
+	width: 670px;
+}
+.mainWrap .sidebar {
+	float: left;
+	padding: 0 15px;
+	width: 300px;
+}
+
+/*********************************************************
+	SIDEBAR ELEMENTS
+*********************************************************/
+
+.widget {
+    background: #F5F5F5;
+    border: 1px solid #DDDDDD;
+    margin-bottom: 20px;
+    padding: 15px;
+	border-radius: 4px;
+}
+.widget h4 {
+	background: #e7e7e7;
+    font-weight: 400;
+    margin: -15px -15px 15px;
+    padding: 15px;
+	border-bottom: 1px solid #ddd;
+}
+
+/*********************************************************
+	HOME PAGE
+*********************************************************/
+
+#home .mainHeader {
+	padding: 40px 0;
+	background: url(../assets/img/splash1.jpg);
+	color: #fff;
+	text-align: center;
+	border-radius: 4px;
+	margin-bottom: 30px;
+}
+#home .mainHeader h1 {
+	font-family: 'Oswald';
+	margin: 0 0 15px;
+	text-shadow: 0 1px 5px #000000;
+	font-size: 46px;
+}
+#home .mainHeader h2 {
+	text-shadow: 0 1px 5px #000000;
+	font-size: 18px;
+	margin: 0 0 30px;
+}
+#home .mainHeader .btnGroup .btn {
+	margin: 0 5px;
+}
+#home .hotItems {
+	margin-bottom: 30px;
+}
+#home .hotItems h3 {
+	border-bottom: 1px solid #DDDDDD;
+    font-family: 'Oswald';
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+#home .hotItems .imgWrap {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+    overflow: hidden;
+}
+#home .hotItems .imgWrap img {
+	display: block;
+    height: auto;
+    max-width: 100%;
+}
+#home .hotItems .itemInfo {
+	background: #f5f5f5;
+	padding: 5px 10px;
+	font-size: 12px;
+}
+#home .hotItems .itemInfo .title {
+	float: left;
+	width: 150px;
+}
+#home .hotItems .itemInfo .title a {
+	color: #333;
+}
+#home .hotItems .itemInfo .price {
+	float: right;
+	font-weight: 700;
+}
+#home .viewAll {
+	font-size: 22px;
+    font-weight: 700;
+}
+
+/*********************************************************
+	ALL CATEGORIES
+*********************************************************/
+
+#allCategories ul {
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+#allCategories ul li {
+	font-size: 16px;
+	padding-bottom: 6px;
+}
+
+/*********************************************************
+	CREATE ACCOUNT
+*********************************************************/
+
+#createAccount h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+#createAccount .form-control {
+    margin-bottom: 20px;
+}
+#createAccount .help-block {
+    font-size: 14px;
+    margin: -12px 0 20px;
+}
+#createAccount .help-block .success {
+    color: #339900;
+}
+#createAccount .help-block .error {
+    color: #CC3333;
+}
+#createAccount .checkbox {
+	 margin-bottom: 20px;
+}
+#createAccount .terms {
+	background: #EEEEEE;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	font-weight: 400;
+	margin-top: 30px;
+	padding: 10px 15px;
+}
+#createAccount .signupBtn {
+    font-size: 22px;
+    margin: 40px 0 80px;
+    padding: 15px 60px;
+}
+/*********************************************************
+	LOG IN PAGE
+*********************************************************/
+
+#loginPage h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#loginPage .logSide {
+	background: #EEEEEE;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	padding: 20px 20px 10px;
+}
+
+/*********************************************************
+	EMAIL CONFIRMATION
+*********************************************************/
+
+#emailConf {
+	text-align:center;
+}
+#emailConf h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#emailConf p {
+	margin-bottom: 30px;
+}
+#emailConf p.invalid {
+	margin-bottom: 200px;
+}
+#emailConf .btn {
+	margin-bottom: 200px;
+}
+
+/*********************************************************
+	NOT MY ACCOUNT
+*********************************************************/
+
+#notMyAccount {
+	text-align:center;
+}
+#notMyAccount h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#notMyAccount p {
+	margin-bottom: 200px;
+}
+
+/*********************************************************
+	RESET PASSWORD
+*********************************************************/
+
+#resetPage {
+	text-align:center;
+}
+#resetPage h1 {	
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#resetPage p {
+	margin-bottom: 30px;
+}
+#resetPage p.newpass {
+	margin-bottom: 200px;
+}
+#resetPage .form-control {
+	margin: 30px 0;
+}
+#resetPage label.error {
+	color: #FF0000;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: -26px;
+    text-align: left;
+}
+#resetPage .btn {
+	margin-bottom: 200px;
+}
+
+/*********************************************************
+	ACCOUNT SIDEBAR
+*********************************************************/
+#accountSidebar h4 {
+	margin-top: 0;
+}
+#accountSidebar ul {
+	list-style: none outside none;
+	margin: 0 0 20px;
+	padding: 0;
+}
+#accountSidebar ul li {
+	border-radius: 4px;
+	margin-bottom: 2px;
+}
+#accountSidebar ul li.active {
+	background: #eee;
+}
+#accountSidebar ul li a {
+	display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+#accountSidebar ul li a:hover,
+#accountSidebar ul li a:focus {
+	background: #f5f5f5;
+}
+#accountSidebar ul li.active a:hover,
+#accountSidebar ul li.active a:focus {
+	background: #eee;
+}
+/*********************************************************
+	MY ACCOUNT
+*********************************************************/
+
+#myAccount h1 {	
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#myAccount .ovblock {
+	color: #333;
+	text-decoration: none;
+	display: block;
+	background-color: #EEEEEE;
+	border-radius: 4px;
+	font-family: 'Oswald';
+	overflow: hidden;
+	padding: 25px 20px;
+	position: relative;
+	border: 1px solid #ddd;
+}
+#myAccount .ovblock .title {
+	font-size: 14px;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+}
+#myAccount .ovblock .value {
+	font-size: 34px;
+	font-weight: 300;
+}
+#myAccount a.ovblock:hover,
+#myAccount a.ovblock:focus {
+	background: #e5e5e5;
+}
+#myAccount h3 {
+	border-bottom: 1px solid #D5D5D5;
+    margin: 30px 0 10px;
+    padding-bottom: 10px;
+}
+#myAccount .btn {
+	margin-right: 10px;
+}
+
+/*********************************************************
+	EDIT PROFILE
+*********************************************************/
+
+#editProfile h1 {	
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#editProfile span {
+	float: right;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    margin-top: 3px;
+}
+#editProfile h3 {
+    border-bottom: 1px solid #D5D5D5;
+    margin: 30px 0 20px;
+    padding-bottom: 10px;
+}
+#editProfile h3.first {
+	margin-top: 0;
+}
+#editProfile .savebox {
+	background: #EEEEEE;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	margin-top: 30px;
+	padding: 15px 0;
+}
+#editProfile label.error {
+	color: #FF0000;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+/*********************************************************
+	EDIT PROFILE PICS
+*********************************************************/
+
+#editPics h1 {	
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#editPics span {
+	float: right;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    margin-top: 3px;
+}
+#editPics .bannerPlaceholder {
+	border: 1px solid #DDDDDD;
+    margin-bottom: 20px;
+    padding: 5px;
+	margin-bottom: 20px;
+	border-radius: 4px;
+}
+#editPics .bannerPlaceholder i {
+	color: #DDDDDD;
+    font-size: 52px;
+    height: 52px;
+    margin: 84px 0;
+    text-align: center;
+    width: 565px;
+	height: 52px;
+}
+#editPics .bannerPlaceholder .bannerImage {
+    overflow: hidden;
+    width: 565px;
+	max-height: 220px;
+}
+#editPics .bannerPlaceholder img {
+	width: 100%;
+}
+#editPics .profilePlaceholder {
+	border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    height: 162px;
+    padding: 5px;
+    width: 162px;
+}
+#editPics .profilePlaceholder i {
+	color: #DDDDDD;
+	font-size: 52px;
+	height: 52px;
+	margin: 46px 0;
+	text-align: center;
+	width: 150px;
+}
+#editPics .profilePlaceholder .profileImage {
+	border-radius: 50%;
+    height: 150px;
+    overflow: hidden;
+    width: 150px;
+}
+#editPics .profilePlaceholder img {
+	width: 100%;
+}
+#editPics .bannerBtns .btn {
+	margin-right: 5px;
+}
+#editPics .profileBtns .btn {
+	margin-right: 5px;
+}
+
+/*********************************************************
+	ACCOUNT SETTINGS
+*********************************************************/
+
+#accountSettings h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#accountSettings hr {
+	border-color: #ddd;
+}
+#accountSettings .savebox {
+	background: #EEEEEE;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	margin-top: 30px;
+	padding: 15px 0;
+}
+#accountSettings label.error {
+	color: #FF0000;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+/*********************************************************
+	DOWNLOADS
+*********************************************************/
+
+#downloads h1 {	
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#downloads .table {
+	font-size: 12px;
+}
+#downloads .table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+/*********************************************************
+	PAYMENT HISTORY
+*********************************************************/
+
+#payHistory h1 {	
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#payHistory .table {
+	font-size: 12px;
+}
+#payHistory .totalEarnings {
+	margin-bottom: 30px;
+	font-size: 14px;
+}
+#payHistory .totalEarnings th {
+	background: #F5F5F5;
+}
+#payHistory .nav-tabs {
+	margin-bottom: 20px;
+}
+
+/*********************************************************
+	USER PROFILE
+*********************************************************/
+#userProfile h2 {
+	border-bottom: 1px solid #D5D5D5;
+	font-size: 26px;
+	margin: 0 0 20px;
+	padding: 10px 0;
+}
+#userProfile h3 {
+    padding-bottom: 10px;
+	font-size: 18px;
+}
+#userProfile .banner {
+	position: relative;
+}
+#userProfile .banner img {
+	border-radius: 4px;
+}
+#userProfile .pic {
+	bottom: -80px;
+    left: 15px;
+    position: absolute;
+}
+#userProfile .pic img {
+	background: #FFFFFF;
+    border-radius: 50%;
+    padding: 4px;
+}
+#userProfile .mainInfo {
+	padding: 10px 0 0 184px;
+    min-height: 90px;
+}
+#userProfile .mainInfo .userinfo {
+	float: left;
+	max-width: 320px;
+	overflow: hidden;
+}
+#userProfile .mainInfo .userinfo .fullname {
+	font-family: 'oswald';
+    font-size: 20px;
+	line-height: 38px;
+}
+#userProfile .mainInfo .userinfo .location {
+	color: #777777;
+}
+#userProfile .mainInfo .userlinks {
+	float: right;
+}
+#userProfile .mainInfo .userlinks .social a {
+	text-decoration: none;
+}
+#userProfile .mainInfo .userlinks .social a.twitter {
+	color: #55ACEE;
+}
+#userProfile .mainInfo .userlinks .social a.facebook {
+	color: #3B5998 ;
+}
+#userProfile .mainInfo .userlinks .social a.google {
+	color: #dd4b39;
+}
+#userProfile .mainInfo .userlinks .website {
+	text-align: center;
+	margin-top: 1px;
+}
+#userProfile .about {
+	margin-top: 20px;
+}
+#userProfile .portfolio {
+	margin-top: 30px;
+}
+#userProfile .portfolio .item {
+	float: left;
+}
+#userProfile .portfolio .item:nth-child(2n) {  
+	margin-right: 20px;
+}
+#userProfile .portfolio .item .imgWrap {
+	border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 310px;
+}
+#userProfile .portfolio .item .imgWrap img {
+	background: url("../assets/img/60.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+#userProfile .portfolio .item .imgWrap .actions {
+    background: url("../assets/img/60.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    padding: 65px 0 58px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 308px;
+}
+#userProfile .portfolio .item .imgWrap .actions .btn {
+    margin: 0 5px;
+}
+#userProfile .contact p.note {
+	border-bottom: 1px solid #DDDDDD;
+    font-size: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+#userProfile .contact textarea {
+	resize: vertical;
+	padding: 6px;
+	font-size: 12px;
+}
+#userProfile .contact label.error {
+	color: #FF0000;
+	display: block;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+/*********************************************************
+	VIEW THEMES
+*********************************************************/
+
+#viewThemes h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#viewThemes .notice {
+	padding-top: 15px;
+	text-align: center;
+}
+
+/*********************************************************
+	UPLOAD THEME
+*********************************************************/
+
+#uploadTheme h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#uploadTheme .notice {
+	padding-top: 15px;
+	text-align: center;
+}
+#uploadTheme .browserlist {
+	list-style: none;
+	margin: 0;
+	padding: 7px 0 0;
+}
+#uploadTheme .browserlist li div {
+	line-height: 24px;
+}
+#uploadTheme .savebox {
+	background: #EEEEEE;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	margin-top: 30px;
+	padding: 15px 0;
+}
+#uploadTheme .savebox .btn {
+	margin-right: 10px;
+}
+#uploadTheme textarea {
+	resize: vertical;
+}
+#uploadTheme #description {
+	min-height: 300px;
+}
+#uploadTheme .previewImage {
+	border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 5px;
+	overflow: hidden;
+}
+#uploadTheme .previewImage i {
+	padding: 93px 239px;
+	font-size: 100px;
+	color: #ccc;
+	
+}
+#uploadTheme .previewImage img {
+    width: 100%;
+	height: 286px;
+}
+#uploadTheme label.error {
+	color: #FF0000;
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	text-align: left;
+}
+#uploadTheme select.browsers {
+	height: 145px;
+}
+#uploadTheme .zipDetails {
+	position: relative;
+}
+#uploadTheme .zipDetails .progress {
+	height: 34px;
+	margin-bottom: 0;
+}
+#uploadTheme .zipDetails #statustxt {
+	font-size: 12px;
+	line-height: 34px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	color: #777;
+}
+#uploadTheme .zipDetails #statustxt .error {
+	color: #ff0000;
+	font-weight: 700;
+}
+/*********************************************************
+	EDIT THEME
+*********************************************************/
+
+#editTheme h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+#editTheme .notice {
+	padding-top: 15px;
+	text-align: center;
+}
+#editTheme .browserlist {
+	list-style: none;
+	margin: 0;
+	padding: 7px 0 0;
+}
+#editTheme .browserlist li div {
+	line-height: 24px;
+}
+#editTheme .savebox {
+	background: #EEEEEE;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	margin-top: 30px;
+	padding: 15px 0;
+}
+#editTheme .savebox .btn {
+	margin-right: 10px;
+}
+#editTheme textarea {
+	resize: vertical;
+}
+#editTheme #description {
+	min-height: 300px;
+}
+#editTheme .previewImage {
+	border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 5px;
+	overflow: hidden;
+}
+#editTheme .previewImage i {
+	padding: 93px 239px;
+	font-size: 100px;
+	color: #ccc;
+	
+}
+#editTheme .previewImage img {
+    width: 100%;
+	height: 286px;
+}
+#editTheme label.error {
+	color: #FF0000;
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	text-align: left;
+}
+#editTheme select.browsers {
+	height: 145px;
+}
+#editTheme .zipDetails {
+	position: relative;
+}
+#editTheme .zipDetails .progress {
+	height: 34px;
+	margin-bottom: 0;
+}
+#editTheme .zipDetails #statustxt {
+	font-size: 12px;
+	line-height: 34px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	color: #777;
+}
+#editTheme .zipDetails #statustxt .error {
+	color: #ff0000;
+	font-weight: 700;
+}
+
+/*********************************************************
+	REFERRAL SETTINGS
+*********************************************************/
+
+#refSettings h1 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 10px 0 30px;
+	padding-bottom: 15px;
+}
+
+/*********************************************************
+	SINGLE THEME PAGE
+*********************************************************/
+#singleTheme .banner {
+	max-width: 640px;
+}
+#singleTheme .banner img {
+	border-radius: 4px 4px 0 0;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	border-bottom: 0;
+}
+#singleTheme .demo {
+	background: #F5F5F5;
+	border: 1px solid #DDDDDD;
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	margin: 0 0 30px;
+	padding: 15px;
+}
+#singleTheme .demo .btn {
+	display: block;
+    float: none;
+    margin: 0 auto;
+    width: 180px;
+}
+#singleTheme .themeDesc h3 {
+    border-bottom: 1px solid #D5D5D5;
+    padding-bottom: 10px;
+	font-size: 20px;
+}
+#singleTheme .themeDesc img {
+	max-width: 640px;
+}
+#singleTheme .logAlert {
+	margin-top: 20px;
+}
+#singleTheme .purchase {
+	background: #F5F5F5;
+    border: 1px solid #DDDDDD;
+    padding: 15px;
+	border-radius: 4px;
+}
+#singleTheme .purchase .lic {
+	margin-top: 30px;
+}
+#singleTheme .purchase .lic select {
+	padding: 5px;
+}
+#singleTheme .purchase .price {
+	text-align: center;
+	font-weight: 700;
+	font-size: 42px;
+	line-height: 1;
+	padding: 10px;
+	background: #e7e7e7;
+	border-radius: 4px;
+}
+#singleTheme .purchase .desc {
+	margin-top: 15px;
+}
+#singleTheme .purchase .desc p {
+	margin: 0 0 4px;
+}
+#singleTheme .purchase .desc a {
+	
+}
+#singleTheme .purchase .buyNow {
+	font-size: 24px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+#singleTheme .purchase .paypal {
+	text-align: center;
+	margin-bottom: 8px;
+}
+#singleTheme .purchase .paypal img {
+	width: 120px;
+}
+#singleTheme .sales {
+	margin-top: 20px;
+	background: #F5F5F5;
+    border: 1px solid #DDDDDD;
+    padding: 15px;
+	font-size: 20px;
+	border-radius: 4px;
+}
+#singleTheme .author {
+	margin-top: 20px;
+	background: #F5F5F5;
+    border: 1px solid #DDDDDD;
+    padding: 15px;
+	font-size: 20px;
+	border-radius: 4px;
+}
+#singleTheme .author h4 {
+	border-bottom: 1px solid #DDDDDD;
+	background: #e7e7e7;
+	margin: -15px -15px 0;
+	padding: 15px;
+}
+#singleTheme .author .pic {
+	text-align: center;
+	margin-top: 15px;
+}
+#singleTheme .author .pic img {
+	border-radius: 50%;
+	padding: 5px;
+	border: 1px solid #ddd;
+	background: #fff;
+}
+#singleTheme .author .name {
+	text-align: center;
+	margin-top: 10px;
+	font-weight: bold;
+}
+#singleTheme .attributes {
+	margin-top: 20px;
+}
+#singleTheme .attributes h4 {
+	background: #e7e7e7;
+	border: 1px solid #DDDDDD;
+	border-bottom: 0;
+	margin: 0;
+	padding: 15px;
+	border-radius: 4px 4px 0 0;
+}
+
+/*********************************************************
+	CATEGORY LISTINGS
+*********************************************************/
+#catListings .sorting {
+	background: #F5F5F5;
+	border: 1px solid #DDDDDD;
+	margin-bottom: 30px;
+	padding: 15px;
+	border-radius: 4px;
+}
+#catListings .sorting .vfilters {
+	float: left;
+}
+#catListings .sorting .vlabel {
+	line-height: 34px;
+    margin-right: 15px;
+}
+#catListings .sorting select{
+	float: left;
+	width: 100px;
+	padding: 6px;
+	margin-right: 5px;
+}
+#catListings .sorting .btn{
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555555;
+}
+#catListings .sorting .totalItems {
+	float: right;
+	line-height: 34px;
+}
+#catListings .table > thead > tr > th,
+#catListings .table > tbody > tr > th,
+#catListings .table > tfoot > tr > th,
+#catListings .table > thead > tr > td,
+#catListings .table > tbody > tr > td,
+#catListings .table > tfoot > tr > td {
+	padding: 0;
+	border: 0;
+}
+#catListings .no {
+	text-align: center;
+	margin-bottom: 300px;
+}
+#catListings .no p {
+	font-size: 18px;
+    margin: 10px 0 20px;
+}
+#catListings .item {
+	border-bottom: 4px solid #E5E5E5;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+}
+#catListings .item .imgWrap {
+	float: left;
+    margin-right: 20px;
+    width: 320px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 4px;
+	border: 1px solid #DDDDDD;
+}
+#catListings .item .imgWrap .actions {
+	background: url(../assets/img/60.png);
+	border-radius: 4px;
+	padding: 64px 0 62px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 318px;
+}
+#catListings .item .imgWrap .actions .btn {
+	margin: 0 5px;
+}
+#catListings .item .imgWrap img{
+	background: url(../assets/img/60.png);
+	display: block;
+    height: auto;
+    max-width: 100%;
+	border-radius: 4px;
+}
+#catListings .item .details {
+	float: left;
+	margin-right: 15px;
+	width: 465px;
+}
+#catListings .item .details .title {
+	min-height: 80px;
+	margin-bottom: 15px;
+}
+#catListings .item .details .title .themeURL {
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+#catListings .item .details .title a.themeURL {
+	color: #333;
+}
+#catListings .item .details .author {
+	font-size: 13px;
+}
+#catListings .item .details .category,
+#catListings .item .details .bootver,
+#catListings .item .details .tags {
+	font-size: 13px;
+	margin-bottom: 2px;
+}
+#catListings .item .details .category span,
+#catListings .item .details .bootver span,
+#catListings .item .details .tags span {
+	display: inline-block;
+    font-weight: 700;
+    width: 75px;
+}
+#catListings .item .ps {
+	float: left;
+	text-align: center;
+	width: 120px;
+}
+#catListings .item .ps .price {
+	font-size: 46px;
+	line-height: 1;
+	margin-bottom: 5px;
+}
+#catListings .item .ps .sales {
+
+}
+/*********************************************************
+	THANK YOU
+*********************************************************/
+
+#thankYou {
+	padding: 50px 0 200px;
+	text-align: center;
+}
+#thankYou h1 {
+	font-size: 52px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+#thankYou p {
+	font-size: 18px;
+	margin-bottom: 40px;
+}
+#thankYou i {
+	color: #AAAAAA;
+    font-size: 130px;
+}
+
+/*********************************************************
+	CONTACT SUPPORT
+*********************************************************/
+
+#contactSupport h4 {
+	border-top: 1px dashed #CCCCCC;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+#contactSupport form {
+	margin-top: 30px;
+}
+#contactSupport form label.error {
+	color: #FF0000;
+	display: block;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+/*********************************************************
+	FAQ
+*********************************************************/
+#FAQ h3 {
+	margin: 40px 0 20px;
+}
+#FAQ h3.first {
+	margin-top: 0;
+}
+#FAQ .panel-default {
+	box-shadow: none;
+	border: 0 none;
+	background: none;
+	margin: 0 0 15px;
+}
+#FAQ .panel-default > .panel-heading {
+	padding: 0;
+	background: none;
+	border-bottom: 0;
+}
+#FAQ.panel-heading a:focus {
+	text-decoration: none;
+	color: #428BCA;
+}
+#FAQ .panel-default > .panel-heading span {
+	margin-right: 5px;
+    text-align: center;
+    width: 15px;
+}
+#FAQ .panel-default > .panel-heading.active-faq {
+
+}
+#FAQ .panel-faq .panel-heading .panel-title span {
+    font-size: 13px;
+    font-weight: normal;
+}
+#FAQ .panel-title {
+	font-size: 14px;
+	line-height: 20px;
+}
+#FAQ .panel-body {
+    background: #F5F5F5;
+    margin-top: 10px;
+    padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+/*********************************************************
+	TERMS
+*********************************************************/
+
+#terms h4 {
+	margin: 30px 0 15px;
+}
+
+/*********************************************************
+	SUBMISSION GUIDELINES
+*********************************************************/
+
+#submission ul {
+	list-style-type: none;
+    padding-left: 30px;
+}
+#submission ul span {
+	font-weight: 700;
+	margin-right: 10px;
+}
+#submission ul ul {
+	list-style-type: disc;
+	padding-left: 60px;
+}
+
+/*********************************************************
+	PRIVACY
+*********************************************************/
+
+#privacy h4 {
+	margin: 30px 0 15px;
+}
+
+/*********************************************************
+	LICENSES
+*********************************************************/
+
+#licenses h3 {
+	margin: 40px 0 20px;
+}
+#licenses h3.first {
+	margin-top: 0;
+}
+#licenses .q {
+	margin-bottom: 25px;
+}
+#licenses .q .title {
+	font-weight: 700;
+    margin: 0;
+    text-decoration: underline;
+}
+
+/*********************************************************
+	ABOUT
+*********************************************************/
+
+#about img {
+	border-radius: 50%;
+}
+#about h3 {
+	border-bottom: 1px solid #D5D5D5;
+	margin: 30px 0 15px;
+	padding-bottom: 15px;
+}
+#about .team {
+	padding-top: 30px;
+}
+
+/*********************************************************
+	RATES
+*********************************************************/
+
+#rates table {
+	margin-top: 25px;
+    width: 500px;
+}
+
+/*********************************************************
+	MAKE MONEY
+*********************************************************/
+
+#makeMoney .method {
+	background: #F5F5F5;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 20px;
+}
+#makeMoney p {
+	font-size: 22px;
+	padding: 10px 0 25px;
+}
+#makeMoney .method {
+	margin-bottom: 60px;
+}
+#makeMoney .method h3 {
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+#makeMoney .method ul {
+	margin-bottom: 20px;
+}
+#makeMoney .method .btn {
+	width: 100%;
+}
+
+/*********************************************************
+	SELL YOUR THEMES & TEMPLATES
+*********************************************************/
+
+#sell h3 {
+	margin: 30px 0 10px;
+}
+
+/*********************************************************
+	AFFILIATES
+*********************************************************/
+
+#affiliates h3 {
+	margin: 30px 0 10px;
+}
+
+/*********************************************************
+	404
+*********************************************************/
+
+#wrap404 {
+	padding: 50px 0 100px;
+	text-align: center;
+}
+#wrap404 h1 {
+	font-size: 52px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+#wrap404 p {
+	font-size: 18px;
+	margin-bottom: 40px;
+}
+#wrap404 i {
+	color: #AAAAAA;
+    font-size: 130px;
+}
+
+/*********************************************************
+	FOOTER
+*********************************************************/
+
+footer {
+	background-color: #333333;
+    border-top: 4px solid #555555;
+    color: #FFFFFF;
+    margin-top: 40px;
+}
+footer .footerWrap {
+	padding-top: 20px;
+	padding-bottom: 15px;
+}
+footer h4 {
+	border-bottom: 1px dotted #444444;
+    font-family: 'Oswald';
+    font-size: 18px;
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+}
+footer ul {
+	margin: 0;
+}
+footer ul li {
+	margin-bottom: 5px;
+}
+footer a {
+	color: #aaa;
+}
+footer a:hover,
+footer a:focus {
+    color: #aaa;
+    text-decoration: underline;
+}
+footer .subFooter {
+	color: #777777;
+	font-size: 12px;
+	padding: 12px 0;
+	background-color: #222;
+}
+footer .subFooter a {
+	color: #777;
+}
+footer .subFooter ul{
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+footer .subFooter ul > li {
+    float: left;
+}
+footer .subFooter ul > li {
+    display: block;
+    position: relative;
+	margin: 0;
+}
+footer .subFooter ul > li a {
+	margin-left: 15px;
+}
