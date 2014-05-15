@@ -1,5 +1,9 @@
 $(document).ready(init);
 function init(){
+
+
+
+
     // mandrill start
     $("#email").on('click', email);
 
@@ -13,13 +17,9 @@ function init(){
         };
         $("#first_heading").hide();
         //$("#hide_me").hide();
-        $("#find").animate(
-            {top:"-50px", height:"100%", marginTop:"-16%", marginLeft:'0%', width:'70%'},
-            {duration: 7000,
-               ease: {  height: "linear" }
-            },function(){
-
-        });
+        $("#find").css(
+            {top:"-50px", height:"100%", marginTop:"-16%", marginLeft:'0%', width:'70%'}
+           );
         $("#site-header").css({height:"100%", position:"fixed"});
         $(".text-right").css({marginTop:"-0.5%"});
 

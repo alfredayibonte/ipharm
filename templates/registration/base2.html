@@ -20,6 +20,10 @@
 	<link href="{% static 'css/widgets.min.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/rtl.min.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/themes.min.css' %}" rel="stylesheet" type="text/css">
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+
 	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
 
 	<!--[if lt IE 9]>
@@ -368,9 +372,14 @@
 
 <!-- Pixel Admin's javascripts -->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/ipharm.min.js' %}"></script>
+
 
 <script type="text/javascript">
+    $(function() {
+           $( "#datepicker" ).datepicker();
+           $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+  });
 	init.push(function () {
 		// Javascript code here
 	})

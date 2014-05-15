@@ -42,11 +42,19 @@ class AddDrug(View):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
+        expiry_date = request.POST['expiry_date']
+        drug = request.POST['drug']
+        quantity = request.POST['quantity']
+        amount = request.POST['amount']
+        description = request.POST['description']
         if form.is_valid():
-            form.save()
+            drug = Drug.objects.create(pharmacy=request.user, expiry_date=expiry_date,
+                                       drug=drug, quantity=quantity, amount=amount, description=description)
+            drug.save()
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(AddDrug, self).dispatch(*args, **kwargs)
+
