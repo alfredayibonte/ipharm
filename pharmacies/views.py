@@ -1,14 +1,16 @@
+import csv
+import StringIO
 from django.contrib import auth
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import generic
+from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
 from pharmacies.forms import MyRegistrationForm
-from pharmacies.models import Pharmacy
+from pharmacies.models import Pharmacy, Client
 
 
 class Main(generic.View):
@@ -25,6 +27,7 @@ class Main(generic.View):
 
 class Chart(generic.ListView):
     template_name = 'registration/chart_dashboard.html'
+
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
@@ -58,3 +61,31 @@ class Register(View):
             auth.login(request, user)
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
+
+
+class Contact(View):
+    model = Client
+    template_name = 'registration/contact.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        return HttpResponseRedirect(reverse('pharmacies:main'))
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(Email, self).dispatch(*args, **kwargs)
+
+@login_required()
+@require_http_methods(["POST"])
+def upload(request):
+    f = request.FILES['csv_file']
+    content = f.read()
+    filestream = StringIO.StringIO(content)
+    dialect = csv.Sniffer().sniff(content)
+    reader = csv.DictReader(filestream.read().splitlines(), dialect=dialect)
+    results = [row for row in reader]
+    return HttpResponse("thanks ")

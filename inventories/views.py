@@ -8,7 +8,7 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
 from inventories.forms import DrugForm
 from inventories.models import Inventory
-
+from pharmacies.models import Pharmacy
 
 
 class DrugSearch(generic.ListView):
@@ -41,15 +41,12 @@ class AddDrug(View):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        expiry_date = request.POST['expiry_date']
-        drug = request.POST['inventories']
-        quantity = request.POST['quantity']
-        amount = request.POST['amount']
-        description = request.POST['description']
         if form.is_valid():
-            drug = Inventory.objects.create(pharmacy=request.user, expiry_date=expiry_date,
-                                       drug=drug, quantity=quantity, amount=amount, description=description)
-            drug.save()
+            pharmacy = Pharmacy.objects.get(user=request.user)
+            Inventory.objects.create(
+                pharmacy=pharmacy, name=request.POST['name'],
+                description=request.POST['description'],
+                )
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
 

@@ -12,6 +12,7 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^inventory/', include('inventories.urls', namespace='inventories')),
     url(r'^pharmacy/', include('pharmacies.urls', namespace='pharmacies')),
+    url(r'^upload/', pharmacy.upload, name='upload'),
     url(r'login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'register/$', pharmacy.Register.as_view(), name='register'),
     url(r'logout/$', 'django.contrib.auth.views.logout', {'template_name': 'index.html'}, name='logout'),
