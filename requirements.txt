@@ -1,3 +1,4 @@
+haystack
 Django==1.6.4
 Pillow==2.4.0
 South==0.8.4

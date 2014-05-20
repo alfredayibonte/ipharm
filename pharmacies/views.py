@@ -13,7 +13,7 @@ from pharmacies.models import Pharmacy
 
 class Main(generic.View):
     model = Pharmacy
-    template_name = 'registration/main_dashboard.html'
+    template_name = 'registration/main.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)

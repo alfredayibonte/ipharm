@@ -8,6 +8,7 @@ from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 
 
+#users class
 class UserManager(BaseUserManager):
     def _create_user(self, username, email, password,
                      is_staff, is_superuser, **extra_fields):
@@ -35,7 +36,7 @@ class UserManager(BaseUserManager):
                                  **extra_fields)
 
 
-class Pharmacy(AbstractBaseUser, PermissionsMixin):
+class MyUser(AbstractBaseUser, PermissionsMixin):
     """
     An abstract base class implementing a fully featured User model with
     admin-compliant permissions.
@@ -43,15 +44,15 @@ class Pharmacy(AbstractBaseUser, PermissionsMixin):
     Username, password and email are required. Other fields are optional.
     """
     name = models.CharField(_('name'), max_length=100, blank=True)
-    is_pharmacy = models.BooleanField(default=True)
-    is_customer = models.BooleanField(default=False)
-    lat = models.CharField(_('lat'), max_length=200, blank=True)
-    long = models.CharField(_('long'), max_length=200, blank=True)
-    location = models.CharField(max_length=200, blank=True)
+    is_pharmacy_u = models.BooleanField(_('pharmacy_u'), default=False)
+    is_pharmacy_su = models.BooleanField(_('pharmacy_su'), default=False)
+    is_customer = models.BooleanField(_('customer'), default=False)
+    location = models.CharField(_('location'), max_length=200, blank=True)
     mobile = models.CharField(_('mobile'), max_length=100, blank=True)
     address = models.CharField(_('address'), max_length=100, blank=True)
     images = models.ImageField(upload_to='pic_folder/', default='pic_folder/None/no-img.jpg')
-
+    last_visit = models.DateField(_('last_visit'), blank=True, null=True)
+    note = models.CharField(_('note'), max_length=200, blank=True)
     username = models.CharField(_('username'), max_length=30, blank=True, unique=False,
                                 help_text=_('Required. 30 characters or fewer. Letters, numbers and '
                                             '@/./+/-/_ characters'),
@@ -101,11 +102,29 @@ class Pharmacy(AbstractBaseUser, PermissionsMixin):
         send_mail(subject, message, from_email, [self.email])
 
 
-class ContactList(models.Model):
-    pharmacy = models.ForeignKey(Pharmacy)
-    first_name = models.CharField(max_length=100, blank=True)
-    last_name = models.CharField(max_length=100, blank=True)
+#pharmacy class
+class Pharmacy(models.Model):
     email = models.EmailField(max_length=100, blank=True)
-    contact_number = models.CharField(max_length=100, blank=True)
+    address = models.CharField(max_length=200, blank=True)
+    lat = models.CharField(max_length=200, blank=True)
+    lng = models.CharField(max_length=200, blank=True)
+    telephone = models.CharField(max_length=20, blank=True)
+    name = models.CharField(max_length=200, blank=False, unique=True)
+    date_joined = models.DateTimeField(default=timezone.now)
+    user = models.OneToOneField(MyUser)
 
+    def __str__(self):
+        return self.name
+
+
+# client class
+class Client(models.Model):
+    email = models.EmailField(max_length=100, blank=True)
+    address = models.CharField(max_length=200, blank=True)
+    telephone = models.CharField(max_length=20, blank=True)
+    name = models.CharField(max_length=200, blank=False, unique=True)
+    date_joined = models.DateTimeField(default=timezone.now)
+    last_activity = models.DateField(blank=True)
+    note = models.CharField(max_length=200, blank=True)
+    user = models.OneToOneField(MyUser)
 

@@ -41,8 +41,11 @@
 					</div> <!-- / .panel-heading -->
 
 					<div class="panel-body">
-                        {{ form.errors }}
-						<form class="form-horizontal" method="post" novalidate="novalidate" action="{% url 'inventories:add' %}">{% csrf_token %}
+                        {% if form.errors %}
+                            <p class="alert-danger"></p>
+                        {% endif %}
+                        <p class="#put_response"></p>
+						<form class="form-horizontal" method="post" novalidate="novalidate" action="{% url 'inventories:add' %}" id="add_drug">{% csrf_token %}
 							<div class="form-group">
 								<label for="jq-validation-email" class="col-sm-3 control-label">Name of Drug</label>
 								<div class="col-sm-9">
@@ -80,7 +83,7 @@
 
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-sm-9">
-									<button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>add</button>
+									<button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> add</button>
 								</div>
 							</div>
 						</form>

@@ -2,18 +2,17 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, render_to_response
-
-# Create your views here.
 from django.utils.decorators import method_decorator
 from django.views import generic
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
 from inventories.forms import DrugForm
-from inventories.models import Drug
+from inventories.models import Inventory
+
 
 
 class DrugSearch(generic.ListView):
-    model = Drug
+    model = Inventory
     template_name = 'registration/base2.html'
 
     def get(self, request, *args, **kwargs):
@@ -24,11 +23,11 @@ def search(request):
     drugs = []
     if request.POST and request.POST['search'] != '':
         search_text = request.POST['search']
-        drugs = Drug.objects.filter(drug__icontains=search_text)
-        return render_to_response('search.html', {'drugs': drugs})
+        drugs = Inventory.objects.filter(drug__icontains=search_text)
+        return render_to_response('drugs.html', {'drugs': drugs})
     elif request.POST and request.POST['search_text'] == '':
-        return render_to_response('search.html', {'drugs': drugs})
-    return render_to_response('search.html', {'drugs': drugs})
+        return render_to_response('drugs.html', {'drugs': drugs})
+    return render_to_response('drugs.html', {'drugs': drugs})
 
 
 class AddDrug(View):
@@ -43,12 +42,12 @@ class AddDrug(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         expiry_date = request.POST['expiry_date']
-        drug = request.POST['drug']
+        drug = request.POST['inventories']
         quantity = request.POST['quantity']
         amount = request.POST['amount']
         description = request.POST['description']
         if form.is_valid():
-            drug = Drug.objects.create(pharmacy=request.user, expiry_date=expiry_date,
+            drug = Inventory.objects.create(pharmacy=request.user, expiry_date=expiry_date,
                                        drug=drug, quantity=quantity, amount=amount, description=description)
             drug.save()
             return HttpResponseRedirect(reverse('pharmacies:main'))

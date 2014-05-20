@@ -16,7 +16,6 @@ function init(){
             'csrfmiddlewaretoken':token
         };
         $("#first_heading").hide();
-        //$("#hide_me").hide();
         $("#find").css(
             {top:"-50px", height:"100%", marginTop:"-16%", marginLeft:'0%', width:'70%'}
            );

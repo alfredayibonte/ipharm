@@ -1,15 +1,9 @@
 from django import forms
-from inventories.models import Drug
+from inventories.models import Inventory
 
 
 class DrugForm(forms.ModelForm):
+
     class Meta:
-        model = Drug
-        fields = ('drug', 'description', 'amount', 'quantity', 'expiry_date')
-
-
-
-
-
-class EditDrugForm(forms.ModelForm):
-    pass
+        model = Inventory
+        fields = ('name', 'description', 'expiry_date', 'stocked_date', 'quantity', 'price')
