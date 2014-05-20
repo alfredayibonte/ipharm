@@ -10,23 +10,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>iPharm</title>
+    <title>SpaceLab</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Favicon -->
     <!-- Bootstrap core CSS -->
-     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <!-- Fonts from Font Awsome -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- CSS Animate -->
-    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <!-- Custom styles for this theme -->
-    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
-    <!-- Vector Map  -->
-    <link href="{% static 'css/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css">
-    <!-- ToDos  -->
-    <link href="{% static 'css/todos.css' %}" rel="stylesheet" type="text/css">
-    <!-- Morris  -->
-    <link href="{% static 'css/morris.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- iCheck-->
+    <link rel="stylesheet" href="{% static 'css/_all.css' %}">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -38,12 +35,13 @@
     <script src="assets/js/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body class="animated fadeIn">
     <section id="container">
         <header id="header">
             <!--logo start-->
             <div class="brand">
-                <a href="index.html" class="logo"><span>i</span>pharm</a>
+                <a href="index.html" class="logo"><span>Space</span>Lab</a>
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
@@ -65,7 +63,7 @@
                             <li>
                                 <a href="#">
                                     <div class="profile-photo">
-                                        <!-- img -->
+                                        <img src="assets/img/avatar.gif" alt="" class="img-circle">
                                     </div>
                                     <div class="message-info">
                                         <span class="sender">James Bagian</span>
@@ -78,7 +76,7 @@
                             <li>
                                 <a href="#">
                                     <div class="profile-photo">
-                                        <!-- img -->
+                                        <img src="assets/img/avatar1.gif" alt="" class="img-circle">
                                     </div>
                                     <div class="message-info">
                                         <span class="sender">Jeffrey Ashby</span>
@@ -148,7 +146,7 @@
                                 <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-danager" id="user-inbox">5</span></a>
                             </li>
                             <li>
-                                <a href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout</a>
+                                <a href="#"><i class="fa fa-power-off"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -248,242 +246,108 @@
         <!--main content start-->
         <section class="main-content-wrapper">
             <section id="main-content">
-                <!--tiles start-->
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-tile detail tile-red">
-                            <div class="content">
-                                <h1 class="text-left timer" data-from="0" data-to="180" data-speed="2500"> </h1>
-                                <p>New Users</p>
-                            </div>
-                            <div class="icon"><i class="fa fa-users"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-tile detail tile-turquoise">
-                            <div class="content">
-                                <h1 class="text-left timer" data-from="0" data-to="56" data-speed="2500"> </h1>
-                                <p>New Comments</p>
-                            </div>
-                            <div class="icon"><i class="fa fa-comments"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-tile detail tile-blue">
-                            <div class="content">
-                                <h1 class="text-left timer" data-from="0" data-to="32" data-speed="2500"> </h1>
-                                <p>New Messages</p>
-                            </div>
-                            <div class="icon"><i class="fa fa fa-envelope"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-tile detail tile-purple">
-                            <div class="content">
-                                <h1 class="text-left timer" data-to="105" data-speed="2500"> </h1>
-                                <p>New Sales</p>
-                            </div>
-                            <div class="icon"><i class="fa fa-bar-chart-o"></i>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
+                        <!--breadcrumbs start -->
+                        <ul class="breadcrumb">
+                            <li><a href="#">Dashboard</a>
+                            </li>
+                            <li>Drugs</li>
+                            <li class="active">Add Drugs</li>
+                        </ul>
+                        <!--breadcrumbs end -->
+                        <h1 class="h1">Add Drugs</h1>
                     </div>
                 </div>
-                <!--tiles end-->
-                <!--dashboard charts and map start-->
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Sales for 2014</h3>
+                                <h3 class="panel-title">Add drug form</h3>
                                 <div class="actions pull-right">
                                     <i class="fa fa-chevron-down"></i>
                                     <i class="fa fa-times"></i>
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <div id="sales-chart" style="height: 250px;"></div>
+
+                                <form class="form-horizontal" method="post" novalidate="novalidate" action="{% url 'inventories:add' %}" id="add_drug">{% csrf_token %}
+							<div class="form-group">
+								<label for="jq-validation-email" class="col-sm-3 control-label">Name of Drug</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="jq-validation-email" name="drug" placeholder="drug name">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="jq-validation-text" class="col-sm-3 control-label">Drug Description</label>
+								<div class="col-sm-9">
+									<textarea class="form-control" name="description" id="jq-validation-text"></textarea>
+									<p class="help-block">Example block-level help text here.</p>
+								</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="jq-validation-email" class="col-sm-3 control-label">Amount</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="jq-validation-email" name="amount" placeholder="amount">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="jq-validation-email" class="col-sm-3 control-label">Quantity</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="jq-validation-email" name="quantity" placeholder="quantity">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="jq-validation-email" class="col-sm-3 control-label">Expiry date</label>
+                                <div class="col-sm-9" >
+                                    <input type="text" class="form-control date" id="datepicker" name="expiry_date"  size="30">
+                                </div>
+                            </div>
+
+        					<hr class="panel-wide">
+
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-9">
+									<button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> add</button>
+								</div>
+							</div>
+						</form>
+
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Office locations</h3>
+                                <h3 class="panel-title">CSV upload</h3>
                                 <div class="actions pull-right">
                                     <i class="fa fa-chevron-down"></i>
                                     <i class="fa fa-times"></i>
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <div class="map" id="map" style="height: 250px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--dashboard charts and map end-->
-                <!--ToDo start-->
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">To do list</h3>
-                                <div class="actions pull-right">
-                                    <i class="fa fa-chevron-down"></i>
-                                    <i class="fa fa-times"></i>
-                                </div>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <input id="new-todo" type="text" class="form-control" placeholder="What needs to be done?">
-                                            <section id='main'>
-                                                <ul id='todo-list'></ul>
-                                            </section>
-                                        </div>
-                                        <div class="form-group">
-                                            <button id="todo-enter" class="btn btn-primary pull-right">Submit</button>
-                                            <div id='todo-count'></div>
-                                        </div>
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">upload csv input</label>
+                                        <input type="file" id="exampleInputFile" class="btn btn-primary">
+                                        <p class="help-block">upload a csv with columns</p>
                                     </div>
-                                </div>
+                                </form>
 
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Server Status</h3>
-                                        <div class="actions pull-right">
-                                            <i class="fa fa-chevron-down"></i>
-                                            <i class="fa fa-times"></i>
-                                        </div>
-                                    </div>
-                                    <div class="panel-body">
-
-                                  <span class="sublabel">Memory Usage</span>
-                                  <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
-                                  </div><!-- progress -->
-
-                                  <span class="sublabel">CPU Usage </span>
-                                  <div class="progress progress-striped">
-                                   <div class="progress-bar progress-bar-default" style="width: 60%">60%</div>
-                                  </div><!-- progress -->
-
-                                  <span class="sublabel">Disk Usage </span>
-                                  <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-primary" style="width: 80%">80%</div>
-                                  </div><!-- progress -->
-                  
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-solid-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Weather</h3>
-                                <div class="actions pull-right">
-                                    <i class="fa fa-chevron-down"></i>
-                                    <i class="fa fa-times"></i>
-                                </div>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h3 class="text-center small-thin uppercase">Today</h3>
-                                        <div class="text-center">
-                                            <canvas id="clear-day" width="110" height="110"></canvas>
-                                            <h4>62°C</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h3 class="text-center small-thin uppercase">Tonight</h3>
-                                        <div class="text-center">
-                                            <canvas id="partly-cloudy-night" width="110" height="110"></canvas>
-                                            <h4>44°C</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <h6 class="text-center small-thin uppercase">Mon</h6>
-                                        <div class="text-center">
-                                            <canvas id="partly-cloudy-day" width="32" height="32"></canvas>
-                                            <span>48°C</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <h6 class="text-center small-thin uppercase">Mon</h6>
-                                        <div class="text-center">
-                                            <canvas id="rain" width="32" height="32"></canvas>
-                                            <span>39°C</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <h6 class="text-center small-thin uppercase">Tue</h6>
-                                        <div class="text-center">
-                                            <canvas id="sleet" width="32" height="32"></canvas>
-                                            <span>32°C</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <h6 class="text-center small-thin uppercase">Wed</h6>
-                                        <div class="text-center">
-                                            <canvas id="snow" width="32" height="32"></canvas>
-                                            <span>28°C</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <h6 class="text-center small-thin uppercase">Thu</h6>
-                                        <div class="text-center">
-                                            <canvas id="wind" width="32" height="32"></canvas>
-                                            <span>40°C</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <h6 class="text-center small-thin uppercase">Fri</h6>
-                                        <div class="text-center">
-                                            <canvas id="fog" width="32" height="32"></canvas>
-                                            <span>42°C</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h4>Browser Summary</h4>
-                                <div id="donut-example"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!--ToDo end-->
             </section>
         </section>
         <!--main content end-->
         <!--sidebar right start-->
         <aside class="sidebarRight">
-            <div id="rightside-navigation ">
+           <div id="rightside-navigation">
                 <div class="sidebar-heading"><i class="fa fa-user"></i> Contacts</div>
                 <div class="sidebar-title">online</div>
                 <div class="list-contacts">
@@ -570,24 +434,16 @@
     <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/waypoints.min.js' %}"></script>
-     <script src="{% static 'js/application.js' %}"></script>
+    <script src="{% static 'js/application.js' %}"></script>
     <!--Page Level JS-->
-    <script src="js/skycons.js"></script>
-    <!-- Morris  -->
-    <script src="js/morris.min.js"></script>
-    <script src="js/raphael.2.1.0.min.js"></script>
-    <!-- Vector Map  -->
-    <script src="js/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="js/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- ToDo List  -->
-    <script src="js/todos.js"></script>
-    <!--Load these page level functions-->
+    <script src="{% static 'js/icheck.min.js' %}"></script>
     <script>
         $(document).ready(function() {
-            app.timer();
-            app.map();
-            app.weather();
-            app.morrisPie();
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_flat-grey',
+                radioClass: 'iradio_flat-grey'
+            });
+
         });
     </script>
         <script>
@@ -599,7 +455,6 @@
     ga('create', 'UA-46627904-1', 'authenticgoods.co');
     ga('send', 'pageview');
     </script>
-
 </body>
 
 </html>

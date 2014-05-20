@@ -33,7 +33,7 @@ def search(request):
 class AddDrug(View):
     form_class = DrugForm
     initial = {}
-    template_name = 'add_drug.html'
+    template_name = 'registration/add_drug.html'
 
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)

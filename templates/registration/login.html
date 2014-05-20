@@ -46,6 +46,9 @@
                     </div>
                     <div class="panel-body">
                        <p> Login to access your account.</p>
+                    {% if form.errors %}
+                        <p class="alert alert-danger">invalid user credentials</p>
+                    {% endif %}
                         <form class="form-horizontal" role="form" action="{% url 'login' %}" method="post">{% csrf_token %}
                             <div class="form-group">
                                 <div class="col-md-12">
