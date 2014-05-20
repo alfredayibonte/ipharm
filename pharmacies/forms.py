@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from pharmacies.models import Pharmacy
+from pharmacies.models import Pharmacy, MyUser
 
 User = get_user_model()
 
@@ -10,6 +10,14 @@ class MyRegistrationForm(forms.ModelForm):
         max_length=50,
         required=True,
         widget=forms.TextInput(attrs={'placeholder': 'Email'})
+    )
+    username = forms.CharField(
+        max_length=50,
+        required=True,
+    )
+    pharmacy = forms.CharField(
+        max_length=100,
+        required=True,
     )
     password = forms.CharField(
         max_length=50,
@@ -21,8 +29,8 @@ class MyRegistrationForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Pharmacy
-        fields = ('email', 'password', 'repeat')
+        model = MyUser
+        fields = ('username', 'pharmacy', 'email', 'password', 'repeat')
 
     def clean_repeat(self):
         password1 = self.cleaned_data.get('repeat')
@@ -31,14 +39,6 @@ class MyRegistrationForm(forms.ModelForm):
             if password1 == password2:
                 return self.cleaned_data
         raise forms.ValidationError('Passwords do not match')
-
-    def clean_email(self):
-        email = self.cleaned_data["email"]
-        try:
-            Pharmacy.objects.get(email=email)
-        except User.DoesNotExist:
-            return email
-        raise forms.ValidationError('email already in use')
 
     def save(self, commit=True):
         user = super(MyRegistrationForm, self).save(commit=False)

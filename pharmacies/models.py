@@ -126,5 +126,5 @@ class Client(models.Model):
     date_joined = models.DateTimeField(default=timezone.now)
     last_activity = models.DateField(blank=True)
     note = models.CharField(max_length=200, blank=True)
-    user = models.OneToOneField(MyUser)
+    pharmacy = models.ForeignKey(Pharmacy)
 
