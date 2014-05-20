@@ -45,6 +45,7 @@ class MyRegistrationForm(forms.ModelForm):
         user.set_password(self.cleaned_data['password'])
         if commit:
             user.save()
+            Pharmacy.objects.create(user=user, name=self.cleaned_data['pharmacy'])
         return user
 
 

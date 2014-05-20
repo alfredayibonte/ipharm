@@ -111,7 +111,7 @@ class Pharmacy(models.Model):
     telephone = models.CharField(max_length=20, blank=True)
     name = models.CharField(max_length=200, blank=False, unique=True)
     date_joined = models.DateTimeField(default=timezone.now)
-    user = models.OneToOneField(MyUser)
+    user = models.OneToOneField(MyUser, primary_key=True)
 
     def __str__(self):
         return self.name
