@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SpaceLab</title>
+    <title>iPharm</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- Bootstrap core CSS -->
@@ -43,7 +43,7 @@
         <header id="header">
             <!--logo start-->
             <div class="brand">
-                <a href="index.html" class="logo"><span>Space</span>Lab</a>
+                <a href="index.html" class="logo"><span>i</span>pharm</a>
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
@@ -148,7 +148,7 @@
                                 <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-danager" id="user-inbox">5</span></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-power-off"></i> Logout</a>
+                                <a href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -202,6 +202,10 @@
                             <li><a href="#">Purchase history</a>
                             </li>
                             <li><a href="#">Note</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa fa-envelope"></i>Email</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa fa-envelope"></i>SMS</a>
                             </li>
                         </ul>
                     </li>
