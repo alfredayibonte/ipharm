@@ -28,8 +28,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'inventories',
     'pharmacies',
-    'users',
     'south',
+
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -45,11 +46,15 @@ ROOT_URLCONF = 'ipharmProject.urls'
 
 WSGI_APPLICATION = 'ipharmProject.wsgi.application'
 
-AUTH_USER_MODEL = 'users.Customer'
+AUTH_USER_MODEL = 'pharmacies.MyUser'
+
+FILE_UPLOAD_HANDLERS = ("django.core.files.uploadhandler.MemoryFileUploadHandler",
+        "django.core.files.uploadhandler.TemporaryFileUploadHandler",)
 
 DATABASES = {
     'default': dj_database_url.config()
 }
+
 
 
 LANGUAGE_CODE = 'en-us'

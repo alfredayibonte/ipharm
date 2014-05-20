@@ -1,9 +1,7 @@
-from django.conf.urls import patterns, include, url
-import views
+from django.conf.urls import patterns, url
+from pharmacies import views as pharmacy
 
 urlpatterns = patterns(
     '',
-    url(r'^main/$', views.Main.as_view(), name='main'),
-
-
+    url(r'^main/$', pharmacy.Main.as_view(), name='main')
 )

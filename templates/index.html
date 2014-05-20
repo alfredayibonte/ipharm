@@ -1,144 +1,91 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>iPharm</title>
+    <title>ipharm</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Stylesheets -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
 
-    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
-    <!-- Custom Theme CSS -->
-    <link href="{% static 'css/grayscale.css' %}" rel="stylesheet">
+  </head>
 
-</head>
+  <body>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="#page-top">
-                    <img style="height: 30%; width: 30%"src="{% static 'img/ipharm2.png' %}">
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="page-scroll">
-                        <a href="#page-top">Home</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#product"><span style="color: #13B5EA;">Product</span></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about"><span style="color: #13B5EA;">About Us</span></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#search-box"><span style="color: #13B5EA;">Search</span></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+  
+    <header id="site-header" class="site-header" style="height: 100%; position: fixed;">
+      <div class="container" id="hide_me">
+        <h1><a class="site-title pull-left" href="{% url 'home' %}"><i class="fa fa-flask"></i> ipharm</a></h1>
+        <div class="btn-users text-right">
+            <span style="font-size: 120%; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Sans-Serif'; color: #FFF;"></span>
+          <a class="btn btn-login" href="{% url 'login' %}">Login</a> |
+          <a class="btn btn-register" href="{% url 'register' %}">Register</a>
         </div>
-        <!-- /.container -->
-    </nav>
+      </div><!-- /container -->
+      
+      <div class="container">
 
-    <section class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading"><img style="height: 70%; width: 70%"src="{% static 'img/ipharm2.png' %}"></h1>
+        <div class="header-description" >
+          <h2 id="first_heading">find your drug</h2>
+            <!-- search box-->
+            <div class="row"  id="find">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="input-group input-group-lg centered">{% csrf_token %}
+                        <input type="text" class="form-control rounded" placeholder="search for drug" id="search" autocomplete="off">
+                        <span class="input-group-addon btn-primary"><i class="icon-search"></i></span>
+                    </div>
+                    <div id="popups" style="position: absolute; color:white; font-size: 120%; list-style: none;">
 
-                        <form class="col-lg-12">
-                            <div>
-                                <input class="input-lg icon-2x " title="Don't worry." placeholder="Enter drug" type="text">
-                                <button class="btn btn-lg btn-primary" type="button"><i class="icon-1x icon-search"></i></button>
-                            </div>
-                        </form>
-
-                        <div class="page-scroll">
-                            <a href="#about" class="btn btn-circle">
-                                <i class="fa fa-angle-double-down animated"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="product" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>The Product</h2>
-                <p>iPharm is a service that allows you to locate pharmacies with the medicine you need to fill a prescription.
-                </p>
-                <p>It also allows pharmacies to also confirm priscriptions and also recommend alternatives from the consulting physicians where necessary
-                </p>
-                <p>Pharmacies can signup <a href="#contact">here</a> and patrons can search in the text field <a class="page-scroll" href="#search-box">below...</a></p>
+
+            <!-- end of search box-->
+
+        </div><!-- /.header-description -->
+        
+        <div class="header-features">
+          <div class="row">
+            <div class="col-sm-6 header-feature">
+              <h3><i class="fa fa-random"></i> </h3>
             </div>
-        </div>
-    </section>
+            <div class="col-sm-6 header-feature">
 
-    <section id="about" class="content-section1 text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Join iPharm</h2>
-                    <p>iPharm is revolutionizing the healthcare industry, join us make Ghana a better place</p>
-                    <p>
-                        <span><img style="height: 10%; width: 10%"src="img/rss.png"></span>
-                        <span><img style="height: 10%; width: 10%"src="img/twitter.png"></span>
-                        <span><img style="height: 10%; width: 10%"src="img/facebook.png"></span>
-                        <span> <img style="height: 10%; width: 10%"src="img/google-plus.png"></span>
-                    </p>            
-                    <a href="signup.html" class="btn btn-default btn-lg">Sign up here</a>
-                </div>
+
             </div>
-        </div>
-    </section>
+          </div>
+        </div><!-- /.header-features -->
+            
+      </div><!-- /.container -->
+    </header>
+    
 
-    <section id="search-box" class="container content-section text-center">
-        <div class="row">
-            <div class="jumbotron">
-                <form>
-                    <span><input type="text" class="search square"><input type="button" value="Search"></span>
-                </form>
-            </div>
-        </div>
-    </section>
 
-    <div id="map"></div>
+    
 
-    <!-- Core JavaScript Files -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/google_map.js' %}"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'js/grayscale.js' %}"></script>
-
-</body>
-
+  </body>
 </html>
