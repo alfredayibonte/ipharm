@@ -64,11 +64,7 @@ class Customer(AbstractBaseUser, PermissionsMixin):
     address = models.CharField(_('address'), max_length=100, blank=True)
     images = models.ImageField(upload_to='pic_folder/', default='pic_folder/None/no-img.jpg')
 
-<<<<<<< HEAD
-    username = models.CharField(_('username'), max_length=30, unique=True,
-=======
     username = models.CharField(_('username'), max_length=30, blank=True, unique=True,
->>>>>>> ec65e5038f38012b5edd77711d18ca082d3a7d42
                                 help_text=_('Required. 30 characters or fewer. Letters, numbers and '
                                             '@/./+/-/_ characters'),
                                 validators=[

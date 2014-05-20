@@ -9,9 +9,7 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.Home.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    (r'^facebook/', include('django_facebook.urls'),),
-    (r'^accounts/', include('django_facebook.auth_urls', namespace='accounts')),
-    (r'^user/', include('users.urls', namespace='users')),
-    (r'^pharmacy/', include('pharmacies.urls', namespace='pharmacies'))
+    url(r'^user/', include('users.urls', namespace='users')),
+    url(r'^pharmacy/', include('pharmacies.urls', namespace='pharmacies'))
 
 )
