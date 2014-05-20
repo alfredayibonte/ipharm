@@ -29,13 +29,16 @@ class Chart(generic.ListView):
         return render(request, self.template_name)
 
 
-
-@login_required
 class Email(generic.ListView):
     model = Pharmacy
-    template_name = 'registration/base2.html'
+    template_name = 'registration/email.html'
+
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(Email, self).dispatch(*args, **kwargs)
 
 
 class Register(View):
