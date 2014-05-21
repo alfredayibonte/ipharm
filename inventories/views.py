@@ -40,13 +40,9 @@ class AddDrug(View):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST, request=request)
         if form.is_valid():
-            pharmacy = Pharmacy.objects.get(user=request.user)
-            Inventory.objects.create(
-                pharmacy=pharmacy, name=request.POST['name'],
-                description=request.POST['description'],
-                )
+            form.save()
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
 

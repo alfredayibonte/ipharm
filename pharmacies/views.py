@@ -2,6 +2,7 @@ import csv
 import StringIO
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
@@ -11,6 +12,14 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
 from pharmacies.forms import MyRegistrationForm, ContactForm
 from pharmacies.models import Pharmacy, Client
+
+
+
+#My own logout system.
+class Logout(View):
+    def get(self, request, *args, **kwargs):
+        auth.logout(request)
+        return HttpResponseRedirect(reverse('home'))
 
 
 class Main(generic.View):
@@ -33,7 +42,7 @@ class Chart(generic.ListView):
 
 
 class Email(generic.ListView):
-    model = Pharmacy
+    model = Client
     template_name = 'registration/email.html'
 
     def get(self, request, *args, **kwargs):
@@ -74,12 +83,17 @@ class Contact(View):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        return HttpResponseRedirect(reverse('pharmacies:main'))
+        form = self.form_class(request.POST, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:main'))
+        return render(request, self.template_name, {'form': form})
+
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(Contact, self).dispatch(*args, **kwargs)
+
 
 @login_required()
 @require_http_methods(["POST"])

@@ -123,7 +123,7 @@ class Client(models.Model):
     address = models.CharField(max_length=200, blank=True, null=True)
     telephone = models.CharField(max_length=20, blank=True, null=True)
     name = models.CharField(max_length=200, blank=False, null=True)
-    date_joined = models.DateTimeField(default=timezone.now)
+    date_joined = models.DateTimeField(default=timezone.now, null=True)
     last_activity = models.DateField(blank=True, null=True)
     note = models.CharField(max_length=200, blank=True, null=True)
     pharmacy = models.ForeignKey(Pharmacy)
