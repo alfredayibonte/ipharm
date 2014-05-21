@@ -1,12 +1,21 @@
 <div class="row">
-    <div class="col-sm-7" style="margin: 0%; text-align: left;">
+    <div class="col-sm-12" style="margin-top: 2%; text-align: left;">
+    <div class="col-sm-7" id="location">
         {% for d in drugs %}
             <h4 style="list-style: none; margin-bottom: 0%;">
-                <a href="#" style="color: #0000ff;" id="{{ d.id }}">{{ d.drug }}</a>
+                <a href="#" style="color: #0000ff;" id="{{ d.id }}">{{ d.name }}</a>
             </h4>
             <p> {{ d.description }}</p>
+            <p>{{ d.pharmacy.name }}</p>
+            <input type="hidden" value="{{ d.pharmacy.lat }}" name="lat">
+            <input type="hidden" value="{{ d.pharmacy.lng }}" name="lng">
         {% endfor %}
     </div>
-    <div class="col-sm-5" id="map"> maps here</div>
+    <div class="col-sm-5">
+        <div  id="map"> maps here</div>
+    </div>
+
+    </div>
+
 </div>
 

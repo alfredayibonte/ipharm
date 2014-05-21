@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from pharmacies.models import Pharmacy, MyUser
+from pharmacies.models import Pharmacy, MyUser, Client
 
 User = get_user_model()
 
@@ -49,55 +49,32 @@ class MyRegistrationForm(forms.ModelForm):
         return user
 
 
-class EditUserForm(forms.ModelForm):
-    location = forms.CharField(
-        max_length=40,
-        required=False,
-        widget=forms.TextInput(
-            attrs={'placeholder': 'Location',
-                   'class': 'input-huge'}
-        )
-    )
-    username = forms.CharField(
-        max_length=40,
-        widget=forms.TextInput(
-            attrs={'placeholder': 'username',
-                   'class': 'input-huge'}
-        )
-    )
-    first_name = forms.CharField(
-        max_length=40,
-        widget=forms.TextInput(
-            attrs={'placeholder': 'First Name',
-                   'class': 'input-huge'}
-        )
-    )
-    last_name = forms.CharField(
-        max_length=40,
-        widget=forms.TextInput(
-            attrs={'placeholder': 'Last Name',
-                   'class': 'input-huge'}
-        )
-    )
+class ContactForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+        super(ContactForm, self).__init__(*args, **kwargs)
 
-    oneliner = forms.CharField(
-        max_length=100,
-        required=False,
-        widget=forms.TextInput(
-            attrs={'placeholder': 'One-liner',
-                   'class': 'input-huge'}
-        )
-    )
-    images = forms.ImageField(required=False)
+    last_activity = forms.DateField(required=False)
+    joined_date = forms.DateField(required=False)
+    email = forms.EmailField(required=False)
+    address = forms.CharField(required=False)
+    telephone = forms.CharField(required=False)
+    note = forms.CharField(required=False)
 
     class Meta:
-        model = Pharmacy
-        fields = ('username', 'first_name', 'last_name', 'oneliner', 'location')
-        exclude = ('password1', 'password2', 'email')
+        model = Client
+        fields = ('email', 'address', 'telephone', 'name', 'note', 'last_activity', 'date_joined')
 
     def save(self, commit=True):
-        user = super(EditUserForm, self).save(commit=False)
-        user.images = self.cleaned_data['images']
         if commit:
-            user.save()
-        return user
+            pharmacy = Pharmacy.objects.get(user=self.request.user)
+            client = Client.objects.create(pharmacy=pharmacy,
+                                           email=self.request.POST['email'],
+                                           address=self.request.POST['address'],
+                                           telephone=self.request.POST['telephone'],
+                                           name=self.request.POST['name'],
+                                           note=self.request.POST['note'],
+                                           )
+        return client
+
+

@@ -119,12 +119,12 @@ class Pharmacy(models.Model):
 
 # client class
 class Client(models.Model):
-    email = models.EmailField(max_length=100, blank=True)
-    address = models.CharField(max_length=200, blank=True)
-    telephone = models.CharField(max_length=20, blank=True)
-    name = models.CharField(max_length=200, blank=False, unique=True)
-    date_joined = models.DateTimeField(default=timezone.now)
-    last_activity = models.DateField(blank=True)
-    note = models.CharField(max_length=200, blank=True)
+    email = models.EmailField(max_length=100, blank=True, null=True)
+    address = models.CharField(max_length=200, blank=True, null=True)
+    telephone = models.CharField(max_length=20, blank=True, null=True)
+    name = models.CharField(max_length=200, blank=False, null=True)
+    date_joined = models.DateTimeField(default=timezone.now, null=True)
+    last_activity = models.DateField(blank=True, null=True)
+    note = models.CharField(max_length=200, blank=True, null=True)
     pharmacy = models.ForeignKey(Pharmacy)
 

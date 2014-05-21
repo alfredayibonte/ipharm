@@ -8,7 +8,7 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
 from inventories.forms import DrugForm
 from inventories.models import Inventory
-
+from pharmacies.models import Pharmacy
 
 
 class DrugSearch(generic.ListView):
@@ -23,7 +23,7 @@ def search(request):
     drugs = []
     if request.POST and request.POST['search'] != '':
         search_text = request.POST['search']
-        drugs = Inventory.objects.filter(drug__icontains=search_text)
+        drugs = Inventory.objects.filter(name__icontains=search_text)
         return render_to_response('drugs.html', {'drugs': drugs})
     elif request.POST and request.POST['search_text'] == '':
         return render_to_response('drugs.html', {'drugs': drugs})
@@ -33,23 +33,16 @@ def search(request):
 class AddDrug(View):
     form_class = DrugForm
     initial = {}
-    template_name = 'add_drug.html'
+    template_name = 'registration/add_drug.html'
 
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        expiry_date = request.POST['expiry_date']
-        drug = request.POST['inventories']
-        quantity = request.POST['quantity']
-        amount = request.POST['amount']
-        description = request.POST['description']
+        form = self.form_class(request.POST, request=request)
         if form.is_valid():
-            drug = Inventory.objects.create(pharmacy=request.user, expiry_date=expiry_date,
-                                       drug=drug, quantity=quantity, amount=amount, description=description)
-            drug.save()
+            form.save()
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
 

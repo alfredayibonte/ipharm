@@ -54,88 +54,14 @@
             <div class="user-nav">
                 <ul>
                     <li class="dropdown messages">
-                        <span class="badge badge-danager animated bounceIn" id="new-messages">5</span>
-                        <button type="button" class="btn btn-default dropdown-toggle options" id="toggle-mail" data-toggle="dropdown">
-                            <i class="fa fa-envelope"></i>
-                        </button>
-                        <ul class="dropdown-menu alert animated fadeInDown">
-                            <li>
-                                <h1>You have <strong>5</strong> new messages</h1>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="profile-photo">
-                                        <!-- img -->
-                                    </div>
-                                    <div class="message-info">
-                                        <span class="sender">James Bagian</span>
-                                        <span class="time">30 mins</span>
-                                        <div class="message-content">Lorem ipsum dolor sit amet, elit rutrum felis sed erat augue fusce...</div>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <div class="profile-photo">
-                                        <!-- img -->
-                                    </div>
-                                    <div class="message-info">
-                                        <span class="sender">Jeffrey Ashby</span>
-                                        <span class="time">2 hour</span>
-                                        <div class="message-content">hendrerit pellentesque, iure tincidunt, faucibus vitae dolor aliquam...</div>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <div class="profile-photo">
-                                        <img src="assets/img/avatar2.gif" alt="" class="img-circle">
-                                    </div>
-                                    <div class="message-info">
-                                        <span class="sender">John Douey</span>
-                                        <span class="time">3 hours</span>
-                                        <div class="message-content">Penatibus suspendisse sit pellentesque eu accumsan condimentum nec...</div>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <div class="profile-photo">
-                                        <img src="assets/img/avatar3.gif" alt="" class="img-circle">
-                                    </div>
-                                    <div class="message-info">
-                                        <span class="sender">Ellen Baker</span>
-                                        <span class="time">7 hours</span>
-                                        <div class="message-content">Sem dapibus in, orci bibendum faucibus tellus, justo arcu...</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="profile-photo">
-                                        <img src="assets/img/avatar4.gif" alt="" class="img-circle">
-                                    </div>
-                                    <div class="message-info">
-                                        <span class="sender">Ivan Bella</span>
-                                        <span class="time">6 hours</span>
-                                        <div class="message-content">Curabitur metus faucibus sapien elit, ante molestie sapien...</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li><a href="#">Check all messages <i class="fa fa-angle-right"></i></a>
-                            </li>
-                        </ul>
-
+                       
                     </li>
                     <li class="profile-photo">
                         <img src="assets/img/avatar.png" alt="" class="img-circle">
                     </li>
                     <li class="dropdown settings">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                      Mike Adams <i class="fa fa-angle-down"></i>
+                      {{ user.username }} <i class="fa fa-angle-down"></i>
                     </a>
                         <ul class="dropdown-menu animated fadeInDown">
                             <li>
@@ -144,9 +70,7 @@
                             <li>
                                 <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
                             </li>
-                            <li>
-                                <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-danager" id="user-inbox">5</span></a>
-                            </li>
+
                             <li>
                                 <a href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout</a>
                             </li>
@@ -178,41 +102,29 @@
                             </li>
                             <li><a href="#">Panels</a>
                             </li>
-                            <li><a href="#">Buttons</a>
-                            </li>
-                            <li><a href="#">Sliders &amp; Progress</a>
-                            </li>
-                            <li><a href="ui-modals-popups.html">Modals &amp; Popups</a>
-                            </li>
-                            <li><a href="ui-icons.html">Icons</a>
-                            </li>
-                            <li><a href="ui-grid.html">Grid</a>
-                            </li>
-                            <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a>
-                            </li>
-                            <li><a href="ui-nestable-list.html">Nestable Lists</a>
-                            </li>
+
                         </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-table"></i><span>Client</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
+                            <li><a href="{% url 'pharmacies:contact' %}"><i class="fa fa-plus"></i>Add contact </a></li>
                             <li><a href="#">Profile</a>
                             </li>
                             <li><a href="#">Purchase history</a>
                             </li>
-                            <li><a href="#">Note</a>
-                            </li>
                             <li><a href="{% url 'pharmacies:email' %}"><i class="fa fa fa-envelope"></i>Email</a>
                             </li>
-                            <li><a href="#"><i class="fa fa fa-envelope"></i>SMS</a>
+                            <li>
+                                <a href="#"><i class="fa fa fa-envelope"></i>SMS</a>
                             </li>
+                            <li><a href="#"><i class="fa fa-plus"></i>add note</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa fa-tasks"></i><span>Inventory</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                            <li><a href="forms-components.html">Drugs</a>
+                            <li><a href="{% url 'inventories:add' %}"><i class="fa fa-plus"></i>Drugs</a>
                             </li>
                             <li><a href="forms-validation.html">Stock history</a>
                             </li>
@@ -484,84 +396,7 @@
         <!--sidebar right start-->
         <aside class="sidebarRight">
             <div id="rightside-navigation ">
-                <div class="sidebar-heading"><i class="fa fa-user"></i> Contacts</div>
-                <div class="sidebar-title">online</div>
-                <div class="list-contacts">
-                    <a href="javascript:void(0)" class="list-item">
-                        <div class="list-item-image">
-                            <img src="assets/img/avatar.gif" class="img-circle">
-                        </div>
-                        <div class="list-item-content">
-                            <h4>James Bagian</h4>
-                            <p>Los Angeles, CA</p>
-                        </div>
-                        <div class="item-status item-status-online"></div>
-                    </a>
-                    <a href="javascript:void(0)" class="list-item">
-                        <div class="list-item-image">
-                            <img src="assets/img/avatar1.gif" class="img-circle">
-                        </div>
-                        <div class="list-item-content">
-                            <h4>Jeffrey Ashby</h4>
-                            <p>New York, NY</p>
-                        </div>
-                        <div class="item-status item-status-online"></div>
-                    </a>
-                    <a href="javascript:void(0)" class="list-item">
-                        <div class="list-item-image">
-                            <img src="assets/img/avatar2.gif" class="img-circle">
-                        </div>
-                        <div class="list-item-content">
-                            <h4>John Douey</h4>
-                            <p>Dallas, TX</p>
-                        </div>
-                        <div class="item-status item-status-online"></div>
-                    </a>
-                    <a href="javascript:void(0)" class="list-item">
-                        <div class="list-item-image">
-                            <img src="assets/img/avatar3.gif" class="img-circle">
-                        </div>
-                        <div class="list-item-content">
-                            <h4>Ellen Baker</h4>
-                            <p>London</p>
-                        </div>
-                        <div class="item-status item-status-away"></div>
-                    </a>
-                </div>
 
-                <div class="sidebar-title">offline</div>
-                <div class="list-contacts">
-                    <a href="javascript:void(0)" class="list-item">
-                        <div class="list-item-image">
-                            <img src="assets/img/avatar4.gif" class="img-circle">
-                        </div>
-                        <div class="list-item-content">
-                            <h4>Ivan Bella</h4>
-                            <p>Tokyo, Japan</p>
-                        </div>
-                        <div class="item-status"></div>
-                    </a>
-                    <a href="javascript:void(0)" class="list-item">
-                        <div class="list-item-image">
-                            <img src="assets/img/avatar5.gif" class="img-circle">
-                        </div>
-                        <div class="list-item-content">
-                            <h4>Gerald Carr</h4>
-                            <p>Seattle, WA</p>
-                        </div>
-                        <div class="item-status"></div>
-                    </a>
-                    <a href="javascript:void(0)" class="list-item">
-                        <div class="list-item-image">
-                            <img src="assets/img/avatar6.gif" class="img-circle">
-                        </div>
-                        <div class="list-item-content">
-                            <h4>Viktor Gorbatko</h4>
-                            <p>Palo Alto, CA</p>
-                        </div>
-                        <div class="item-status"></div>
-                    </a>
-                </div>
             </div>
         </aside>
         <!--sidebar right end-->

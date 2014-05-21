@@ -1,11 +1,9 @@
 $(document).ready(init);
+var lng;
+var lat;
 function init(){
+$("#line").hide();
 
-
-
-
-    // mandrill start
-    $("#email").on('click', email);
 
     //search ajax
     $("#search").keyup(function(){
@@ -16,11 +14,10 @@ function init(){
             'csrfmiddlewaretoken':token
         };
         $("#first_heading").hide();
+
         $("#find").css(
-            {top:"-50px", height:"100%", marginTop:"-16%", marginLeft:'0%', width:'70%'}
+            {top:"-50px", height:"100%", marginTop:"-16%", marginLeft:'-8.5%'}
            );
-        $("#site-header").css({height:"100%", position:"fixed"});
-        $(".text-right").css({marginTop:"-0.5%"});
 
         if(search)
         {
@@ -48,51 +45,95 @@ function init(){
 }
 
 function success_func(response){
+     $("#line").show();
     $('#popups').html(response);
-    console.log(response);
+     $("#location").find("a").on('click', function(event){
+        event.preventDefault();
+         var $handler = $(this).parent().parent();
+         lat = $handler.find("input[name='lat']").val();
+         lng = $handler.find("input[name='lng']").val();
+         console.log(lat+" this is the long "+lng);
+         initialize();
+
+    });
+
+
 }
 function error_func(err){
     console.log(err);
 
 }
-function er(){}
-function suc(){}
 
-//email function for sending email
-function email(){
-    // ajax to get users
-    var token = $("input[name='csrfmiddlewaretoken']").val();
-    var data = {
 
+
+
+
+
+//initialization
+function initialize()
+{
+    var lng = parseFloat(lng);
+  var lat = parseFloat(lat);
+  var mapOptions;
+  var marker;
+  if(isNaN(lng) || isNaN(lat))
+  {
+    mapOptions = {
+      zoom: 8,
+      center: new google.maps.LatLng(5.55571, -0.19630)
     };
-    $.ajax({
-        url:"/pharmacy/search/",
-                dataType:"html",
-                type:"POST",
-                data: data,
-                success:suc,
-                error: er
-    });
-$.ajax({
-  type: "POST",
-  url: "https://mandrillapp.com/api/1.0/messages/send.json",
-  data: {
-    'key': 'OM0lDv3olFdqujMd9yckTQ',
-    'message': {
-      'from_email': 's****@gmail.com',
-      'to': [
-          {
-            'email': 'd*****@gmail.com',
-            'name': 'Test',
-            'type': 'to'
-          }
-        ],
-      'autotext': 'true',
-      'subject': 'New subject',
-      'html': 'YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!'
-    }
   }
-});
+  else
+  {
+    mapOptions = {
+      zoom: 8,
+      center: new google.maps.LatLng(lng, lat)
+    };
+
+  }
+
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  //inistantiation of marker
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lng, lat),
+      map: map,
+      draggable: true,
+      animation:google.maps.Animation.BOUNCE
+    });
+
+    // This is what happens when you click the map.
+  google.maps.event.addListener(map, 'click', function(event) {
+   marker.setMap(map);
+   marker.setPosition(event.latLng);
+   lat = event.latLng.lat();
+   lng = event.latLng.lng();
+   document.getElementById("lng").value = lng;
+   document.getElementById("lat").value = lat;
+
+
+  });
+  // This is what happens when you dragg the marker
+
+  google.maps.event.addListener(marker, 'dragend',function(){
+   lat = marker.getPosition().lat();
+   lng = marker.getPosition().lng();
+   document.getElementById("lng").value = lng;
+   document.getElementById("lat").value =  lat;
+   var myCenter=new google.maps.LatLng(lat, lng);
+   marker.setPosition(myCenter);
+ });
 
 }
+
+
+//Ajax call
+function loadScript()
+{
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBWDK8TRLNEAx8IP0G0WLzo3fErSXVajc4&sensor=false&' +
+  'callback=initialize';
+  document.body.appendChild(script);
+}
+
 
