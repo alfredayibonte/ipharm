@@ -23,7 +23,7 @@ def search(request):
     drugs = []
     if request.POST and request.POST['search'] != '':
         search_text = request.POST['search']
-        drugs = Inventory.objects.filter(drug__icontains=search_text)
+        drugs = Inventory.objects.filter(name__icontains=search_text)
         return render_to_response('drugs.html', {'drugs': drugs})
     elif request.POST and request.POST['search_text'] == '':
         return render_to_response('drugs.html', {'drugs': drugs})
