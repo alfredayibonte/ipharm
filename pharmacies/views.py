@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views import generic
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
-from pharmacies.forms import MyRegistrationForm
+from pharmacies.forms import MyRegistrationForm, ContactForm
 from pharmacies.models import Pharmacy, Client
 
 
@@ -65,6 +65,8 @@ class Register(View):
 
 class Contact(View):
     model = Client
+    initial = {}
+    form_class = ContactForm
     template_name = 'registration/contact.html'
 
     def get(self, request, *args, **kwargs):
@@ -77,7 +79,7 @@ class Contact(View):
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(Email, self).dispatch(*args, **kwargs)
+        return super(Contact, self).dispatch(*args, **kwargs)
 
 @login_required()
 @require_http_methods(["POST"])

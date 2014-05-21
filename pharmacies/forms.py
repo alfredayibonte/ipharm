@@ -49,6 +49,11 @@ class MyRegistrationForm(forms.ModelForm):
         return user
 
 
+class ContactForm(forms.Form):
+
+    class Meta:
+        pass
+
 class EditUserForm(forms.ModelForm):
     location = forms.CharField(
         max_length=40,
