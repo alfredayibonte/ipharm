@@ -10,12 +10,26 @@ class DrugForm(forms.Form):
 
     description = forms.CharField(
         max_length=300,
-        required=False,
+        required=True,
+    )
+    name = forms.CharField(
+        required=True,
     )
     expiry_date = forms.DateField(required=False)
     stocked_date = forms.DateField(required=False)
     quantity = forms.IntegerField(required=False)
     price = forms.DecimalField(required=False, max_digits=6, decimal_places=2)
+
+    def clean_name(self):
+        name = self.cleaned_data["name"]
+        try:
+            Inventory._default_manager.get(name=name)
+        except Inventory.DoesNotExist:
+            return name
+        raise forms.ValidationError(
+            self.error_messages['drug already exist'],
+            code='duplicate_name',
+        )
 
     class Meta:
         model = Inventory
