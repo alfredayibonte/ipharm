@@ -93,53 +93,6 @@
                                             </tr>
                                         {% endfor %}
 
-                                        <tr class="unread">
-                                            <td>
-                                                <input type="checkbox" class="mail-checkbox">
-                                            </td>
-                                            <td>
-                                            </td>
-                                            <td class="message"><a href="#"><span class="title">clifford@meltwater.org</span>
-                                                Development - Elit vitae ridiculus nonummy vestibulum</a>
-                                            </td>
-                                            <td class="text-right">April 20
-                                            </td>
-                                        </tr>
-                                        <tr class="unread">
-                                            <td>
-                                                <input type="checkbox" class="mail-checkbox">
-                                            </td>
-                                            <td>
-                                            </td>
-                                            <td class="message"><a href="#"><span class="title">andrew@meltwater.org</span>
-                                                Progress - Sed ut perspiciatis unde omnis iste natus..</a>
-                                            </td>
-                                            <td class="text-right">April 20
-                                            </td>
-                                        </tr>
-                                        <tr class="unread">
-                                            <td>
-                                                <input type="checkbox" class="mail-checkbox">
-                                            </td>
-                                            <td>
-                                            </td>
-                                            <td class="message"><a href="#"><span class="title">John Douey</span>
-                                                Touch Base - Reprehenderit qui in ea voluptate velit esse quam</a>
-                                            </td>
-                                            <td class="text-right">April 20</td>
-                                        </tr>
-                                        <tr class="unread">
-                                            <td>
-                                                <input type="checkbox" class="mail-checkbox">
-                                            </td>
-                                            <td>
-                                            </td>
-                                            <td class="message"><a href="#"><span class="title">Ellen Baker</span>
-                                                Timeline - Nam libero tempore, cum soluta nobis</a>
-                                            </td>
-                                            <td class="text-right">
-                                            </td>
-                                        </tr>
                                         </tbody>
                                     </table>
 
@@ -153,13 +106,14 @@
                             <div class="panel-body">
                                 <header>
                                     <h2>New Message</h2>
+
                                 </header>
                                 <div class="row view-mail-header">
                                     <div class="col-md-12">
                                         <div class="view-mail-reply pull-right">
-                                            <button class="btn btn-sm btn-primary">Send</button>
-                                            <button class="btn btn-default btn-sm tooltips" data-original-title="Discard" data-toggle="tooltip" data-placement="top" title="Discard"><i class="fa fa-times"></i> Discard
-                                            </button>
+                                            <div id="success" hidden="true">
+                                                <p  class="label label-success">email successfully sent..</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -188,9 +142,11 @@
                                                 <textarea class="textarea form-control" rows="5" cols="40" placeholder="Enter text ..." style="width: 100%; height: 200px"></textarea>
                                             </div>
                                             <div class="panel-footer">
-                                                <button class="btn btn-sm btn-primary ">Send</button>
+                                                <input type="hidden" name="username" value="{{ user.email }}">
+                                                <button class="btn btn-sm btn-primary " id="send">Send</button>
                                                 <button class="btn btn-default btn-sm "><i class="fa fa-times"></i> Discard</button>
                                                 <button class="btn btn-default btn-sm pull-right"> Attach a File</button>
+
 
                                             </div>
                                         </div>

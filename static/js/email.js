@@ -18,9 +18,10 @@ $(document).ready(function() {
         }
     });
 
-    $("button[class='btn btn-sm btn-primary']").on('click', function(event) {
+    $("#send").on('click', function(event) {
         event.preventDefault();
-
+        var from = $("input[name='username']").val();
+        console.log(from);
         to = $('#to').val();
         var subject = $('#subject').val();
         var message = $("textarea[class='textarea form-control']").val();
@@ -40,7 +41,7 @@ $(document).ready(function() {
             data: {
                 'key': 'OM0lDv3olFdqujMd9yckTQ',
                 'message': {
-                    'from_email': 'alfredayibonte@gmail.com',
+                    'from_email': from,
                     'to': mylist,
                     'autotext': 'true',
                     'subject': subject,
@@ -55,12 +56,13 @@ $(document).ready(function() {
 });
 
 function success_func(data) {
-    console.log(data);
+
     location.reload();
+    $('#success').show();
 }
 
 function error_func(er) {
-    console.log(er);
+
     location.reload();
 
 }
