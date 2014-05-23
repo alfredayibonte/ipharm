@@ -11,7 +11,7 @@ from django.views import generic
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
 from pharmacies.forms import MyRegistrationForm, ContactForm
-from pharmacies.models import Pharmacy, Client
+from pharmacies.models import Pharmacy, Client, MyUser
 
 
 
@@ -56,6 +56,20 @@ class Email(generic.ListView):
         return context
 
 
+class EditProfile(generic.ListView):
+    model = MyUser
+    template_name = 'registration/edit_profile.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(EditProfile, self).dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(EditProfile, self).get_context_data(**kwargs)
+        context['pharmacy'] = Pharmacy.objects.get(user=self.request.user)
+        return context
+
+
 class Register(View):
     form_class = MyRegistrationForm
     initial = {}
@@ -73,6 +87,15 @@ class Register(View):
             auth.login(request, user)
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
+
+class Profile(View):
+    model = MyUser
+    template_name = 'registration/profile.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        pass
 
 
 class Contact(View):

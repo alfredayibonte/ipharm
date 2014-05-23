@@ -40,14 +40,8 @@ $("#line").hide();
 
     });
 
-
-
-}
-
-function success_func(response){
-     $("#line").show();
-    $('#popups').html(response);
-     $("#location").find("a").on('click', function(event){
+//onclick
+    $("#location").find("a").on('click', function(event){
         event.preventDefault();
          var $handler = $(this).parent().parent();
          lat = $handler.find("input[name='lat']").val();
@@ -56,6 +50,13 @@ function success_func(response){
          initialize();
 
     });
+
+
+}
+
+function success_func(response){
+     $("#line").show();
+    $('#popups').html(response);
 
 
 }
@@ -73,55 +74,55 @@ function error_func(err){
 function initialize()
 {
     var lng = parseFloat(lng);
-  var lat = parseFloat(lat);
-  var mapOptions;
-  var marker;
-  if(isNaN(lng) || isNaN(lat))
-  {
-    mapOptions = {
-      zoom: 8,
-      center: new google.maps.LatLng(5.55571, -0.19630)
-    };
-  }
-  else
-  {
-    mapOptions = {
-      zoom: 8,
-      center: new google.maps.LatLng(lng, lat)
-    };
+    var lat = parseFloat(lat);
+    var mapOptions;
+    var marker;
+    if(isNaN(lng) || isNaN(lat))
+    {
+        mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(5.55571, -0.19630)
+        };
+    }
+    else
+    {
+        mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(lng, lat)
+        };
 
-  }
+    }
 
-  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-  //inistantiation of marker
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    //inistantiation of marker
     marker = new google.maps.Marker({
-      position: new google.maps.LatLng(lng, lat),
-      map: map,
-      draggable: true,
-      animation:google.maps.Animation.BOUNCE
+        position: new google.maps.LatLng(lng, lat),
+        map: map,
+        draggable: true,
+        animation:google.maps.Animation.BOUNCE
     });
 
     // This is what happens when you click the map.
-  google.maps.event.addListener(map, 'click', function(event) {
-   marker.setMap(map);
-   marker.setPosition(event.latLng);
-   lat = event.latLng.lat();
-   lng = event.latLng.lng();
-   document.getElementById("lng").value = lng;
-   document.getElementById("lat").value = lat;
+    google.maps.event.addListener(map, 'click', function(event) {
+        marker.setMap(map);
+        marker.setPosition(event.latLng);
+        lat = event.latLng.lat();
+        lng = event.latLng.lng();
+        document.getElementById("lng").value = lng;
+        document.getElementById("lat").value = lat;
 
 
-  });
-  // This is what happens when you dragg the marker
+    });
+    // This is what happens when you dragg the marker
 
-  google.maps.event.addListener(marker, 'dragend',function(){
-   lat = marker.getPosition().lat();
-   lng = marker.getPosition().lng();
-   document.getElementById("lng").value = lng;
-   document.getElementById("lat").value =  lat;
-   var myCenter=new google.maps.LatLng(lat, lng);
-   marker.setPosition(myCenter);
- });
+    google.maps.event.addListener(marker, 'dragend',function(){
+        lat = marker.getPosition().lat();
+        lng = marker.getPosition().lng();
+        document.getElementById("lng").value = lng;
+        document.getElementById("lat").value =  lat;
+        var myCenter=new google.maps.LatLng(lat, lng);
+        marker.setPosition(myCenter);
+    });
 
 }
 
@@ -129,11 +130,9 @@ function initialize()
 //Ajax call
 function loadScript()
 {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBWDK8TRLNEAx8IP0G0WLzo3fErSXVajc4&sensor=false&' +
-  'callback=initialize';
-  document.body.appendChild(script);
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBWDK8TRLNEAx8IP0G0WLzo3fErSXVajc4&sensor=false&' +
+        'callback=initialize';
+    document.body.appendChild(script);
 }
-
-
