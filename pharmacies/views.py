@@ -41,6 +41,21 @@ class Chart(generic.ListView):
         return render(request, self.template_name)
 
 
+class SMS(generic.ListView):
+    model = Client
+    template_name = 'registration/sms.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(SMS, self).dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(SMS, self).get_context_data(**kwargs)
+        pharmacy = Pharmacy.objects.get(user=self.request.user)
+        context['client'] = Client.objects.filter(pharmacy=pharmacy)
+        return context
+
+
 class Email(generic.ListView):
     model = Client
     template_name = 'registration/email.html'
@@ -90,12 +105,16 @@ class Register(View):
 
 class PharmacyProfile(View):
     model = Client
-    template_name = 'registration/p_profile.html'
+    template_name = 'registration/user.html'
 
     def get(self, request, *args, **kwargs):
         pharmacy = Pharmacy.objects.get(user=request.user)
         form = Client.objects.filter(pharmacy=pharmacy)
-        return render(request, self.template_name, {'client':form})
+        return render(request, self.template_name, {'client': form})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(PharmacyProfile, self).dispatch(*args, **kwargs)
 
 
 class Profile(View):

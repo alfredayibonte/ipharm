@@ -83,7 +83,8 @@
                                                 </td>
                                                 <td class="message">
                                                     <a href="#">
-                                                        <span class="title"> {{ u.email }} </span>
+                                                       <span class="title">{{ u.telephone }}</span> <span class="text-normal">{{ u.name }} </span><br>
+                                                        {{ u.email }}<br>
                                                         {{ u.note }}
                                                     </a>
                                                 </td>
@@ -125,21 +126,16 @@
                                                 <div class="form-group">
                                                     <input type="email" class="form-control" id="to" placeholder="To:">
                                                     <div class="send-options">
-                                                        <a href="javascript:void(0);" class="ccLink">Cc</a>
-                                                        <a href="javascript:void(0);" class="bccLink">Bcc</a>
+
                                                     </div>
                                                 </div>
                                                 <div class="form-group" id="form-group-cc">
                                                     <input type="text" class="form-control" id="cc" placeholder="Cc:">
                                                 </div>
                                                 <div class="form-group" id="form-group-bcc">
-                                                    <input type="text" class="form-control" id="bcc" placeholder="Bcc:">
+                                                    <input type="text" class="form-control" id="bcc">
                                                 </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" id="subject" placeholder="Subject:">
-                                                </div>
-
-                                                <textarea class="textarea form-control" rows="5" cols="40" placeholder="Enter text ..." style="width: 100%; height: 200px"></textarea>
+                                            <textarea class="textarea form-control" rows="5" cols="40" placeholder="Enter text ..." style="width: 100%; height: 200px"></textarea>
                                             </div>
                                             <div class="panel-footer">
                                                 <input type="hidden" name="username" value="{{ user.email }}">
