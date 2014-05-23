@@ -55,7 +55,7 @@
             <div class="user-nav">
                 <ul>
                     <li class="profile-photo">
-                        <img src="{% static 'img/avatar.jpg' %}" alt="" class="img-circle" style="height: 50px; width: 50px;">
+                        <img src="/static/{{ user.image }}" alt="" class="img-circle" style="height: 50px; width: 50px;">
                     </li>
                     <li class="dropdown settings">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -107,7 +107,7 @@
                             <li><a href="{% url 'pharmacies:email' %}"><i class="fa fa fa-envelope"></i>Email</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa fa-envelope"></i>SMS</a>
+                                <a href="{% url 'pharmacies:sms' %}"><i class="fa fa fa-envelope"></i>SMS</a>
                             </li>
                             <li><a href="#"><i class="fa fa-plus"></i>add note</a></li>
                         </ul>

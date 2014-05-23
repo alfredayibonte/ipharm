@@ -1,0 +1,246 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+    <!--main content start-->
+        <section class="main-content-wrapper">
+            <section id="main-content">
+                <!--mail wrapper start-->
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-12" id="inbox-wrapper">
+
+                        <section class="panel">
+                            <header class="panel-heading wht-bg">
+                                <h4 class="gen-case">Inbox ({{ client|length }})
+                        <form action="#" class="pull-right mail-src-position">
+                            <div class="input-append">
+                                <input type="text" class="form-control " placeholder="Search Mail">
+                            </div>
+                        </form>
+                       </h4>
+                            </header>
+                            <div class="panel-body minimal">
+                                <div class="mail-option">
+                                    <div class="pull-left mail-checkbox ">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                                            All <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">None</a>
+                                            </li>
+                                            <li><a href="#">Read</a>
+                                            </li>
+                                            <li><a href="#">Unread</a>
+                                            </li>
+                                            <li><a href="#">Starred</a>
+                                            </li>
+                                            <li><a href="#">Unstarred</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a data-original-title="Refresh" data-placement="top" data-toggle="tooltip" href="#" class="btn btn-default btn-sm tooltips">
+                                            <i class=" fa fa-refresh"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown">
+                                            More <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a>
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-ban"></i> Spam</a>
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="inbox-pag pull-right">
+                                        <li><span>1-50 of 83</span>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-default btn-sm" href="#"><i class="fa fa-angle-left  pag-left"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-default btn-sm" href="#"><i class="fa fa-angle-right pag-right"></i></a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-inbox table-hover">
+                                        <tbody>
+                                        {% for u in client %}
+                                            <tr class="unread">
+                                                <td>
+                                                    <input type="checkbox" class="mail-checkbox">
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td class="message">
+                                                    <a href="#">
+                                                       <span class="title">{{ u.telephone }}</span> <span class="text-normal">{{ u.name }} </span><br>
+                                                        {{ u.email }}<br>
+                                                        {{ u.note }}
+                                                    </a>
+                                                </td>
+
+                                                <td class="text-right">{{ u.date_joined }}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                    <div class="col-md-6 col-sm-12" id="view-mail-wrapper">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <header>
+                                    <h2>New Message</h2>
+
+                                </header>
+                                <div class="row view-mail-header">
+                                    <div class="col-md-12">
+                                        <div class="view-mail-reply pull-right">
+                                            <div id="success" hidden="true">
+                                                <p  class="label label-success">email successfully sent..</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel view-compose-body">
+                                            <div class="panel-body">
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" id="to" placeholder="To:">
+                                                    <div class="send-options">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" id="form-group-cc">
+                                                    <input type="text" class="form-control" id="cc" placeholder="Cc:">
+                                                </div>
+                                                <div class="form-group" id="form-group-bcc">
+                                                    <input type="text" class="form-control" id="bcc">
+                                                </div>
+                                            <textarea class="textarea form-control" rows="5" cols="40" placeholder="Enter text ..." style="width: 100%; height: 200px"></textarea>
+                                            </div>
+                                            <div class="panel-footer">
+                                                <input type="hidden" name="username" value="{{ user.email }}">
+                                                <button class="btn btn-sm btn-primary " id="send">Send</button>
+                                                <button class="btn btn-default btn-sm "><i class="fa fa-times"></i> Discard</button>
+                                                <button class="btn btn-default btn-sm pull-right"> Attach a File</button>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--mail wrapper end-->
+            </section>
+        </section>
+    <!--main content end-->
+    <!--sidebar right start-->
+    <aside class="sidebarRight">
+        <div id="rightside-navigation">
+            <div class="sidebar-heading"><i class="fa fa-user"></i> Contacts</div>
+            <div class="sidebar-title">online</div>
+            <div class="list-contacts">
+                <a href="javascript:void(0)" class="list-item">
+                    <div class="list-item-image">
+
+                    </div>
+                    <div class="list-item-content">
+                        <h4>James Bagian</h4>
+                        <p>Los Angeles, CA</p>
+                    </div>
+                    <div class="item-status item-status-online"></div>
+                </a>
+                <a href="javascript:void(0)" class="list-item">
+                    <div class="list-item-image">
+
+                    </div>
+                    <div class="list-item-content">
+                        <h4>Jeffrey Ashby</h4>
+                        <p>New York, NY</p>
+                    </div>
+                    <div class="item-status item-status-online"></div>
+                </a>
+                <a href="javascript:void(0)" class="list-item">
+                    <div class="list-item-image">
+
+                    </div>
+                    <div class="list-item-content">
+                        <h4>John Douey</h4>
+                        <p>Dallas, TX</p>
+                    </div>
+                    <div class="item-status item-status-online"></div>
+                </a>
+                <a href="javascript:void(0)" class="list-item">
+                    <div class="list-item-image">
+
+                    </div>
+                    <div class="list-item-content">
+                        <h4>Ellen Baker</h4>
+                        <p>London</p>
+                    </div>
+                    <div class="item-status item-status-away"></div>
+                </a>
+            </div>
+
+            <div class="sidebar-title">offline</div>
+            <div class="list-contacts">
+                <a href="javascript:void(0)" class="list-item">
+                    <div class="list-item-image">
+
+                    </div>
+                    <div class="list-item-content">
+                        <h4>Ivan Bella</h4>
+                        <p>Tokyo, Japan</p>
+                    </div>
+                    <div class="item-status"></div>
+                </a>
+                <a href="javascript:void(0)" class="list-item">
+                    <div class="list-item-image">
+
+                    </div>
+                    <div class="list-item-content">
+                        <h4>Gerald Carr</h4>
+                        <p>Seattle, WA</p>
+                    </div>
+                    <div class="item-status"></div>
+                </a>
+                <a href="javascript:void(0)" class="list-item">
+                    <div class="list-item-image">
+
+                    </div>
+                    <div class="list-item-content">
+                        <h4>Viktor Gorbatko</h4>
+                        <p>Palo Alto, CA</p>
+                    </div>
+                    <div class="item-status"></div>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <!--sidebar right end-->
+{% endblock %}
