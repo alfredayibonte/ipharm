@@ -58,8 +58,9 @@ class ContactForm(forms.Form):
     joined_date = forms.DateField(required=False)
     email = forms.EmailField(required=False)
     address = forms.CharField(required=False)
-    telephone = forms.CharField(required=False)
+    telephone = forms.CharField(required=True)
     note = forms.CharField(required=False)
+    name = forms.CharField(required=True)
 
     class Meta:
         model = Client

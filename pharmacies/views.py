@@ -45,12 +45,15 @@ class Email(generic.ListView):
     model = Client
     template_name = 'registration/email.html'
 
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
-
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(Email, self).dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(Email, self).get_context_data(**kwargs)
+        pharmacy = Pharmacy.objects.get(user=self.request.user)
+        context['client'] = Client.objects.filter(pharmacy=pharmacy)
+        return context
 
 
 class Register(View):
@@ -88,6 +91,12 @@ class Contact(View):
             form.save()
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
+
+    def get_context_data(self, **kwargs):
+        context = super(Contact, self).get_context_data(**kwargs)
+        context['client'] = Client.objects.all()
+        return context
+
 
 
     @method_decorator(login_required)
