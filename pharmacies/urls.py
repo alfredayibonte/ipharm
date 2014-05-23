@@ -8,5 +8,5 @@ urlpatterns = patterns(
     url(r'^contact/$', pharmacy.Contact.as_view(), name='contact'),
     url(r'^edit/$', pharmacy.EditProfile.as_view(), name='edit'),
     url(r'^profile/$', pharmacy.Profile.as_view(), name='profile'),
-    url(r'^/p_profile$', pharmacy.PharmacyProfile.as_view(), name='p_profile'),
+    url(r'^user/$', pharmacy.PharmacyProfile.as_view(), name='pharmacy'),
 )
