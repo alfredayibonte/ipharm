@@ -31,9 +31,19 @@
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
     <![endif]-->
-</head>
 
-<body class="animated fadeIn">
+    <style type="text/css">
+        .pattern-bg{
+            background-image: url('/static/img/bg.png');
+            background-color: whitesmoke;
+        }
+
+        .box-sw{
+            box-shadow: 10px 10px 5px #888888;
+        }
+    </style>
+
+<body class="animated fadeIn pattern-bg">
     <section id="login-container">
 
         <div class="row">
@@ -44,7 +54,7 @@
                            Sign Up
                         </h3>  
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body box-sw">
                         <p >Already a member? <a href="{% url 'login' %}"><strong>Sign In</strong></a></p>
                         <form role="form" method="post" action="{% url 'register' %}">{% csrf_token %}
                             <div class="form-group">
