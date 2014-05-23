@@ -45,17 +45,17 @@
             <!-- search box-->
             <div class="row"  id="find">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <div class="input-group input-group-lg centered">{% csrf_token %}
-                        <input type="text" class="form-control rounded" placeholder="search for drug" id="search" autocomplete="off">
+                    <div class="input-group input-group-lg centered" >{% csrf_token %}
+                        <input type="text" class="form-control rounded" placeholder="search for drug" id="search" autocomplete="on" >
                         <span class="input-group-addon btn-primary"><i class="fa fa-search"></i></span>
+
 
                     </div>
                     <div id="line">
                         <hr>
                     </div>
-                       <div id="popups" style="position: absolute; color:white; font-size: 120%; list-style: none;">
+                    <div  style="position: absolute; color:white; font-size: 120%; list-style: none;" id="popups"> </div>
 
-                    </div>
                 </div>
             </div>
 
@@ -89,7 +89,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/google_map.js' %}"></script>
+
+
+
 
   </body>
 </html>

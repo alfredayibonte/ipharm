@@ -5,6 +5,12 @@ from pharmacies.models import Pharmacy, MyUser, Client
 User = get_user_model()
 
 
+
+
+class EditProfileForm(forms.Form):
+    pass
+
+
 class MyRegistrationForm(forms.ModelForm):
     email = forms.CharField(
         max_length=50,
