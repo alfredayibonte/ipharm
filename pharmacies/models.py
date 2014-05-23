@@ -112,6 +112,7 @@ class Pharmacy(models.Model):
     name = models.CharField(max_length=200, blank=False, unique=True)
     date_joined = models.DateTimeField(default=timezone.now)
     user = models.OneToOneField(MyUser, primary_key=True)
+    images = models.ImageField(upload_to='pic_folder/', default='pic_folder/avatar.jpg')
 
     def __str__(self):
         return self.name
