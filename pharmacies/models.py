@@ -50,7 +50,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     location = models.CharField(_('location'), max_length=200, blank=True)
     mobile = models.CharField(_('mobile'), max_length=100, blank=True)
     address = models.CharField(_('address'), max_length=100, blank=True)
-    images = models.ImageField(upload_to='pic_folder/', default='pic_folder/None/no-img.jpg')
+    images = models.ImageField(upload_to='pic_folder/', default='img/avatar.jpg')
     last_visit = models.DateField(_('last_visit'), blank=True, null=True)
     note = models.CharField(_('note'), max_length=200, blank=True)
     username = models.CharField(_('username'), max_length=30, blank=True, unique=False,
@@ -112,6 +112,7 @@ class Pharmacy(models.Model):
     name = models.CharField(max_length=200, blank=False, unique=True)
     date_joined = models.DateTimeField(default=timezone.now)
     user = models.OneToOneField(MyUser, primary_key=True)
+    images = models.ImageField(upload_to='pic_folder/', default='img/avatar.jpg')
 
     def __str__(self):
         return self.name

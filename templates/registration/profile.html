@@ -12,101 +12,18 @@
                             <li class="active">profile</li>
                         </ul>
                         <!--breadcrumbs end -->
-                    <h1 class="h1">{{ user.username }}'s Profile</h1>
+                    <h1 class="h1">{{ user.pharmacy.name }} contact list</h1>
                 </div>
                 </div>
 
-                  <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-solid-info">
-                          <div class="panel-heading">
-                            <h3 class="panel-title">Profile</h3>
-                            <div class="actions pull-right">
-                                <i class="fa fa-chevron-down"></i>
-                                <i class="fa fa-times"></i>
-                            </div>
-                          </div>
-                          <div class="panel-body">
-                            <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th>#</th>
 
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th>Email</th>
-                                      <td>{{ user.email }}</td>
-
-                                    </tr>
-                                    <tr>
-                                      <th>username</th>
-                                      <td>{{ username }}</td>
-                                    </tr>
-                                    <tr>
-                                      <td>3</td>
-                                      <td>Larry</td>
-                                      <td>the Bird</td>
-                                      <td>@twitter</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                           <div class="panel panel-default">
-                          <div class="panel-heading">
-                            <h3 class="panel-title">Striped rows</h3>
-                            <div class="actions pull-right">
-                                <i class="fa fa-chevron-down"></i>
-                                <i class="fa fa-times"></i>
-                            </div>
-                          </div>
-                          <div class="panel-body">
-                            <table class="table table-striped">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Username</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <td>3</td>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                    </div>
-                </div>
 
                  <div class="row">
                     <div class="col-md-12">
 
                         <div class="panel panel-default">
                           <div class="panel-heading">
-                            <h3 class="panel-title">Responsive table</h3>
+                            <h3 class="panel-title">Contact List</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -119,42 +36,29 @@
                                 <thead>
                                   <tr>
                                     <th>#</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
+                                    <th>Email</th>
+                                    <th>Name</th>
+                                    <th>Note</th>
+                                    <th>Address</th>
+                                    <th>Date Joined</th>
+                                    <th>Telephone</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <td>1</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                  </tr>
-                                  <tr>
-                                    <td>2</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                  </tr>
-                                  <tr>
-                                    <td>3</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                  </tr>
+                                {% for u in client %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ u.email }}</td>
+                                        <td>{{ u.name }}</td>
+                                        <td>{{ u.note }}</td>
+                                        <td>{{ u.address }}</td>
+                                        <td>{{ u.date_joined }}</td>
+                                        <td>{{ u.telephone }}</td>
+
+                                    </tr>
+                                {% endfor %}
+
+
                                 </tbody>
                               </table>
                             </div>

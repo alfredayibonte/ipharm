@@ -59,15 +59,14 @@ class Email(generic.ListView):
 class EditProfile(generic.ListView):
     model = MyUser
     template_name = 'registration/edit_profile.html'
-
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(EditProfile, self).dispatch(*args, **kwargs)
-
     def get_context_data(self, **kwargs):
         context = super(EditProfile, self).get_context_data(**kwargs)
         context['pharmacy'] = Pharmacy.objects.get(user=self.request.user)
         return context
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(EditProfile, self).dispatch(*args, **kwargs)
 
 
 class Register(View):
@@ -88,14 +87,31 @@ class Register(View):
             return HttpResponseRedirect(reverse('pharmacies:main'))
         return render(request, self.template_name, {'form': form})
 
-class Profile(View):
-    model = MyUser
-    template_name = 'registration/profile.html'
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
 
-    def post(self, request, *args, **kwargs):
-        pass
+class PharmacyProfile(View):
+    model = Client
+    template_name = 'registration/p_profile.html'
+
+    def get(self, request, *args, **kwargs):
+        pharmacy = Pharmacy.objects.get(user=request.user)
+        form = Client.objects.filter(pharmacy=pharmacy)
+        return render(request, self.template_name, {'client':form})
+
+
+class Profile(View):
+    model = Client
+    template_name = 'registration/profile.html'
+
+    def get(self, request, *args, **kwargs):
+        pharmacy = Pharmacy.objects.get(user=request.user)
+        form = Client.objects.filter(pharmacy=pharmacy)
+        return render(request, self.template_name, {'client':form})
+
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(Profile, self).dispatch(*args, **kwargs)
+
 
 
 class Contact(View):
