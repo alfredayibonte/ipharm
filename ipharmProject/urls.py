@@ -26,5 +26,4 @@ urlpatterns = patterns(
         'django.contrib.auth.views.password_reset_confirm',
         name='password_reset_confirm'),
     url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
-
 )

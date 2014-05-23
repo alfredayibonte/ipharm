@@ -3,9 +3,12 @@ import os
 BASE_DIR = lambda *x: os.path.join(os.path.dirname(os.path.dirname(__file__)), *x)
 
 SECRET_KEY = os.environ['S3_KEY']
-DEBUG = os.environ['DEBUG']
 
-TEMPLATE_DEBUG = DEBUG
+
+# setting debug and template debug
+DEBUG = os.environ.get('DEBUG') == 'True'
+TEMPLATE_DEBUG = os.environ.get('TEMPLATE_DEBUG') == 'True'
+
 
 ALLOWED_HOSTS = ["*"]
 
@@ -78,9 +81,5 @@ STATICFILES_DIRS = (
 
 TEMPLATE_DIRS = [BASE_DIR('templates')]
 
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-
-
-
-
