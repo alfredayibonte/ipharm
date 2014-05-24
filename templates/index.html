@@ -30,7 +30,10 @@
   
     <header id="site-header" class="site-header" style="height: 100%; position: fixed;">
       <div class="container" id="hide_me">
-        <h1><a class="site-title pull-left" href="{% url 'home' %}">ipharm</a></h1>
+        <h1><a class="site-title pull-left" href="{% url 'home' %}">
+          <!-- ipharm -->
+          <img style="height: 25%;width: 25%; margin-top:-20px; margin-left: -65px;" src="/static/img/white-logo.png">
+        </a></h1>
         <div class="btn-users text-right">
             <span style="font-size: 120%; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Sans-Serif'; color: #FFF;"></span>
           <a class="btn btn-login" href="{% url 'login' %}">Login</a> |
