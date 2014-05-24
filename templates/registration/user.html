@@ -85,10 +85,12 @@
                                 <thead>
 
                                 </thead>
-                                  <form method="post" action="." class="form-group" enctype="multipart/form-data">{% csrf_token %}
+                                  <form method="post" action="{% url 'pharmacies:pharmacy' %}" class="form-group" enctype="multipart/form-data">{% csrf_token %}
                                       <tbody>
                                       <tr>
-                                          <th span="2"><img src="/static/{{ user.pharmacy.images }}" width="70px" height="70px"></th>
+                                          <th span="2"><img src="/static/{{ user.pharmacy.images }}" width="70px" height="70px">
+                                          <input type="file" name="images">
+                                          </th>
 
                                       </tr>
                                       <tr>
@@ -112,7 +114,7 @@
                                           <td><input type="text" placeholder="telephone" class="form-control" name="telephone"></td>
                                       </tr>
                                       <tr>
-                                          <td colspan="2"><input type="submit" value="submit" class="btn btn-primary"></td>
+                                          <td colspan="2"><input type="submit" value="submit" class="btn btn-primary pull-right"></td>
                                       </tr>
                                       </tbody>
                                   </form>

@@ -5,10 +5,35 @@ from pharmacies.models import Pharmacy, MyUser, Client
 User = get_user_model()
 
 
+class EditProfileForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+        super(EditProfileForm, self).__init__(*args, **kwargs)
 
+    images = forms.ImageField(required=False)
+    username = forms.CharField(required=False)
+    name = forms.CharField(required=True)
+    email = forms.EmailField(required=False)
+    address = forms.CharField(required=False)
 
-class EditProfileForm(forms.Form):
-    pass
+    class Meta:
+        model = MyUser
+        fields = ('username', )
+
+    def save(self, commit=True):
+        user = self.request.user
+        user = super(EditProfileForm, self).save(commit=False)
+        if commit:
+            pharmacy = Pharmacy.objects.get(user=user)
+            pharmacy.name = self.cleaned_data['name']
+            pharmacy.address = self.cleaned_data['address']
+            pharmacy.email = self.cleaned_data['email']
+            pharmacy.telephone = self.cleaned_data['telephone']
+            pharmacy.images = self.cleaned_data['images']
+            #user.username = self.cleaned_data['username']
+            user.save()
+        return user
+
 
 
 class MyRegistrationForm(forms.ModelForm):

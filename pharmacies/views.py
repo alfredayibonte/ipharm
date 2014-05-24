@@ -10,7 +10,7 @@ from django.utils.decorators import method_decorator
 from django.views import generic
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
-from pharmacies.forms import MyRegistrationForm, ContactForm
+from pharmacies.forms import MyRegistrationForm, ContactForm, EditProfileForm
 from pharmacies.models import Pharmacy, Client, MyUser
 
 
@@ -105,12 +105,20 @@ class Register(View):
 
 class PharmacyProfile(View):
     model = Client
+    form_class = EditProfileForm
     template_name = 'registration/user.html'
 
     def get(self, request, *args, **kwargs):
         pharmacy = Pharmacy.objects.get(user=request.user)
         form = Client.objects.filter(pharmacy=pharmacy)
         return render(request, self.template_name, {'client': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:pharmacy'))
+        return HttpResponseRedirect(reverse('pharmacies:pharmacy'))
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -132,7 +140,6 @@ class Profile(View):
         return super(Profile, self).dispatch(*args, **kwargs)
 
 
-
 class Contact(View):
     model = Client
     initial = {}
@@ -147,7 +154,7 @@ class Contact(View):
         form = self.form_class(request.POST, request=request)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('pharmacies:main'))
+            return HttpResponseRedirect(reverse('pharmacies:profile'))
         return render(request, self.template_name, {'form': form})
 
     def get_context_data(self, **kwargs):
