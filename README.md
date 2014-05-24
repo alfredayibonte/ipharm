@@ -1,8 +1,8 @@
 iPharm
 ======
-ipharm is a web platform that helps customers connect to  local pharmacies to  find the medication they need. 
-Upon searching for a drug on our platform, user will be presented with a google map showing all pharmacies around their vicinity where they can get that particular drug.
-This application is intented to have a DBMS for all the pharmacies that signs up and also become the one stop online resource for drugs.
+iPharm is a web platform that helps customers connect to  local pharmacies to  find the medication they need. 
+Upon searching for a drug on our platform, users will be presented with a google map showing all pharmacies around their vicinity where they can get that particular drug.
+This application is intented to have a Inventory Management System for all the pharmacies that signs up and also become the one stop online resource for drugs.
 
 users app
 =========
