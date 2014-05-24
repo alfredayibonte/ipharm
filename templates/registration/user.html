@@ -2,20 +2,131 @@
 {% block content %}
     <!--main content start-->
 <section class="main-content-wrapper">
-    <section id="main-content">
-        <div class="row">
-            <div class="col-md-12">
-                <!--breadcrumbs start -->
-                <ul class="breadcrumb">
-                    <li><a href="{% url 'pharmacies:main' %}">Dashboard</a>
-                    </li>
-                </ul>
-                <!--breadcrumbs end -->
-
+            <section id="main-content">
+            <div class="row">
+                    <div class="col-md-12">
+                        <!--breadcrumbs start -->
+                        <ul class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li>{{ user.username }}</li>
+                            <li class="active">profile</li>
+                        </ul>
+                        <!--breadcrumbs end -->
+                    </div>
             </div>
-        </div>
 
-    </section>
-</section>
+
+
+                <div class="row">
+                    <div class="col-md-6" id="profile_me">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Pharmacy profile</h3>
+                                <div class="actions pull-right">
+                                    <i class="fa fa-chevron-down"></i>
+                                    <i class="fa fa-times"></i>
+                                </div>
+                          </div>
+                          <div class="panel-body">
+
+                            <div class="table-responsive">
+                              <table class="table table-bordered table-striped">
+                                <thead>
+
+                                </thead>
+                                  <tbody>
+                                  <tr>
+                                        <th span="2"><img src="/static/{{ user.pharmacy.images }}" width="70px" height="70px"></th>
+
+                                    </tr>
+                                  <tr>
+                                      <th>Pharmacy Name</th>
+                                      <td>{{ user.pharmacy.name }}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>Username</th>
+                                      <td>{{ user.username }}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>Email</th>
+                                      <td>{{ user.email }}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>Address</th>
+                                      <td>{{ user.pharmacy.address }}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>Phone</th>
+                                      <td>{{ user.pharmacy.telephone }}</td>
+                                  </tr>
+                               </tbody>
+                              </table>
+                                <a href="javascript:void(0);" class="pull-right text-muted" style="font-size: 1.3em;" id="edit"><i class="fa fa-edit"></i> Edit</a>
+                            </div>
+
+                    </div>
+                </div>
+               </div>
+                     <div class="col-md-6" id="edit_me">
+
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">Edit profile</h3>
+                            <div class="actions pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-times"></i>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+
+                            <div class="table-responsive">
+                              <table class="table table-bordered table-striped">
+                                <thead>
+
+                                </thead>
+                                  <form method="post" action="." class="form-group" enctype="multipart/form-data">{% csrf_token %}
+                                      <tbody>
+                                      <tr>
+                                          <th span="2"><img src="/static/{{ user.pharmacy.images }}" width="70px" height="70px"></th>
+
+                                      </tr>
+                                      <tr>
+                                          <th>Pharmacy Name</th>
+                                          <td><input type="text" placeholder="name" class="form-control" name="name"></td>
+                                      </tr>
+                                      <tr>
+                                          <th>Username</th>
+                                          <td><input type="text" placeholder="username" class="form-control" name="username"></td>
+                                      </tr>
+                                      <tr>
+                                          <th>Email</th>
+                                          <td><input type="text" placeholder="email" class="form-control" name="email"></td>
+                                      </tr>
+                                      <tr>
+                                          <th>Address</th>
+                                          <td><input type="text" placeholder="address" class="form-control" name="address"></td>
+                                      </tr>
+                                      <tr>
+                                          <th>Phone</th>
+                                          <td><input type="text" placeholder="telephone" class="form-control" name="telephone"></td>
+                                      </tr>
+                                      <tr>
+                                          <td colspan="2"><input type="submit" value="submit" class="btn btn-primary"></td>
+                                      </tr>
+                                      </tbody>
+                                  </form>
+                              </table>
+                                <a href="javascript:void(0);" class="pull-right text-muted" style="font-size: 1.3em;" id="back"><i class="fa fa-backward"></i> back</a>
+                            </div>
+
+                    </div>
+                </div>
+               </div>
+             </div>
+
+
+            </section>
+         </section>
         <!--main content end-->
 {% endblock %}
