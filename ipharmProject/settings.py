@@ -1,5 +1,6 @@
 import dj_database_url
 import os
+
 BASE_DIR = lambda *x: os.path.join(os.path.dirname(os.path.dirname(__file__)), *x)
 
 SECRET_KEY = os.environ['S3_KEY']
