@@ -178,8 +178,7 @@ class Contact(View):
         return super(Contact, self).dispatch(*args, **kwargs)
 
 
-<<<<<<< HEAD
-=======
+
 @login_required()
 @require_http_methods(["POST"])
 def upload(request):
@@ -196,4 +195,3 @@ class MAP(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
->>>>>>> e022840c074c8bf7cce81fe796872963bf979fe5
