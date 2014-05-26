@@ -10,4 +10,5 @@ urlpatterns = patterns(
     url(r'^edit/$', pharmacy.EditProfile.as_view(), name='edit'),
     url(r'^profile/$', pharmacy.Profile.as_view(), name='profile'),
     url(r'^user/$', pharmacy.PharmacyProfile.as_view(), name='pharmacy'),
+    url(r'^map/$', pharmacy.MAP.as_view(), name='map'),
 )

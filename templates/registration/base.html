@@ -140,7 +140,7 @@
                     <li class="sub-menu">
                         <a href="javascript:void(0);"><i class="fa fa-map-marker"></i><span>Maps</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
-                            <li><a href="#">Edit location</a>
+                            <li><a href="{% url 'pharmacies:map' %}">Edit location</a>
                             </li>
                             <li><a href="#">Vector Map</a>
                             </li>
@@ -167,6 +167,8 @@
     <script src="{% static 'js/waypoints.min.js' %}"></script>
     <script src="{% static 'js/application.js' %}"></script>
     <script src="{% static 'js/edit.js' %}"></script>
+    <!-- map js addition -->
+    <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
     <!--Page Level JS-->
     <script src="{% static 'js/icheck.min.js' %}"></script>
     <script>
