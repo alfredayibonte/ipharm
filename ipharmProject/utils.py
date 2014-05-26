@@ -14,13 +14,11 @@ def json_response(response_dict, status=200):
 def load_drugs(file_path):
     """
     :param file_path
-    :return drug
     """
     reader = csv.DictReader(open(file_path))
     for row in reader:
         try:
-            old_drug = Drug.objects.filter(name__iexact=row['Name'])
+            Drug.objects.get(name__iexact=row['Name'])
         except Drug.DoesNotExist:
-            drug = Drug.objects.create(name=row['Name'], description=row['Description'])
-            drug.save()
-            return drug
+            Drug.objects.get_or_create(name=row['Name'], description=row['Description'])
+            continue
