@@ -30,6 +30,7 @@ INSTALLED_APPS = (
     'inventories',
     'pharmacies',
     'south',
+    'rest_framework',
 
 
 )
@@ -56,7 +57,16 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.YAMLRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
 
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 LANGUAGE_CODE = 'en-us'
 

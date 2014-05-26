@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
+from inventories.api import router
 import views
 from pharmacies import views as pharmacy
 
@@ -8,6 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
+    url(r'^', include(router.urls)),
     url(r'^$', views.Home.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^inventory/', include('inventories.urls', namespace='inventories')),
@@ -26,4 +27,5 @@ urlpatterns = patterns(
         'django.contrib.auth.views.password_reset_confirm',
         name='password_reset_confirm'),
     url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 )

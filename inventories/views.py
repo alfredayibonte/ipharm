@@ -7,7 +7,7 @@ from django.views import generic
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
 from inventories.forms import DrugForm
-from inventories.models import Inventory
+from inventories.models import Inventory, Drug
 from pharmacies.models import Pharmacy
 
 
@@ -23,7 +23,7 @@ def search(request):
     drugs = []
     if request.POST and request.POST['search'] != '':
         search_text = request.POST['search']
-        drugs = Inventory.objects.filter(name__icontains=search_text)
+        drugs = Drug.objects.filter(name__icontains=search_text)
         return render_to_response('drugs.html', {'drugs': drugs})
     elif request.POST and request.POST['search_text'] == '':
         return render_to_response('drugs.html', {'drugs': drugs})

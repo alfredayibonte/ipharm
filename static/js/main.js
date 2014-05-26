@@ -3,6 +3,10 @@ var lng;
 var lat;
 function init(){
 $("#line").hide();
+    $("#drugs").autocomplete({
+    source: "/api/get_drugs/",
+    minLength: 2
+  });
 
 
     //search ajax
