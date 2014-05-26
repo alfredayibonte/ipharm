@@ -179,3 +179,9 @@ def upload(request):
     reader = csv.DictReader(filestream.read().splitlines(), dialect=dialect)
     results = [row for row in reader]
     return HttpResponse("thanks ")
+
+class MAP(generic.ListView):
+    template_name = 'registration/map.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
