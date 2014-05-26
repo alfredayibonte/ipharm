@@ -21,7 +21,7 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^inventory/', include('inventories.urls', namespace='inventories')),
     url(r'^pharmacy/', include('pharmacies.urls', namespace='pharmacies')),
-    url(r'^upload/', drug.upload, name='upload'),
+    url(r'^upload/', drug.UploadFile.as_view(), name='upload'),
     url(r'login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'register/$', pharmacy.Register.as_view(), name='register'),
     url(r'logout/$', pharmacy.Logout.as_view(), name='logout'),

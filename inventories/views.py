@@ -22,13 +22,27 @@ class DrugSearch(generic.ListView):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
-@login_required()
-@require_http_methods(["POST"])
-def upload(request):
-    form = UploadDrugForm(request.POST, request.FILES)
-    if form.is_valid():
-        load_drugs(form.cleaned_data['csv_file'])
-    return HttpResponse("thanks ")
+
+class UploadFile(View):
+    form_class = UploadDrugForm
+    initial = {}
+    template_name = 'registration/add_drug.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES)
+        if form.is_valid():
+            load_drugs(form.cleaned_data['csv_file'])
+            return HttpResponseRedirect(reverse('pharmacies:main'))
+        return render(request, self.template_name, {'form': form})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(UploadFile, self).dispatch(*args, **kwargs)
+
 
 
 
