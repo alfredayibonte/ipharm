@@ -18,4 +18,9 @@ def load_drugs(file_path):
     """
     reader = csv.DictReader(open(file_path))
     for row in reader:
-        old_drug, new_drug = Drug.objects.get_or_create(name=row['Name'], description=row['Description'])
+        try:
+            old_drug = Drug.objects.filter(name__iexact=row['Name'])
+        except Drug.DoesNotExist:
+            drug = Drug.objects.create(name=row['Name'], description=row['Description'])
+            drug.save()
+            return drug

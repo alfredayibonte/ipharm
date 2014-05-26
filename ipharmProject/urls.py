@@ -1,14 +1,19 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from inventories.api import router
+from rest_framework import routers
 import views
+from inventories.views import drug_list
 from pharmacies import views as pharmacy
+from pharmacies import serializers
+router = routers.DefaultRouter()
+router.register(r'users', serializers.UserViewSet)
+router.register(r'groups', serializers.GroupViewSet)
 
 admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    url(r'^', include(router.urls)),
+    url(r'^drug_list/$', drug_list, name='drug_list'),
     url(r'^$', views.Home.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^inventory/', include('inventories.urls', namespace='inventories')),

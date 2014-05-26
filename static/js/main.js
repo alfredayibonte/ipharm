@@ -1,47 +1,24 @@
 $(document).ready(init);
 var lng;
 var lat;
+var search;
+
 function init(){
 $("#line").hide();
-    $("#drugs").autocomplete({
-    source: "/api/get_drugs/",
-    minLength: 2
-  });
+    $("#first_heading").hide();
+     $.ajax({
+                url:"/drug_list/",
+                dataType:"json",
+                type:"GET",
+                success:success_func,
+                error: error_func
+            });
 
 
     //search ajax
     $("#search").keyup(function(){
-        var search = $(this).val();
-        var token = $("input[name='csrfmiddlewaretoken']").val();
-        var data = {
-            'search':search,
-            'csrfmiddlewaretoken':token
-        };
-        $("#first_heading").hide();
 
-        $("#find").css(
-            {top:"-50px", height:"100%", marginTop:"-16%", marginLeft:'-8.5%'}
-           );
-
-        if(search)
-        {
-
-            $.ajax({
-                url:"/inventory/search/",
-                dataType:"html",
-                type:"POST",
-                data: data,
-                success:success_func,
-                error: error_func
-            });
-        }
-        else
-        {
-            $('#popups').html(" ");
-        }
-
-
-
+        $("#find").addClass("move_up");
     });
 
 //onclick
@@ -59,8 +36,24 @@ $("#line").hide();
 }
 
 function success_func(response){
-     $("#line").show();
-    $('#popups').html(response);
+    var tags = [];
+    for(var i=0; i<response.length; i++){
+        tags.push(response[i].name)
+    }
+
+    $( "#search" ).autocomplete({
+        source: function( request, response ) {
+            var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+            response( $.grep( tags, function( item ){
+                   return matcher.test( item );
+            }) );
+        },
+        select: function(event, ui) {
+            console.log(ui.item.value);
+          }
+    });
+    $("#line").show();
+
 
 
 }
@@ -74,69 +67,3 @@ function error_func(err){
 
 
 
-//initialization
-function initialize()
-{
-    var lng = parseFloat(lng);
-    var lat = parseFloat(lat);
-    var mapOptions;
-    var marker;
-    if(isNaN(lng) || isNaN(lat))
-    {
-        mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(5.55571, -0.19630)
-        };
-    }
-    else
-    {
-        mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(lng, lat)
-        };
-
-    }
-
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    //inistantiation of marker
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lng, lat),
-        map: map,
-        draggable: true,
-        animation:google.maps.Animation.BOUNCE
-    });
-
-    // This is what happens when you click the map.
-    google.maps.event.addListener(map, 'click', function(event) {
-        marker.setMap(map);
-        marker.setPosition(event.latLng);
-        lat = event.latLng.lat();
-        lng = event.latLng.lng();
-        document.getElementById("lng").value = lng;
-        document.getElementById("lat").value = lat;
-
-
-    });
-    // This is what happens when you dragg the marker
-
-    google.maps.event.addListener(marker, 'dragend',function(){
-        lat = marker.getPosition().lat();
-        lng = marker.getPosition().lng();
-        document.getElementById("lng").value = lng;
-        document.getElementById("lat").value =  lat;
-        var myCenter=new google.maps.LatLng(lat, lng);
-        marker.setPosition(myCenter);
-    });
-
-}
-
-
-//Ajax call
-function loadScript()
-{
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBWDK8TRLNEAx8IP0G0WLzo3fErSXVajc4&sensor=false&' +
-        'callback=initialize';
-    document.body.appendChild(script);
-}

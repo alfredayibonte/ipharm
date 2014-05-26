@@ -13,6 +13,13 @@ body {
   font-weight: 300;
   color: #7c7c7c;
 }
+move_up
+{
+    top:-50px;
+    height:100%;
+    margin-top:-16%;
+    margin-left:-8.5%;
+}
 
 a {
   color: #323232;

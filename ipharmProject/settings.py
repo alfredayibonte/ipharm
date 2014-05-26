@@ -62,11 +62,25 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.YAMLRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication',
+   ),
 
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser',
+
+    ),
+    'PAGINATE_BY': 10
+
+    }
+
+
+
+    #'PAGINATE_BY': 10,
+
+
+    #'rest_framework.permissions.IsAdminUser', DjangoModelPermissionsOrAnonReadOnly
+
 
 LANGUAGE_CODE = 'en-us'
 
