@@ -1,5 +1,7 @@
 from django import forms
-from inventories.models import Inventory, Drug
+from inventories.models import Inventory, Drug, Upload
+from ipharmProject.settings import BASE_DIR
+from ipharmProject.utils import load_drugs
 from pharmacies.models import Pharmacy
 
 
@@ -44,4 +46,20 @@ class DrugForm(forms.Form):
             if new_drug:
                 inventory = Inventory.objects.create(drug=new_drug, pharmacy=pharmacy)
         return inventory
+
+
+class UploadDrugForm(forms.ModelForm):
+    csv_file = forms.FileField()
+
+    class Meta:
+        model = Upload
+
+    def save(self, commit=True):
+        upload = super(UploadDrugForm, self).save(commit=False)
+        upload.csv_file = self.cleaned_data['csv_file']
+        if commit:
+            #upload.save()
+            load_drugs(BASE_DIR("/pic_folder/"+str(upload.csv_file)))
+        return upload
+
 

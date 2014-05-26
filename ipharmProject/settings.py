@@ -50,6 +50,7 @@ WSGI_APPLICATION = 'ipharmProject.wsgi.application'
 
 AUTH_USER_MODEL = 'pharmacies.MyUser'
 
+
 FILE_UPLOAD_HANDLERS = ("django.core.files.uploadhandler.MemoryFileUploadHandler",
         "django.core.files.uploadhandler.TemporaryFileUploadHandler",)
 
@@ -76,11 +77,6 @@ REST_FRAMEWORK = {
 
 
 
-    #'PAGINATE_BY': 10,
-
-
-    #'rest_framework.permissions.IsAdminUser', DjangoModelPermissionsOrAnonReadOnly
-
 
 LANGUAGE_CODE = 'en-us'
 
@@ -91,6 +87,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+#MEDIA_URL = '/'
 
 
 ROOT_URL = '/user/'

@@ -15,10 +15,10 @@ def load_drugs(file_path):
     """
     :param file_path
     """
-    reader = csv.DictReader(open(file_path))
+    reader = csv.reader(file_path)
     for row in reader:
         try:
-            Drug.objects.get(name__iexact=row['Name'])
+            Drug.objects.get(name__iexact=row[0])
         except Drug.DoesNotExist:
-            Drug.objects.get_or_create(name=row['Name'], description=row['Description'])
+            Drug.objects.get_or_create(name=row[0], description=row[1])
             continue
