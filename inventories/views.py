@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.utils.decorators import method_decorator
 from django.views import generic
@@ -8,9 +8,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
 from inventories.api import JSONResponse
-from inventories.forms import DrugForm
+from inventories.forms import DrugForm, UploadDrugForm
 from inventories.models import Inventory, Drug
 from rest_framework.parsers import JSONParser
+from ipharmProject.utils import load_drugs
 from pharmacies.serializers import DrugSerializer
 
 
@@ -20,6 +21,17 @@ class DrugSearch(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+@login_required()
+@require_http_methods(["POST"])
+def upload(request):
+    form = UploadDrugForm(request.POST, request.FILES)
+    if form.is_valid():
+        load_drugs(form.cleaned_data['csv_file'])
+    return HttpResponse("thanks ")
+
+
+
 
 @require_http_methods(["POST"])
 def search(request):
@@ -53,6 +65,7 @@ class AddDrug(View):
     def dispatch(self, *args, **kwargs):
         return super(AddDrug, self).dispatch(*args, **kwargs)
 
+#ajax view
 @csrf_exempt
 def drug_list(request):
     """

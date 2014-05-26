@@ -17,12 +17,17 @@ from pharmacies.models import Pharmacy, Client, MyUser
 
 #My own logout system.
 class Logout(View):
+    """
+    logout for pharmacies
+    """
+
     def get(self, request, *args, **kwargs):
         auth.logout(request)
         return HttpResponseRedirect(reverse('home'))
 
 
 class Main(generic.View):
+    """The main dashboard once a pharmacy is logged in """
     model = Pharmacy
     template_name = 'registration/main.html'
 
@@ -74,6 +79,7 @@ class Email(generic.ListView):
 class EditProfile(generic.ListView):
     model = MyUser
     template_name = 'registration/edit_profile.html'
+
     def get_context_data(self, **kwargs):
         context = super(EditProfile, self).get_context_data(**kwargs)
         context['pharmacy'] = Pharmacy.objects.get(user=self.request.user)
@@ -85,6 +91,9 @@ class EditProfile(generic.ListView):
 
 
 class Register(View):
+    """
+    class for registering pharmacies
+    """
     form_class = MyRegistrationForm
     initial = {}
     template_name = 'registration/register.html'
@@ -132,7 +141,7 @@ class Profile(View):
     def get(self, request, *args, **kwargs):
         pharmacy = Pharmacy.objects.get(user=request.user)
         form = Client.objects.filter(pharmacy=pharmacy)
-        return render(request, self.template_name, {'client':form})
+        return render(request, self.template_name, {'client': form})
 
 
     @method_decorator(login_required)
@@ -169,6 +178,8 @@ class Contact(View):
         return super(Contact, self).dispatch(*args, **kwargs)
 
 
+<<<<<<< HEAD
+=======
 @login_required()
 @require_http_methods(["POST"])
 def upload(request):
@@ -185,3 +196,4 @@ class MAP(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+>>>>>>> e022840c074c8bf7cce81fe796872963bf979fe5

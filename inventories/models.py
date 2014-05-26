@@ -22,4 +22,8 @@ class Inventory(models.Model):
         return self.quantity
 
 
+class Upload(models.Model):
+    csv_file = models.FileField(upload_to='media/', default='no.csv')
+
+
 
