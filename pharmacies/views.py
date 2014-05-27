@@ -171,6 +171,10 @@ class Contact(View):
         context['client'] = Client.objects.all()
         return context
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(Profile, self).dispatch(*args, **kwargs)
+
 
 
     @method_decorator(login_required)
@@ -183,3 +187,6 @@ class MAP(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+def anything(request):
+    pass

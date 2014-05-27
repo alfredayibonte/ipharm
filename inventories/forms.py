@@ -11,11 +11,12 @@ class DrugForm(forms.Form):
         super(DrugForm, self).__init__(*args, **kwargs)
 
     description = forms.CharField(
-        max_length=300,
+        max_length=500,
         required=True,
     )
     name = forms.CharField(
         required=True,
+        max_length=100
     )
     expiry_date = forms.DateField(required=False)
     stocked_date = forms.DateField(required=False)
