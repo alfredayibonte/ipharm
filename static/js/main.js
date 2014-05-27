@@ -4,7 +4,6 @@ var lat;
 var search;
 
 function init() {
-    $("#line").hide();
     $("#first_heading").hide();
     $.ajax({
         url: "/drug_list/",
@@ -50,9 +49,9 @@ function success_func(response) {
         },
         select: function(event, ui) {
             console.log(ui.item.value);
-        },
-        maxItems: 5
-    });
+        }
+
+    }).slice(0, 6);
 
 
 
