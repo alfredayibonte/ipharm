@@ -23,17 +23,32 @@
     </script>
     <script type="text/javascript">
       function initialize() {
-          var lat = "{{ user.lat }}";
-          var lng ="{{ user.lng }}";
-          lat =  parseFloat(lat);
-          lng =  parseFloat(lng);
-          console.log(lat);
-        var mapOptions = {
-          center: new google.maps.LatLng(lat, lng),
-          zoom: 10
+          
+    var lng = parseFloat($("#lng").val());
+    var lat = parseFloat($("#lat").val());
+    lng = 5.55571;
+    lat = -0.19630;
+    var mapOptions;
+    var marker;
+
+        mapOptions = {
+            zoom: 10,
+            center: new google.maps.LatLng(lng, lat)
         };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
+
+    if(true){
+
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    }
+
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lng, lat),
+        map: map,
+        draggable: false,
+        animation: google.maps.Animation.BOUNCE
+    });
+
 
       }
       google.maps.event.addDomListener(window, 'load', initialize);
@@ -79,6 +94,12 @@
           color: #ffffff;
           font-size: 1.3em;
 
+      }
+      .me{
+        margin: -215px -48px  0px -68px;
+        color: #fff;
+        display: block;
+          padding: 0px;
       }
 
 </style>
@@ -135,14 +156,8 @@
             <div class="header-features">
                 <div class="row">
                     <div class="col-sm-6 header-feature">
-                        <ul><span id="drug_name"></span>
-                            <ul>
-                                <li id="drug_description"></li>
-                                <li>{{ user.lng }}</li>
-                                <li>{{ user.location }}</li>
-                                <li>{{ user.address }}</li>
-                            </ul>
-                        </ul>
+                        <span id="drug_name" class="h2"></span>&nbsp;
+                        <span id="drug_description" class="h4"></span>
                     </div>
                     <div class="col-sm-6 header-feature" id="map-canvas" style="height: 250px;">
 
