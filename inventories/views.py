@@ -7,12 +7,10 @@ from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
-from inventories.api import JSONResponse
 from inventories.forms import DrugForm, UploadDrugForm
 from inventories.models import Inventory, Drug
 from rest_framework.parsers import JSONParser
 from ipharmProject.utils import load_drugs
-from pharmacies.serializers import DrugSerializer
 
 
 class DrugSearch(generic.ListView):
@@ -78,22 +76,4 @@ class AddDrug(View):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(AddDrug, self).dispatch(*args, **kwargs)
-
-#ajax view
-@csrf_exempt
-def drug_list(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
-    if request.method == 'GET':
-        snippets = Drug.objects.all()
-        serializer = DrugSerializer(snippets, many=True)
-        return JSONResponse(serializer.data)
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = DrugSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JSONResponse(serializer.data, status=201)
-        return JSONResponse(serializer.errors, status=400)
 

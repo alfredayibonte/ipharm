@@ -196,5 +196,4 @@ class MAP(generic.ListView):
         return super(MAP, self).dispatch(*args, **kwargs)
 
 
-def anything(request):
-    pass
+
