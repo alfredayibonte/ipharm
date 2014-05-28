@@ -26,10 +26,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/staticfiles/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="10" selection-start="906" selection-end="906" vertical-scroll-proportion="0.6232877" vertical-offset="236" max-vertical-offset="1035">
+            <state line="40" column="10" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0" vertical-offset="236" max-vertical-offset="1035">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="57" selection-start="7" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606">
               <folding />
             </state>
           </provider>
@@ -62,26 +80,6 @@
         <entry file="file://$PROJECT_DIR$/staticfiles/js/map.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="48" column="0" selection-start="1242" selection-end="1242" vertical-scroll-proportion="0.0" vertical-offset="564" max-vertical-offset="1170">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery-ui.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/staticfiles/js/jquery-ui.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="25" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="106455">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery-jvectormap-world-mill-en.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/staticfiles/js/jquery-jvectormap-world-mill-en.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
               <folding />
             </state>
           </provider>
@@ -665,18 +663,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/staticfiles/js/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/js/email.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569" />
@@ -985,7 +971,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="10" selection-start="906" selection-end="906" vertical-scroll-proportion="0.6232877" vertical-offset="236" max-vertical-offset="1035">
+        <state line="40" column="10" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0" vertical-offset="236" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="57" selection-start="7" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606">
           <folding />
         </state>
       </provider>
