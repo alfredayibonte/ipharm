@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from inventories.models import Drug
-from pharmacies.models import MyUser
 
 
 class UserSerializer(serializers.ModelSerializer):

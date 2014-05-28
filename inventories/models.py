@@ -4,7 +4,7 @@ from pharmacies.models import Pharmacy
 
 class Drug(models.Model):
     name = models.CharField(max_length=300, unique=True, blank=False)
-    description = models.CharField(max_length=600, blank=True, null=True)
+    description = models.CharField(max_length=1500, blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -17,6 +17,10 @@ class Inventory(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     pharmacy = models.ForeignKey(Pharmacy)
     drug = models.ForeignKey(Drug)
+    details = models.CharField(blank=True, null=True, max_length=700)
+
+    class Meta:
+        unique_together = ('drug', 'pharmacy',)
 
     def __unicode__(self):
         return self.quantity

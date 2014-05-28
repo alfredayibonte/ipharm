@@ -8,8 +8,8 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-tile detail tile-red">
                             <div class="content">
-                                <h1 class="text-left timer" data-from="0" data-to="180" data-speed="2500">3</h1>
-                                <p>Administrators</p>
+                                <h1 class="text-left timer" data-from="0" data-to="180" data-speed="2500">1</h1>
+                                <p>Administrator</p>
                             </div>
                             <div class="icon"><i class="fa fa-user"></i>
                             </div>
@@ -18,7 +18,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-tile detail tile-turquoise">
                             <div class="content">
-                                <h1 class="text-left timer" data-from="0" data-to="56" data-speed="2500">56</h1>
+                                <h1 class="text-left timer" data-from="0" data-to="56" data-speed="2500">{{ client | length }}</h1>
                                 <p>Contact List</p>
                             </div>
                             <div class="icon"><i class="fa fa-users"></i>
@@ -28,7 +28,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-tile detail tile-blue">
                             <div class="content">
-                                <h1 class="text-left timer" data-from="0" data-to="32" data-speed="2500">32</h1>
+                                <h1 class="text-left timer" data-from="0" data-to="32" data-speed="2500">{{ inventory | length }}</h1>
                                 <p>Inventory</p>
                             </div>
                             <div class="icon"><i class="fa fa-codepen"></i>
@@ -38,7 +38,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-tile detail tile-purple">
                             <div class="content">
-                                <h1 class="text-left timer" data-to="105" data-speed="2500">105</h1>
+                                <h1 class="text-left timer" data-to="105" data-speed="2500">&nbsp;</h1>
                                 <p>Statistics</p>
                             </div>
                             <div class="icon"><i class="fa fa-bar-chart-o"></i>

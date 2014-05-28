@@ -10,9 +10,9 @@ from django.utils.decorators import method_decorator
 from django.views import generic
 from django.views.decorators.http import require_http_methods
 from django.views.generic.base import View
+from inventories.models import Inventory
 from pharmacies.forms import MyRegistrationForm, ContactForm, EditProfileForm
-from pharmacies.models import Pharmacy, Client, MyUser
-
+from pharmacies.models import Pharmacy, Client
 
 
 #My own logout system.
@@ -32,6 +32,8 @@ class Main(generic.View):
     template_name = 'registration/main.html'
 
     def get(self, request, *args, **kwargs):
+        context = {'client': Client.objects.filter(pharmacy=self.request.user),
+                   'inventory': Inventory.objects.filter(pharmacy=self.request.user)}
         return render(request, self.template_name)
 
     @method_decorator(login_required)
@@ -65,19 +67,18 @@ class Email(generic.ListView):
     model = Client
     template_name = 'registration/email.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(Email, self).get_context_data(**kwargs)
+        context['client'] = Client.objects.filter(pharmacy=self.request.user)
+        return context
+
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(Email, self).dispatch(*args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super(Email, self).get_context_data(**kwargs)
-        pharmacy = Pharmacy.objects.get(user=self.request.user)
-        context['client'] = Client.objects.filter(pharmacy=pharmacy)
-        return context
-
 
 class EditProfile(generic.ListView):
-    model = MyUser
+    model = Pharmacy
     template_name = 'registration/edit_profile.html'
 
     def get_context_data(self, **kwargs):
@@ -139,14 +140,27 @@ class Profile(View):
     template_name = 'registration/profile.html'
 
     def get(self, request, *args, **kwargs):
-        pharmacy = Pharmacy.objects.get(user=request.user)
-        form = Client.objects.filter(pharmacy=pharmacy)
+        form = Client.objects.filter(pharmacy=self.request.user)
         return render(request, self.template_name, {'client': form})
 
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(Profile, self).dispatch(*args, **kwargs)
+
+
+class ContactList(generic.ListView):
+    model = Client
+    template_name = 'registration/client_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ContactList, self).get_context_data(**kwargs)
+        context['client'] = Client.objects.filter(pharmacy=self.request.user)
+        return context
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ContactList, self).dispatch(*args, **kwargs)
 
 
 class Contact(View):
@@ -163,19 +177,8 @@ class Contact(View):
         form = self.form_class(request.POST, request=request)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('pharmacies:profile'))
+            return HttpResponseRedirect(reverse('pharmacies:contact_list'))
         return render(request, self.template_name, {'form': form})
-
-    def get_context_data(self, **kwargs):
-        context = super(Contact, self).get_context_data(**kwargs)
-        context['client'] = Client.objects.all()
-        return context
-
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(Profile, self).dispatch(*args, **kwargs)
-
-
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -187,6 +190,11 @@ class MAP(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(MAP, self).dispatch(*args, **kwargs)
+
 
 def anything(request):
     pass

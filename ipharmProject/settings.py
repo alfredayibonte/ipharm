@@ -48,7 +48,7 @@ ROOT_URLCONF = 'ipharmProject.urls'
 
 WSGI_APPLICATION = 'ipharmProject.wsgi.application'
 
-AUTH_USER_MODEL = 'pharmacies.MyUser'
+AUTH_USER_MODEL = 'pharmacies.Pharmacy'
 
 
 FILE_UPLOAD_HANDLERS = ("django.core.files.uploadhandler.MemoryFileUploadHandler",
@@ -58,22 +58,24 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.YAMLRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework.authentication.TokenAuthentication',
-   ),
-
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAdminUser',
-
-    ),
-    'PAGINATE_BY': 10
-
-    }
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.YAMLRenderer',
+#         'rest_framework.renderers.BrowsableAPIRenderer',
+#         #'rest_framework.renderers.JSONRenderer',
+#     ),
+#     'FILTER_BACKEND': 'rest_framework.filters.DjangoFilterBackend',
+#    #  'DEFAULT_AUTHENTICATION_CLASSES': (
+#    #     'rest_framework.authentication.TokenAuthentication',
+#    # ),
+#    #
+#    #  'DEFAULT_PERMISSION_CLASSES': (
+#    #      'rest_framework.permissions.IsAdminUser',
+#    #
+#    #  ),
+#     # 'PAGINATE_BY': 12
+#
+#     }
 
 
 

@@ -7,7 +7,7 @@ from inventories import views as drug
 from pharmacies import views as pharmacy
 from django.conf.urls.static import static
 from pharmacies import serializers
-
+from inventories import api
 router = routers.DefaultRouter()
 router.register(r'users', serializers.UserViewSet)
 router.register(r'groups', serializers.GroupViewSet)
@@ -35,5 +35,8 @@ urlpatterns = patterns(
         'django.contrib.auth.views.password_reset_confirm',
         name='password_reset_confirm'),
     url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^drug/$', api.DrugListApiView.as_view(), name='drug'),
+    url(r'^api/(?P<pk>\d+)$', api.PharmacyApiView.as_view(), name='details'),
+    url(r'^drug/(?P<pk>\d+)/$', api.InventoryApiView.as_view(), name='drug_update'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from pharmacies.models import Pharmacy, MyUser, Client
+from pharmacies.models import Pharmacy, Client
 
 User = get_user_model()
 
@@ -17,7 +17,7 @@ class EditProfileForm(forms.ModelForm):
     address = forms.CharField(required=False)
 
     class Meta:
-        model = MyUser
+        model = Pharmacy
         fields = ('username', )
 
     def save(self, commit=True):
@@ -35,7 +35,6 @@ class EditProfileForm(forms.ModelForm):
         return user
 
 
-
 class MyRegistrationForm(forms.ModelForm):
     email = forms.CharField(
         max_length=50,
@@ -46,7 +45,7 @@ class MyRegistrationForm(forms.ModelForm):
         max_length=50,
         required=True,
     )
-    pharmacy = forms.CharField(
+    name = forms.CharField(
         max_length=100,
         required=True,
     )
@@ -60,8 +59,8 @@ class MyRegistrationForm(forms.ModelForm):
     )
 
     class Meta:
-        model = MyUser
-        fields = ('username', 'pharmacy', 'email', 'password', 'repeat')
+        model = Pharmacy
+        fields = ('username', 'name', 'email', 'password', 'repeat')
 
     def clean_repeat(self):
         password1 = self.cleaned_data.get('repeat')
@@ -76,7 +75,6 @@ class MyRegistrationForm(forms.ModelForm):
         user.set_password(self.cleaned_data['password'])
         if commit:
             user.save()
-            Pharmacy.objects.create(user=user, name=self.cleaned_data['pharmacy'])
         return user
 
 
@@ -99,13 +97,13 @@ class ContactForm(forms.Form):
 
     def save(self, commit=True):
         if commit:
-            pharmacy = Pharmacy.objects.get(user=self.request.user)
-            client = Client.objects.create(pharmacy=pharmacy,
+            client = Client.objects.create(pharmacy=self.request.user,
                                            email=self.request.POST['email'],
                                            address=self.request.POST['address'],
                                            telephone=self.request.POST['telephone'],
                                            name=self.request.POST['name'],
                                            note=self.request.POST['note'],
+                                           date_joined=self.request.POST['date_joined']
                                            )
         return client
 

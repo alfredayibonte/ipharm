@@ -20,24 +20,16 @@ function init() {
         $("#find").addClass("move_up");
     });
 
-    //onclick
-    $("#location").find("a").on('click', function(event) {
-        event.preventDefault();
-        var $handler = $(this).parent().parent();
-        lat = $handler.find("input[name='lat']").val();
-        lng = $handler.find("input[name='lng']").val();
-        console.log(lat + " this is the long " + lng);
-        initialize();
-
-    });
 
 
 }
 
 function success_func(response) {
     var tags = [];
+    var id_list = []
     for (var i = 0; i < response.length; i++) {
-        tags.push(response[i].name)
+        tags.push(response[i].name);
+        id_list
     }
 
     $("#search").autocomplete({
@@ -49,9 +41,10 @@ function success_func(response) {
         },
         select: function(event, ui) {
             console.log(ui.item.value);
+            console.log(response);
         }
 
-    }).slice(0, 6);
+    });
 
 
 

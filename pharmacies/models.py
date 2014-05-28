@@ -36,24 +36,21 @@ class UserManager(BaseUserManager):
                                  **extra_fields)
 
 
-class MyUser(AbstractBaseUser, PermissionsMixin):
+class Pharmacy(AbstractBaseUser, PermissionsMixin):
     """
     An abstract base class implementing a fully featured User model with
     admin-compliant permissions.
 
     Username, password and email are required. Other fields are optional.
     """
-    name = models.CharField(_('name'), max_length=100, blank=True)
-    is_pharmacy_u = models.BooleanField(_('pharmacy_u'), default=False)
-    is_pharmacy_su = models.BooleanField(_('pharmacy_su'), default=False)
-    is_customer = models.BooleanField(_('customer'), default=False)
-    location = models.CharField(_('location'), max_length=200, blank=True)
-    mobile = models.CharField(_('mobile'), max_length=100, blank=True)
-    address = models.CharField(_('address'), max_length=100, blank=True)
+    name = models.CharField(_('name'), max_length=100, unique=False)
+    lat = models.CharField(max_length=200, blank=True)
+    lng = models.CharField(max_length=200, blank=True)
+    telephone = models.CharField(_('mobile'), max_length=100, blank=True)
+    address = models.CharField(_('address'), max_length=200, blank=True)
     images = models.ImageField(upload_to='pic_folder/', default='img/avatar.jpg')
     last_visit = models.DateField(_('last_visit'), blank=True, null=True)
-    note = models.CharField(_('note'), max_length=200, blank=True)
-    username = models.CharField(_('username'), max_length=30, blank=True, unique=False,
+    username = models.CharField(_('username'), max_length=30, blank=True, unique=True,
                                 help_text=_('Required. 30 characters or fewer. Letters, numbers and '
                                             '@/./+/-/_ characters'),
                                 validators=[
@@ -102,30 +99,23 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         send_mail(subject, message, from_email, [self.email])
 
 
-#pharmacy class
-class Pharmacy(models.Model):
-    email = models.EmailField(max_length=100, blank=True)
-    address = models.CharField(max_length=200, blank=True)
-    lat = models.CharField(max_length=200, blank=True)
-    lng = models.CharField(max_length=200, blank=True)
-    telephone = models.CharField(max_length=20, blank=True)
-    name = models.CharField(max_length=200, blank=False, unique=True)
-    date_joined = models.DateTimeField(default=timezone.now)
-    user = models.OneToOneField(MyUser, primary_key=True)
-    images = models.ImageField(upload_to='pic_folder/', default='img/avatar.jpg')
-
-    def __str__(self):
-        return self.name
-
-
 # client class
 class Client(models.Model):
     email = models.EmailField(max_length=100, blank=True, null=True)
     address = models.CharField(max_length=200, blank=True, null=True)
     telephone = models.CharField(max_length=20, blank=True, null=True)
     name = models.CharField(max_length=200, blank=False, null=True)
-    date_joined = models.DateTimeField(default=timezone.now, null=True)
-    last_activity = models.DateField(blank=True, null=True)
-    note = models.CharField(max_length=200, blank=True, null=True)
+    date_joined = models.DateTimeField(blank=True, null=True)
+    last_activity = models.DateField(default=timezone.now, null=True)
+    note = models.CharField(max_length=600, blank=True, null=True)
     pharmacy = models.ForeignKey(Pharmacy)
 
+
+class Staff(models.Model):
+    is_staff = models.BooleanField(default=True)
+    username = models.CharField(max_length=30, blank=True, unique=True)
+    email = models.EmailField(blank=True, unique=True)
+    telephone = models.CharField(blank=True, null=True, unique=False, max_length=30)
+    password = models.CharField(blank=False, unique=False, max_length=50)
+    date_joined = models.DateTimeField(blank=True, null=True, default=timezone.now)
+    pharmacy = models.ForeignKey(Pharmacy)

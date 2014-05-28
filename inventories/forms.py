@@ -26,8 +26,9 @@ class DrugForm(forms.Form):
     def clean_name(self):
         name = self.cleaned_data["name"]
         try:
-            Drug._default_manager.get(name=name)
-        except Drug.DoesNotExist:
+            drug = Drug.objects.filter(name__iexact=name)
+            Inventory.objects.get(drug=drug, pharmacy=self.request.user)
+        except Inventory.DoesNotExist:
             return name
         raise forms.ValidationError(
             self.error_messages['drug already exist'],
@@ -36,16 +37,18 @@ class DrugForm(forms.Form):
 
     class Meta:
         model = Inventory
-        fields = ('expiry_date', 'stocked_date', 'quantity', 'price')
+        fields = ('name', 'description',  'expiry_date', 'stocked_date', 'quantity', 'price')
 
     def save(self, commit=True):
+        name = self.request.POST['name']
+        description = self.request.POST['description']
         if commit:
-            pharmacy = Pharmacy.objects.get(user=self.request.user)
-            old_drug, new_drug = Drug.objects.get_or_create(
-                name=self.request.POST['name'],
-                description=self.request.POST['description'])
-            if new_drug:
-                inventory = Inventory.objects.create(drug=new_drug, pharmacy=pharmacy)
+            drug = Drug()
+            try:
+                drug = Drug.objects.filter(name__iexact=name)
+            except Drug.DoesNotExist:
+                drug = Drug.objects.create(name=name, description=description)
+            inventory = Inventory.objects.create(drug=drug, pharmacy=self.request.user)
         return inventory
 
 
@@ -59,7 +62,6 @@ class UploadDrugForm(forms.ModelForm):
         upload = super(UploadDrugForm, self).save(commit=False)
         upload.csv_file = self.cleaned_data['csv_file']
         if commit:
-            #upload.save()
             load_drugs(BASE_DIR("/pic_folder/"+str(upload.csv_file)))
         return upload
 
