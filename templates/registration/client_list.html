@@ -12,9 +12,10 @@
                             <li class="active">profile</li>
                         </ul>
                         <!--breadcrumbs end -->
-                    <h4 class="h4">{{ user.name }} contact list</h4>
+                    <h1 class="h1">{{ user.pharmacy.name }} contact list</h1>
                 </div>
                 </div>
+
 
 
                  <div class="row">
@@ -41,6 +42,7 @@
                                     <th>Address</th>
                                     <th>Date Joined</th>
                                     <th>Telephone</th>
+                                      <th>Delete/ Edit</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -53,6 +55,9 @@
                                         <td>{{ u.address }}</td>
                                         <td>{{ u.date_joined }}</td>
                                         <td>{{ u.telephone }}</td>
+                                        <td><a><span class="fa fa-trash-o danger-txt">delete</span></a>
+                                            &nbsp;|&nbsp;<a><span class="fa fa-edit">edit</span></a>
+                                        </td>
 
                                     </tr>
                                 {% endfor %}

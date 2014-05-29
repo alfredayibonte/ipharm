@@ -13,6 +13,7 @@ class Drug(models.Model):
 class Inventory(models.Model):
     expiry_date = models.DateField(blank=True, null=True)
     stocked_date = models.DateField(blank=True, null=True)
+    is_available = models.BooleanField(default=True, blank=True)
     quantity = models.IntegerField(blank=True, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     pharmacy = models.ForeignKey(Pharmacy)

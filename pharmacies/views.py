@@ -77,14 +77,15 @@ class Email(generic.ListView):
         return super(Email, self).dispatch(*args, **kwargs)
 
 
-class EditProfile(generic.ListView):
+class EditProfile(View):
     model = Pharmacy
+    form_class = EditProfileForm
+    initial = {}
     template_name = 'registration/edit_profile.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(EditProfile, self).get_context_data(**kwargs)
-        context['pharmacy'] = Pharmacy.objects.get(user=self.request.user)
-        return context
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name)
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -114,14 +115,15 @@ class Register(View):
 
 
 class PharmacyProfile(View):
-    model = Client
+    """
+    This class views pharmacy's profile and one can edit his profile in this class.
+    """
+    model = Pharmacy
     form_class = EditProfileForm
     template_name = 'registration/user.html'
 
     def get(self, request, *args, **kwargs):
-        pharmacy = Pharmacy.objects.get(user=request.user)
-        form = Client.objects.filter(pharmacy=pharmacy)
-        return render(request, self.template_name, {'client': form})
+        return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES, request=request)
@@ -133,20 +135,6 @@ class PharmacyProfile(View):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(PharmacyProfile, self).dispatch(*args, **kwargs)
-
-
-class Profile(View):
-    model = Client
-    template_name = 'registration/profile.html'
-
-    def get(self, request, *args, **kwargs):
-        form = Client.objects.filter(pharmacy=self.request.user)
-        return render(request, self.template_name, {'client': form})
-
-
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(Profile, self).dispatch(*args, **kwargs)
 
 
 class ContactList(generic.ListView):
