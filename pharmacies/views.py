@@ -43,7 +43,7 @@ class Main(generic.View):
 
 class ChangePassword(View):
     model = Pharmacy
-    form_class = PasswordChangeForm(SetPasswordForm)
+    form_class = SetPasswordForm
     template_name = 'registration/password.html'
     initial = {}
 
@@ -51,12 +51,12 @@ class ChangePassword(View):
         return render(request, self.template_name, self.initial)
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(SetPasswordForm(request.POST, instance=request.user))
+        form = PasswordChangeForm(self.form_class(request.POST))
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('pharmacies:pharmacy'))
         self.initial['errors'] = form.errors
-        return HttpResponseRedirect(reverse('pharmacies:pharmacy'))
+        return HttpResponseRedirect(reverse('pharmacies:change'))
 
 
 class Chart(generic.ListView):
