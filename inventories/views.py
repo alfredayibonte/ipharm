@@ -27,15 +27,16 @@ class UploadFile(View):
     template_name = 'registration/add_drug.html'
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, self.initial)
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             load_drugs(form.cleaned_data['csv_file'])
-            return HttpResponseRedirect(reverse('pharmacies:main'))
-        return render(request, self.template_name, {'form': form})
+            self.initial['csv'] = True
+            return HttpResponseRedirect(reverse('inventories:add'))
+        self.initial['csv_error'] = True
+        return HttpResponseRedirect(reverse('inventories:add'))
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -63,15 +64,18 @@ class AddDrug(View):
     template_name = 'registration/add_drug.html'
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, self.initial)
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST, request=request)
+        form = self.form_class(request.POST)
+        self.initial['name'] = self.request.POST['name']
+        self.initial['description'] = self.request.POST['description']
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('pharmacies:main'))
-        return render(request, self.template_name, {'form': form})
+            self.initial['success'] = True
+            return HttpResponseRedirect(reverse('inventories:add'))
+        self.initial['error'] = True
+        return HttpResponseRedirect(reverse('inventories:add'))
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
