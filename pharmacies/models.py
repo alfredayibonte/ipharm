@@ -48,7 +48,7 @@ class Pharmacy(AbstractBaseUser, PermissionsMixin):
     lng = models.CharField(max_length=200, blank=True)
     telephone = models.CharField(_('mobile'), max_length=100, blank=True)
     address = models.CharField(_('address'), max_length=200, blank=True)
-    images = models.ImageField(upload_to='pic_folder/', default='img/avatar.jpg')
+    images = models.ImageField(upload_to='pic_folder/', default='pic_folder/avatar.jpg')
     last_visit = models.DateField(_('last_visit'), blank=True, null=True)
     username = models.CharField(_('username'), max_length=30, blank=True, unique=True,
                                 help_text=_('Required. 30 characters or fewer. Letters, numbers and '

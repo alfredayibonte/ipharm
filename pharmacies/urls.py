@@ -10,4 +10,5 @@ urlpatterns = patterns(
     url(r'^contact_list/$', pharmacy.ContactList.as_view(), name='contact_list'),
     url(r'^user/$', pharmacy.PharmacyProfile.as_view(), name='pharmacy'),
     url(r'^map/$', pharmacy.MAP.as_view(), name='map'),
+    url(r'^change/$', pharmacy.ChangePassword.as_view(), name='change'),
 )

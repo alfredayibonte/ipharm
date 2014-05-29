@@ -2,7 +2,7 @@ import csv
 import StringIO
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
@@ -39,6 +39,24 @@ class Main(generic.View):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(Main, self).dispatch(*args, **kwargs)
+
+
+class ChangePassword(View):
+    model = Pharmacy
+    form_class = PasswordChangeForm(SetPasswordForm)
+    template_name = 'registration/password.html'
+    initial = {}
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, self.initial)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(SetPasswordForm(request.POST, instance=request.user))
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:pharmacy'))
+        self.initial['errors'] = form.errors
+        return HttpResponseRedirect(reverse('pharmacies:pharmacy'))
 
 
 class Chart(generic.ListView):

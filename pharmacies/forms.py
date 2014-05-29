@@ -15,7 +15,7 @@ class EditProfileForm(forms.ModelForm):
     name = forms.CharField(required=True)
     email = forms.EmailField(required=True)
     address = forms.CharField(required=False)
-    telephone =  forms.CharField(required=False)
+    telephone = forms.CharField(required=False)
 
     class Meta:
         model = Pharmacy
@@ -24,7 +24,8 @@ class EditProfileForm(forms.ModelForm):
 
     def save(self, commit=True):
         user = super(EditProfileForm, self).save(commit=False)
-        user.images = self.cleaned_data['images']
+        if self.cleaned_data['images']:
+            user.images = self.cleaned_data['images']
         if user.email != self.cleaned_data['email']:
             try:
                 Pharmacy.objects.get(email=self.cleaned_data['email'])
