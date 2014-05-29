@@ -41,8 +41,6 @@ class EditProfileForm(forms.ModelForm):
             return user
 
 
-
-
 class MyRegistrationForm(forms.ModelForm):
     email = forms.CharField(
         max_length=50,

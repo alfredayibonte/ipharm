@@ -62,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="34" selection-start="2923" selection-end="2923" vertical-scroll-proportion="0.6684303" vertical-offset="551" max-vertical-offset="3165">
+            <state line="62" column="34" selection-start="2923" selection-end="2923" vertical-scroll-proportion="-15.791667" vertical-offset="551" max-vertical-offset="3165">
               <folding />
             </state>
           </provider>
@@ -108,15 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="forms.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pharmacies/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="70" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0" vertical-offset="296" max-vertical-offset="1830">
-              <folding>
-                <marker date="1401366743400" expanded="true" signature="185:1406" placeholder="..." />
-                <marker date="1401366743400" expanded="true" signature="632:769" placeholder="..." />
-                <marker date="1401366743400" expanded="true" signature="803:1406" placeholder="..." />
-              </folding>
+            <state line="42" column="0" selection-start="1408" selection-end="1408" vertical-scroll-proportion="0.9933775" vertical-offset="0" max-vertical-offset="1800">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -195,11 +191,11 @@
         <option value="$PROJECT_DIR$/templates/registration/client_list.html" />
         <option value="$PROJECT_DIR$/pharmacies/urls.py" />
         <option value="$PROJECT_DIR$/pharmacies/views.py" />
-        <option value="$PROJECT_DIR$/pharmacies/forms.py" />
         <option value="$PROJECT_DIR$/ipharmProject/urls.py" />
         <option value="$PROJECT_DIR$/ipharmProject/settings.py" />
         <option value="$PROJECT_DIR$/templates/registration/user.html" />
         <option value="$PROJECT_DIR$/templates/registration/base.html" />
+        <option value="$PROJECT_DIR$/pharmacies/forms.py" />
       </list>
     </option>
   </component>
@@ -1003,17 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pharmacies/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="70" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0" vertical-offset="296" max-vertical-offset="1830">
-          <folding>
-            <marker date="1401366743400" expanded="true" signature="185:1406" placeholder="..." />
-            <marker date="1401366743400" expanded="true" signature="632:769" placeholder="..." />
-            <marker date="1401366743400" expanded="true" signature="803:1406" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ipharmProject/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="65" selection-start="1938" selection-end="1938" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
@@ -1037,7 +1022,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="34" selection-start="2923" selection-end="2923" vertical-scroll-proportion="0.6684303" vertical-offset="551" max-vertical-offset="3165">
+        <state line="62" column="34" selection-start="2923" selection-end="2923" vertical-scroll-proportion="-15.791667" vertical-offset="551" max-vertical-offset="3165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pharmacies/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1408" selection-end="1408" vertical-scroll-proportion="0.9933775" vertical-offset="0" max-vertical-offset="1800">
           <folding />
         </state>
       </provider>
