@@ -37,12 +37,12 @@
                                 </thead>
                                   <tbody>
                                   <tr>
-                                        <th span="2"><img src="/static/{{ user.pharmacy.images }}" width="70px" height="70px"></th>
+                                        <th span="2"><img src="/{{ user.images }}" width="70px" height="70px"></th>
 
                                     </tr>
                                   <tr>
                                       <th>Pharmacy Name</th>
-                                      <td>{{ user.pharmacy.name }}</td>
+                                      <td>{{ user.name }}</td>
                                   </tr>
                                   <tr>
                                       <th>Username</th>
@@ -54,11 +54,11 @@
                                   </tr>
                                   <tr>
                                       <th>Address</th>
-                                      <td>{{ user.pharmacy.address }}</td>
+                                      <td>{{ user.address }}</td>
                                   </tr>
                                   <tr>
                                       <th>Phone</th>
-                                      <td>{{ user.pharmacy.telephone }}</td>
+                                      <td>{{ user.telephone }}</td>
                                   </tr>
                                </tbody>
                               </table>
@@ -84,34 +84,37 @@
                               <table class="table table-bordered table-striped">
                                 <thead>
 
-                                </thead>
+                                </thead>{{ errors }}
                                   <form method="post" action="{% url 'pharmacies:pharmacy' %}" class="form-group" enctype="multipart/form-data">{% csrf_token %}
                                       <tbody>
                                       <tr>
-                                          <th span="2"><img src="/static/{{ user.pharmacy.images }}" width="70px" height="70px">
+                                          <th span="2"><img src="/{{ user.images }}" width="70px" height="70px">
                                           <input type="file" name="images">
                                           </th>
 
                                       </tr>
                                       <tr>
                                           <th>Pharmacy Name</th>
-                                          <td><input type="text" placeholder="name" class="form-control" name="name"></td>
+                                          <td><input type="text" placeholder="name" class="form-control" name="name" value="{{ user.name }}"></td>
                                       </tr>
                                       <tr>
                                           <th>Username</th>
-                                          <td><input type="text" placeholder="username" class="form-control" name="username"></td>
+                                          <td>
+                                              <input type="text" placeholder="username" class="form-control" name="username" value="{{ user.username }}">
+                                          </td>
                                       </tr>
                                       <tr>
                                           <th>Email</th>
-                                          <td><input type="text" placeholder="email" class="form-control" name="email"></td>
+                                          <td><input type="text" placeholder="email" class="form-control" name="email" value="{{ user.email }}">
+                                          </td>
                                       </tr>
                                       <tr>
                                           <th>Address</th>
-                                          <td><input type="text" placeholder="address" class="form-control" name="address"></td>
+                                          <td><input type="text" placeholder="address" class="form-control" name="address" value="{{ user.address }}"></td>
                                       </tr>
                                       <tr>
                                           <th>Phone</th>
-                                          <td><input type="text" placeholder="telephone" class="form-control" name="telephone"></td>
+                                          <td><input type="text" placeholder="telephone" class="form-control" name="telephone" value="{{ user.telephone }}"></td>
                                       </tr>
                                       <tr>
                                           <td colspan="2"><input type="submit" value="submit" class="btn btn-primary pull-right"></td>
@@ -119,7 +122,7 @@
                                       </tbody>
                                   </form>
                               </table>
-                                <a href="javascript:void(0);" class="pull-right text-muted" style="font-size: 1.3em;" id="back"><i class="fa fa-backward"></i> back</a>
+
                             </div>
 
                     </div>

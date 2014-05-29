@@ -94,7 +94,7 @@ USE_TZ = True
 
 ROOT_URL = '/user/'
 LOGIN_URL = ROOT_URL + 'login/'
-MEDIA_URL = ROOT_URL + 'media/'
+MEDIA_URL = '/'
 ADMIN_MEDIA_PREFIX = MEDIA_URL + 'admin/'
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'

@@ -3,3 +3,4 @@ venv
 staticfiles
 .env
 .idea
+pic_folder/*

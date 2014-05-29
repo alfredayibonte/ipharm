@@ -13,26 +13,34 @@ class EditProfileForm(forms.ModelForm):
     images = forms.ImageField(required=False)
     username = forms.CharField(required=False)
     name = forms.CharField(required=True)
-    email = forms.EmailField(required=False)
+    email = forms.EmailField(required=True)
     address = forms.CharField(required=False)
+    telephone =  forms.CharField(required=False)
 
     class Meta:
         model = Pharmacy
-        fields = ('username', )
+        fields = ('username', 'name', 'address', 'telephone', 'email')
+        exclude = ('password', 'repeat')
 
     def save(self, commit=True):
-        user = self.request.user
         user = super(EditProfileForm, self).save(commit=False)
-        if commit:
-            pharmacy = Pharmacy.objects.get(user=user)
-            pharmacy.name = self.cleaned_data['name']
-            pharmacy.address = self.cleaned_data['address']
-            pharmacy.email = self.cleaned_data['email']
-            pharmacy.telephone = self.cleaned_data['telephone']
-            pharmacy.images = self.cleaned_data['images']
-            #user.username = self.cleaned_data['username']
-            user.save()
-        return user
+        user.images = self.cleaned_data['images']
+        if user.email != self.cleaned_data['email']:
+            try:
+                Pharmacy.objects.get(email=self.cleaned_data['email'])
+            except Pharmacy.DoesNotExist:
+                if commit:
+                    user.save()
+                return user
+            raise forms.ValidationError(
+            self.error_messages['duplicate_email'],
+            code='duplicate_email', )
+        else:
+            if commit:
+                user.save()
+            return user
+
+
 
 
 class MyRegistrationForm(forms.ModelForm):

@@ -121,15 +121,17 @@ class PharmacyProfile(View):
     model = Pharmacy
     form_class = EditProfileForm
     template_name = 'registration/user.html'
+    initial = {}
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        return render(request, self.template_name, self.initial)
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST, request.FILES, request=request)
+        form = self.form_class(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('pharmacies:pharmacy'))
+        self.initial['errors'] = form.errors
         return HttpResponseRedirect(reverse('pharmacies:pharmacy'))
 
     @method_decorator(login_required)
