@@ -1,6 +1,7 @@
 Django==1.6.4
 Markdown==2.4.1
 Pillow==2.4.0
+PyYAML==3.11
 South==0.8.4
 Unidecode==0.04.14
 Whoosh==2.6.0

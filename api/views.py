@@ -3,6 +3,8 @@ from api.serializers import DrugSerializer, InventorySerializer, PharmacySeriali
 from inventories.models import Drug, Inventory
 from pharmacies.models import Pharmacy
 
+from rest_framework import viewsets
+
 
 class DrugListApiView(ListCreateAPIView):
     model = Drug
@@ -14,12 +16,17 @@ class DrugRetrieveUpdateView(RetrieveUpdateAPIView):
     serializer_class = DrugSerializer
 
 
-class InventoryApiView(RetrieveUpdateAPIView):
+class PharmacyApiView(viewsets.ModelViewSet):
+    model = Pharmacy
+    serializer_class = PharmacySerializer
+
+
+class InventoryApiView(ListCreateAPIView):
     model = Inventory
-    pharmacy = PharmacySerializer()
     serializer_class = InventorySerializer
 
 
-class PharmacyApiView(RetrieveUpdateAPIView):
-    model = Pharmacy
-    serializer_class = PharmacySerializer()
+class GetInventoryApiView(viewsets.ModelViewSet):
+    model = Inventory
+    serializer_class = InventorySerializer
+

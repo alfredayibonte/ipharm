@@ -30,34 +30,16 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ipharmProject/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="48" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+            <state line="14" column="21" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="password.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/password.html">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ipharmProject/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="82" selection-start="1775" selection-end="1775" vertical-scroll-proportion="-7.625" vertical-offset="417" max-vertical-offset="1335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="74" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inventories/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="30" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+            <state line="71" column="1" selection-start="2022" selection-end="2022" vertical-scroll-proportion="0.0" vertical-offset="836" max-vertical-offset="1620">
               <folding />
             </state>
           </provider>
@@ -66,16 +48,36 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inventories/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="22" selection-start="2769" selection-end="2769" vertical-scroll-proportion="0.0" vertical-offset="490" max-vertical-offset="1155">
+            <state line="35" column="16" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="870">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_drug.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/registration/add_drug.html">
+      <file leaf-file-name="serializers.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="42" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.340388" vertical-offset="302" max-vertical-offset="2775">
+            <state line="28" column="106" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="36" selection-start="381" selection-end="381" vertical-scroll-proportion="0.22277227" vertical-offset="0" max-vertical-offset="606">
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
               <folding />
             </state>
           </provider>
@@ -84,10 +86,8 @@
       <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inventories/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="20" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-              <folding>
-                <marker date="1401380906637" expanded="true" signature="441:478" placeholder="..." />
-              </folding>
+            <state line="27" column="36" selection-start="802" selection-end="802" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="585">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,8 +95,10 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="6" selection-start="464" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <folding />
+            <state line="20" column="41" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+              <folding>
+                <element signature="e#0#76#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,19 +106,8 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inventories/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="63" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+            <state line="15" column="63" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="600">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pharmacies/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="9" selection-start="2427" selection-end="2641" vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1845">
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -131,9 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/email.html" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/ipharmProject/views.py" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/templates/registration/contact.html" />
@@ -162,14 +150,10 @@
         <option value="$PROJECT_DIR$/staticfiles/js/map_search.js" />
         <option value="$PROJECT_DIR$/staticfiles/js/map.js" />
         <option value="$PROJECT_DIR$/staff/models.py" />
-        <option value="$PROJECT_DIR$/api/serializers.py" />
-        <option value="$PROJECT_DIR$/api/views.py" />
-        <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/staticfiles/js/main.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/inventories/models.py" />
         <option value="$PROJECT_DIR$/templates/registration/client_list.html" />
-        <option value="$PROJECT_DIR$/ipharmProject/settings.py" />
         <option value="$PROJECT_DIR$/pharmacies/models.py" />
         <option value="$PROJECT_DIR$/templates/registration/user.html" />
         <option value="$PROJECT_DIR$/pharmacies/forms.py" />
@@ -177,11 +161,18 @@
         <option value="$PROJECT_DIR$/pharmacies/urls.py" />
         <option value="$PROJECT_DIR$/static/js/map.js" />
         <option value="$PROJECT_DIR$/pharmacies/views.py" />
-        <option value="$PROJECT_DIR$/ipharmProject/urls.py" />
         <option value="$PROJECT_DIR$/templates/registration/password.html" />
-        <option value="$PROJECT_DIR$/inventories/forms.py" />
         <option value="$PROJECT_DIR$/templates/registration/add_drug.html" />
+        <option value="$PROJECT_DIR$/templates/registration/drug_list.html" />
+        <option value="$PROJECT_DIR$/inventories/forms.py" />
+        <option value="$PROJECT_DIR$/inventories/urls.py" />
         <option value="$PROJECT_DIR$/inventories/views.py" />
+        <option value="$PROJECT_DIR$/templates/registration/map.html" />
+        <option value="$PROJECT_DIR$/ipharmProject/urls.py" />
+        <option value="$PROJECT_DIR$/ipharmProject/settings.py" />
+        <option value="$PROJECT_DIR$/api/serializers.py" />
+        <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/api/urls.py" />
       </list>
     </option>
   </component>
@@ -667,7 +658,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17871326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18347895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -721,30 +712,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/staticfiles/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="549" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/css/font-awesome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22275" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/css/ipharm.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="593">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/css/jquery-ui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="593" />
@@ -787,11 +754,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/js/jquery-ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="106455">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="8" column="25" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="106455" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/js/jquery-jvectormap-world-mill-en.js">
@@ -821,9 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/js/map_search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="10" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0" vertical-offset="103" max-vertical-offset="1170">
-          <folding />
-        </state>
+        <state line="26" column="10" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0" vertical-offset="103" max-vertical-offset="1170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -831,185 +792,140 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="24" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/js/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="101" selection-start="1964" selection-end="2003" vertical-scroll-proportion="1.8126094" vertical-offset="0" max-vertical-offset="1170">
-          <folding />
-        </state>
+        <state line="69" column="101" selection-start="1964" selection-end="2003" vertical-scroll-proportion="1.8126094" vertical-offset="0" max-vertical-offset="1170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="8" selection-start="381" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
+        <state line="21" column="8" selection-start="381" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="23" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.0" vertical-offset="1154" max-vertical-offset="2895">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="15" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
+        <state line="100" column="23" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.0" vertical-offset="1154" max-vertical-offset="2895" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pharmacies/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/edit_profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="19.0" vertical-offset="456" max-vertical-offset="3075">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="19.0" vertical-offset="456" max-vertical-offset="3075" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="25" selection-start="0" selection-end="9638" vertical-scroll-proportion="-8.583333" vertical-offset="79" max-vertical-offset="3375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/client_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="14" selection-start="3252" selection-end="3252" vertical-scroll-proportion="-23.0" vertical-offset="618" max-vertical-offset="1260">
-          <folding>
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1401361139107" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="19" column="25" selection-start="0" selection-end="9638" vertical-scroll-proportion="-8.583333" vertical-offset="79" max-vertical-offset="3375" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ipharmProject/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
+        <state line="13" column="21" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ipharmProject/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="15" selection-start="67" selection-end="67" vertical-scroll-proportion="0.049668875" vertical-offset="0" max-vertical-offset="604">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipharmProject/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="36" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="1710">
-          <folding />
-        </state>
+        <state line="2" column="15" selection-start="67" selection-end="67" vertical-scroll-proportion="0.049668875" vertical-offset="0" max-vertical-offset="604" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pharmacies/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="75" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1785">
-          <folding />
-        </state>
+        <state line="50" column="75" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1785" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="66" selection-start="3626" selection-end="3626" vertical-scroll-proportion="-19.333334" vertical-offset="631" max-vertical-offset="3165">
-          <folding />
-        </state>
+        <state line="73" column="66" selection-start="3626" selection-end="3626" vertical-scroll-proportion="-19.333334" vertical-offset="631" max-vertical-offset="3165" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pharmacies/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="633" selection-end="633" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <folding />
-        </state>
+        <state line="14" column="0" selection-start="633" selection-end="633" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="18" selection-start="7" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="15" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <folding />
-        </state>
+        <state line="0" column="18" selection-start="7" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="36" selection-start="0" selection-end="6595" vertical-scroll-proportion="-11.375" vertical-offset="1077" max-vertical-offset="2130">
-          <folding />
-        </state>
+        <state line="90" column="36" selection-start="0" selection-end="6595" vertical-scroll-proportion="-11.375" vertical-offset="1077" max-vertical-offset="2130" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="27" selection-start="0" selection-end="3252" vertical-scroll-proportion="-13.916667" vertical-offset="656" max-vertical-offset="1260">
-          <folding />
-        </state>
+        <state line="66" column="27" selection-start="0" selection-end="3252" vertical-scroll-proportion="-13.916667" vertical-offset="656" max-vertical-offset="1260" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pharmacies/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="62" selection-start="1857" selection-end="1857" vertical-scroll-proportion="0.0" vertical-offset="309" max-vertical-offset="2985">
-          <folding>
-            <marker date="1401375457821" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/password.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="82" selection-start="1775" selection-end="1775" vertical-scroll-proportion="-7.625" vertical-offset="417" max-vertical-offset="1335">
+        <state line="40" column="82" selection-start="1775" selection-end="1775" vertical-scroll-proportion="-7.625" vertical-offset="417" max-vertical-offset="1335" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pharmacies/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="9" selection-start="2427" selection-end="2641" vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1845" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/client_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="27" selection-start="0" selection-end="3252" vertical-scroll-proportion="-11.125" vertical-offset="618" max-vertical-offset="1260" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/add_drug.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="19" selection-start="1921" selection-end="1921" vertical-scroll-proportion="0.47266313" vertical-offset="302" max-vertical-offset="2775" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/drug_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="2863" selection-end="2863" vertical-scroll-proportion="0.4827586" vertical-offset="620" max-vertical-offset="1260" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventories/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventories/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="40" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="53" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="270" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="60" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/urls.py">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/api/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="74" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventories/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="36" selection-start="802" selection-end="802" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
           <folding />
         </state>
       </provider>
@@ -1021,56 +937,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventories/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="30" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ipharmProject/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="48" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+        <state line="14" column="21" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pharmacies/forms.py">
+    <entry file="file://$PROJECT_DIR$/ipharmProject/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="9" selection-start="2427" selection-end="2641" vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1845">
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
+        <state line="71" column="1" selection-start="2022" selection-end="2022" vertical-scroll-proportion="0.0" vertical-offset="836" max-vertical-offset="1620">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventories/forms.py">
+    <entry file="file://$PROJECT_DIR$/api/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="20" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-          <folding>
-            <marker date="1401380906637" expanded="true" signature="441:478" placeholder="..." />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/views.py">
+    <entry file="file://$PROJECT_DIR$/api/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="464" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+        <state line="28" column="106" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/ipharmProject/local/lib/python2.7/site-packages/rest_framework/generics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="382" column="6" selection-start="14103" selection-end="14103" vertical-scroll-proportion="0.024752475" vertical-offset="5565" max-vertical-offset="8055">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inventories/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="22" selection-start="2769" selection-end="2769" vertical-scroll-proportion="0.0" vertical-offset="490" max-vertical-offset="1155">
+        <state line="35" column="16" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="990">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/add_drug.html">
+    <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="42" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.340388" vertical-offset="302" max-vertical-offset="2775">
-          <folding />
+        <state line="20" column="41" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/urls.py">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="36" selection-start="381" selection-end="381" vertical-scroll-proportion="0.22277227" vertical-offset="0" max-vertical-offset="606">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -29,3 +29,6 @@ class UploadDrugForm(forms.ModelForm):
         return upload
 
 
+class InventoryForm(forms.ModelForm):
+    class Meta:
+        model = Inventory
