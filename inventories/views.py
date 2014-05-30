@@ -6,6 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic.base import View
 from django.views import generic
 from inventories.forms import DrugForm, UploadDrugForm
+from inventories.models import Drug
 from ipharmProject.utils import load_drugs
 
 
@@ -56,5 +57,17 @@ class AddDrug(View):
 
 
 class Inventory(generic.ListView):
-    template_name = 'drug_list'
+    template_name = 'registration/drug_list.html'
+    #context_object_name = 'drug'
+    model = Drug
+
+    def get_context_data(self, ** kwargs):
+        context = super(Inventory, self).get_context_data( ** kwargs)
+        context['drug'] = Drug.objects.all()
+        return context
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(Inventory, self).dispatch(*args, **kwargs)
+
 

@@ -18,41 +18,7 @@
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
   </script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWDK8TRLNEAx8IP0G0WLzo3fErSXVajc4&sensor=false">
-    </script>
-    <script type="text/javascript">
-      function initialize() {
-          
-    var lng = parseFloat($("#lng").val());
-    var lat = parseFloat($("#lat").val());
-    lng = 5.55571;
-    lat = -0.19630;
-    var mapOptions;
-    var marker;
 
-        mapOptions = {
-            zoom: 10,
-            center: new google.maps.LatLng(lng, lat)
-        };
-
-    if(true){
-
-
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    }
-
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lng, lat),
-        map: map,
-        draggable: false,
-        animation: google.maps.Animation.BOUNCE
-    });
-
-
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
   <style>
     .ui-autocomplete {
       max-height: 200px;
@@ -156,12 +122,13 @@
             <div class="header-features">
                 <div class="row">
                     <div class="col-sm-6 header-feature">
-                        <span id="drug_name" class="h2"></span>&nbsp;
-                        <span id="drug_description" class="h4"></span>
+                        <span id="name" class="h2"></span>&nbsp;
+                        <span id="address" class="h4"></span>
+                        <span id="email" class="h4"></span>
                     </div>
                     <div class="col-sm-6 header-feature" id="map-canvas" style="height: 250px;">
-
-
+                        <span id="drug_name" class="h2"></span>&nbsp;
+                        <span id="drug_description" class="h4"></span>
                     </div>
                 </div>
             </div><!-- /.header-features -->

@@ -15,9 +15,13 @@ class PharmacySerializer(serializers.Serializer):
     name = serializers.CharField()
     lat = serializers.CharField()
     lng = serializers.CharField()
+    telephone = serializers.CharField()
+    address = serializers.CharField()
+    id = serializers.Field()
 
     class Meta:
         model = Pharmacy
+        fields = ('id', 'email', 'name', 'lat', 'lng', 'telephone', 'address')
 
 
 class InventorySerializer(serializers.ModelSerializer):

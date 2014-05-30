@@ -36,29 +36,24 @@
                                 <thead>
                                   <tr>
                                     <th>#</th>
-                                    <th>Email</th>
-                                    <th>Name</th>
-                                    <th>Note</th>
-                                    <th>Address</th>
-                                    <th>Date Joined</th>
-                                    <th>Telephone</th>
-                                      <th>Delete/ Edit</th>
+                                    <th>Drug</th>
+                                    <th>Available</th>
+                                    <th>Description</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                {% for u in client %}
+                                {% for u in drug %}
                                     <tr>
                                         <td>{{ forloop.counter }}</td>
-                                        <td>{{ u.email }}</td>
                                         <td>{{ u.name }}</td>
-                                        <td>{{ u.note }}</td>
-                                        <td>{{ u.address }}</td>
-                                        <td>{{ u.date_joined }}</td>
-                                        <td>{{ u.telephone }}</td>
-                                        <td><a><span class="fa fa-trash-o danger-txt">delete</span></a>
-                                            &nbsp;|&nbsp;<a><span class="fa fa-edit">edit</span></a>
+                                        <td>
+                                            {% if u in invetory.id %}
+                                                <input type="checkbox" checked="true">
+                                                {% else %}
+                                                <input type="checkbox" checked="false">
+                                            {% endif %}
                                         </td>
-
+                                        <td>{{ u.description }}</td>
                                     </tr>
                                 {% endfor %}
 
