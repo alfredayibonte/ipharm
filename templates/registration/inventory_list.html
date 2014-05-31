@@ -12,7 +12,7 @@
                             <li class="active">profile</li>
                         </ul>
                         <!--breadcrumbs end -->
-                    <h1 class="h1">{{ user.pharmacy.name }} contact list</h1>
+                    <h1 class="h1">{{ user.name }} contact list</h1>
                 </div>
                 </div>
 
@@ -23,7 +23,7 @@
 
                         <div class="panel panel-default">
                           <div class="panel-heading">
-                            <h3 class="panel-title">Contact List</h3>
+                            <h3 class="panel-title">List of Available Drugs</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -35,31 +35,32 @@
                               <table class="table table-bordered table-striped">
                                 <thead>
                                   <tr>
-                                    <th>#</th>
-                                    <th>Email</th>
-                                    <th>Name</th>
-                                    <th>Note</th>
-                                    <th>Address</th>
-                                    <th>Date Joined</th>
-                                    <th>Telephone</th>
-                                      <th>Delete/ Edit</th>
+                                      <th>#</th>
+                                      <th>Drug</th>
+                                      <th>Expiry Date</th>
+                                      <th>Stocked Date</th>
+                                      <th>Quantity</th>
+                                      <th>Price</th>
+                                      <th>Detail</th>
+                                      <th>#</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                {% for u in client %}
+                                {% for u in inventory %}
+                                    <form>
                                     <tr>
                                         <td>{{ forloop.counter }}</td>
-                                        <td>{{ u.email }}</td>
-                                        <td>{{ u.name }}</td>
-                                        <td>{{ u.note }}</td>
-                                        <td>{{ u.address }}</td>
-                                        <td>{{ u.date_joined }}</td>
-                                        <td>{{ u.telephone }}</td>
-                                        <td><a><span class="fa fa-trash-o danger-txt">delete</span></a>
-                                            &nbsp;|&nbsp;<a><span class="fa fa-edit">edit</span></a>
+                                        <td><input class="form-control" value="{{ u.drug.name }}" disabled ></td>
+                                        <td><input class="form-control" value="{{ u.expiry_date }}" disabled="disabled"></td>
+                                        <td><input class="form-control" value="{{ u.stocked_date }}" disabled></td>
+                                        <td><input class="form-control" value="{{ u.quantity }}" disabled></td>
+                                        <td><input class="form-control" value="{{ u.price }}" disabled></td>
+                                        <td><input class="form-control" value="{{ u.details }}" disabled></td>
+                                        <td>
+                                        <a href="." id="pencil"><i class="fa fa-pencil"></i></a>
                                         </td>
-
                                     </tr>
+                                    </form>
                                 {% endfor %}
 
 

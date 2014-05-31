@@ -31,7 +31,6 @@ class FindPharmacyView(views.APIView):
     def get(self, request, *args, **kwargs):
         ls = []
         drug_id = request.QUERY_PARAMS.get('id', None)
-        print 'drug id is '+drug_id
         drug = Drug.objects.get(pk=drug_id)
         inventory = Inventory.objects.filter(drug=drug)
         for i in inventory:
@@ -39,18 +38,3 @@ class FindPharmacyView(views.APIView):
         pharmacies = PharmacySerializer(ls, many=True)
 
         return Response(pharmacies.data, status=HTTP_200_OK)
-
-
-# class FindPharmacyView(viewsets.ModelViewSet):
-#
-#     def list(self, request):
-#         queryset = Pharmacy.objects.all()
-#         serializer = PharmacySerializer(queryset, many=True)
-#         return Response(serializer.data)
-#
-#     def retrieve(self, request, pk=None):
-#         print pk
-#         queryset = Drug.objects.all()
-#         # user = get_object_or_404(queryset, pk=pk)
-#         serializer = DrugSerializer(user)
-#         return Response(serializer.data)

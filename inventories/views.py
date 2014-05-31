@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic.base import View
 from django.views import generic
 from inventories.forms import DrugForm, UploadDrugForm
-from inventories.models import Drug
+from inventories.models import Drug, Inventory
 from ipharmProject.utils import load_drugs
 
 
@@ -56,18 +56,37 @@ class AddDrug(View):
         return super(AddDrug, self).dispatch(*args, **kwargs)
 
 
-class Inventory(generic.ListView):
+class DrugList(generic.ListView):
     template_name = 'registration/drug_list.html'
     #context_object_name = 'drug'
     model = Drug
 
     def get_context_data(self, ** kwargs):
-        context = super(Inventory, self).get_context_data( ** kwargs)
+        context = super(DrugList, self).get_context_data( ** kwargs)
         context['drug'] = Drug.objects.all()
+        context['inventory'] = Inventory.objects.filter(pharmacy=self.request.user)
+        for d in context['drug']:
+            for i in context['inventory']:
+                if d == i.drug:
+                    print 'true'
+                else:
+                    print 'false'
         return context
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(Inventory, self).dispatch(*args, **kwargs)
+        return super(DrugList, self).dispatch(*args, **kwargs)
 
 
+class InventoryList(generic.ListView):
+    template_name = 'registration/inventory_list.html'
+    initial = {}
+
+    def get(self, request, *args, **kwargs):
+        self.initial['inventory'] = Inventory.objects.filter(pharmacy=self.request.user)
+        return render(request, self.template_name, self.initial)
+
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(InventoryList, self).dispatch(*args, **kwargs)

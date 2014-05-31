@@ -41,6 +41,26 @@ class Main(generic.View):
         return super(Main, self).dispatch(*args, **kwargs)
 
 
+class DeleteContact(View):
+    pass
+
+
+class EditContact(View):
+    pass
+
+
+class AddUser(View):
+    pass
+
+
+class DeleteUser(View):
+    pass
+
+
+class EditUser(View):
+    pass
+
+
 class ChangePassword(View):
     model = Pharmacy
     form_class = SetPasswordForm

@@ -47,11 +47,14 @@
                                         <td>{{ forloop.counter }}</td>
                                         <td>{{ u.name }}</td>
                                         <td>
-                                            {% if u in invetory.id %}
-                                                <input type="checkbox" checked="true">
+                                            {% for i in inventory %}
+                                                {% if u == i.drug %}
+                                                <input type="hidden" >
+                                                <input type="checkbox" name="{{ i.id }}" checked>
                                                 {% else %}
-                                                <input type="checkbox" checked="false">
-                                            {% endif %}
+                                                <input type="checkbox" >
+                                                {% endif %}
+                                            {% endfor %}
                                         </td>
                                         <td>{{ u.description }}</td>
                                     </tr>
