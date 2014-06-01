@@ -32,3 +32,8 @@ class InventorySerializer(serializers.ModelSerializer):
         model = Inventory
         fields = ('id', 'drug', 'pharmacy', 'expiry_date', 'stocked_date', 'price', 'quantity', 'details')
 
+
+class InventoryUpdateSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Inventory
+        fields = ('url', 'price', 'expiry_date', 'drug')

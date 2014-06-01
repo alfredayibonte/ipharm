@@ -5,6 +5,7 @@ router = routers.DefaultRouter()
 router.register(r'inventories', views.InventoryApiView)
 router.register(r'drugs', views.DrugApiView)
 router.register(r'pharmacies', views.PharmacyApiView)
+router.register(r'events', views.InventoryUpdateViewSet)
 
 urlpatterns = patterns(
     '',

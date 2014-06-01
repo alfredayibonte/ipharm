@@ -30,11 +30,12 @@ class Main(generic.View):
     """The main dashboard once a pharmacy is logged in """
     model = Pharmacy
     template_name = 'registration/main.html'
+    initial = {}
 
     def get(self, request, *args, **kwargs):
-        context = {'client': Client.objects.filter(pharmacy=self.request.user),
-                   'inventory': Inventory.objects.filter(pharmacy=self.request.user)}
-        return render(request, self.template_name)
+        self.initial['client'] = Client.objects.filter(pharmacy=self.request.user)
+        self.initial['inventory'] = Inventory.objects.filter(pharmacy=self.request.user)
+        return render(request, self.template_name, self.initial)
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

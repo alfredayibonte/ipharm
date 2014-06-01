@@ -1,0 +1,108 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+   <!--main content start-->
+<section class="main-content-wrapper">
+    <section id="main-content">
+        <div class="row">
+            <div class="col-md-12">
+                <!--breadcrumbs start -->
+                <ul class="breadcrumb">
+                    <li><a href="#">Dashboard</a>
+                    </li>
+                    <li>Contacts</li>
+                    <li class="active">Add Inventory</li>
+                </ul>
+                <!--breadcrumbs end -->
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add inventory</h3>
+                        <div class="actions pull-right">
+                            <i class="fa fa-chevron-down"></i>
+                            <i class="fa fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        {% if  form.errors %}
+                            <p class="alert alert-danger">invalid</p>
+                        {% endif %}
+
+                        <form class="form-horizontal" method="post" novalidate="novalidate" action="{% url 'inventories:add_inventory' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="jq-validation-email" class="col-sm-3 control-label">Drug</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="name">
+                                        {% for u in drug %}
+                                        <option value="{{ u.name }}">{{ u.name }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="price" class="col-sm-3 control-label align-left">Price</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control"  name="price" min="0" placeholder="price">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity" class="col-sm-3 control-label">Quantity</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control"  name="quantity" placeholder="quantity" min="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="expiry_date" class="col-sm-3 control-label">Expiry Date</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="datepicker1" name="expiry_date" placeholder="expiry date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="stocked_date" class="col-sm-3 control-label">Stocked Date</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="datepicker2" name="stocked_date" placeholder="date stocked">
+                                </div>
+                            </div>
+
+                            <hr class="panel-wide">
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="submit" class="btn btn-primary">add inventory</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+
+    </section>
+</section>
+        <!--main content end-->
+<!--sidebar right end-->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
