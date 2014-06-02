@@ -44,8 +44,12 @@ class Main(generic.View):
 
 class LocationSearch(generic.View):
     template_name = 'map2.html'
+    initial = {}
+
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        self.initial['lat'] = '5.641728147355868'
+        self.initial['lng'] = '-0.15193238854408264'
+        return render(request, self.template_name, self.initial)
 
 
 class DeleteContact(View):
@@ -222,9 +226,11 @@ class Contact(View):
 
 class MAP(generic.ListView):
     template_name = 'registration/map.html'
+    initial = {}
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        self.initial['lat'] = "12"
+        return render(request, self.template_name, self.initial)
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
