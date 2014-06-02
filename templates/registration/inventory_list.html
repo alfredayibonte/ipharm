@@ -51,13 +51,13 @@
                                             <tr>
                                                 <td>{{ forloop.counter }}</td>
                                                 <td><input class="form-control" value="{{ u.drug.name }}"  name="name" disabled></td>
-                                                <td><input class="form-control" value="{{ u.expiry_date }}"  name="expiry_date" disabled></td>
-                                                <td><input class="form-control" value="{{ u.stocked_date }}"  name="stocked_date" disabled></td>
+                                                <td><input class="form-control" value="{{ u.expiry_date | date:'Y-m-d'}}"  name="expiry_date" disabled></td>
+                                                <td><input class="form-control"  value="{{ u.stocked_date | date:'Y-m-d'}}"  name="stocked_date" disabled></td>
                                                 <td><input class="form-control" value="{{ u.quantity }}"  name="quantity" disabled></td>
                                                 <td><input class="form-control" value="{{ u.price }}" name="price"  disabled></td>
                                                 <td>
                                                     <i type="submit" class="fa fa-pencil"></i>&nbsp;&nbsp;
-                                                    <button type="submit"><i class="fa fa-arrow-circle-up"></i></button>
+                                                    <button type="submit" class="text-primary"><i class="fa fa-arrow-circle-up"></i></button>
                                                 </td>
                                             </tr>
                                         </form>
