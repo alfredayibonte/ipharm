@@ -14,6 +14,6 @@ urlpatterns = patterns(
     url(r'^add_user/$', pharmacy.AddUser.as_view(), name='add_user'),
     url(r'^delete_user/$', pharmacy.DeleteUser.as_view(), name='delete_user'),
     url(r'^edit_user/$', pharmacy.EditUser.as_view(), name='edit_user'),
-    url(r'^map/$', pharmacy.MAP.as_view(), name='map'),
+    url(r'^map/$', pharmacy.Map.as_view(), name='map'),
     url(r'^change/$', pharmacy.ChangePassword.as_view(), name='change'),
 )

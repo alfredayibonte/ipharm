@@ -40,13 +40,15 @@
     var marker;
     if (isNaN(lng) || isNaN(lat)) {
         mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(5.55571, -0.19630)
+            zoom: 12,
+            center: new google.maps.LatLng(5.55571, -0.19630),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
     } else {
         mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(lng, lat)
+            zoom: 12,
+            center: new google.maps.LatLng(lat, lng),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
     }
@@ -54,7 +56,7 @@
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     //inistantiation of marker
     marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lng, lat),
+        position: new google.maps.LatLng(lat, lng),
         map: map,
         draggable: true,
         animation: google.maps.Animation.BOUNCE
@@ -147,7 +149,7 @@ window.onload = loadScript;
                 </ul>
             </div>
         </header>
-        <!--sidebar left start-->
+         <!--sidebar left start-->
         <aside class="sidebar">
             <div id="leftside-navigation" class="nano">
                 <ul class="nano-content">
@@ -158,11 +160,11 @@ window.onload = loadScript;
                         <a href="javascript:void(0);"><i class="fa fa-cogs"></i><span>General</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
 
-                            <li><a href="#"><i class="fa fa-plus"></i> User</a>
+                            <li><a href="{% url 'pharmacies:add_user' %}"><i class="fa fa-plus"></i> User</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-pencil"></i> User</a>
+                            <li><a href="{% url 'pharmacies:edit_user' %}"><i class="fa fa-pencil"></i> User</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-trash-o"></i> User</a>
+                            <li><a href="{% url 'pharmacies:delete_user' %}"><i class="fa fa-trash-o"></i> User</a>
                             </li>
 
                         </ul>
@@ -223,12 +225,13 @@ window.onload = loadScript;
             <section class="main-content-wrapper">
                 <section id="main-content">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-5"></div>
+                        <div class="col-sm-7">
                             <!--breadcrumbs start -->
-                            <form action="{% url 'pharmacies:map' %}">
-                                <input type="hidden" name="lat" >
-                                <input type="hidden" name="lng"> <span class="h3">Select location using marker and click</span>
-                                <button type="submit" class="btn btn-primary">update</button>
+                            <form method="post" action="{% url 'pharmacies:map' %}">{% csrf_token %}
+                                <input type="hidden" name="lat" id="lat">
+                                <input type="hidden" name="lng" id="lng">
+                                <button type="submit" class="btn btn-primary">update location</button>
                             </form>
                         </div>
                     </div>

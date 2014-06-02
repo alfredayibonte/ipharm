@@ -186,15 +186,15 @@ class SMS(generic.ListView):
     model = Client
     template_name = 'registration/sms.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(SMS, self).get_context_data(**kwargs)
+        pharmacy = self.request.user
+        context['client'] = Client.objects.filter(pharmacy=pharmacy)
+        return context
+
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(SMS, self).dispatch(*args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(SMS, self).get_context_data(**kwargs)
-        pharmacy = Pharmacy.objects.get(user=self.request.user)
-        context['client'] = Client.objects.filter(pharmacy=pharmacy)
-        return context
 
 
 class Email(generic.ListView):
@@ -309,17 +309,27 @@ class Contact(View):
         return super(Contact, self).dispatch(*args, **kwargs)
 
 
-class MAP(generic.ListView):
+class Map(generic.ListView):
     template_name = 'registration/map.html'
     initial = {}
 
     def get(self, request, *args, **kwargs):
-        self.initial['lat'] = "12"
+        pharmacy = request.user
+        self.initial['lat'] = pharmacy.lat
+        self.initial['lng'] = pharmacy.lng
         return render(request, self.template_name, self.initial)
+
+    def post(self, request, *args, **kwargs):
+        pharmacy = request.user
+        if request.POST.get('lng'):
+            pharmacy.lat = request.POST.get('lng')
+            pharmacy.lng = request.POST.get('lat')
+            pharmacy.save()
+        return HttpResponseRedirect(reverse('pharmacies:map'))
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(MAP, self).dispatch(*args, **kwargs)
+        return super(Map, self).dispatch(*args, **kwargs)
 
 
 
