@@ -53,23 +53,108 @@ class LocationSearch(generic.View):
 
 
 class DeleteContact(View):
-    pass
+    model = Client
+    initial = {}
+    form_class = ContactForm
+    template_name = 'registration/add_staff.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:contact_list'))
+        return render(request, self.template_name, {'form': form})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DeleteContact, self).dispatch(*args, **kwargs)
 
 
 class EditContact(View):
-    pass
+    model = Client
+    initial = {}
+    form_class = ContactForm
+    template_name = 'registration/edit_user.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:contact_list'))
+        return render(request, self.template_name, {'form': form})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(EditContact, self).dispatch(*args, **kwargs)
 
 
 class AddUser(View):
-    pass
+    model = Client
+    initial = {}
+    form_class = ContactForm
+    template_name = 'registration/add_staff.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:contact_list'))
+        return render(request, self.template_name, {'form': form})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(AddUser, self).dispatch(*args, **kwargs)
 
 
 class DeleteUser(View):
-    pass
+    model = Client
+    initial = {}
+    form_class = ContactForm
+    template_name = 'registration/delete_staff.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:contact_list'))
+        return render(request, self.template_name, {'form': form})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DeleteUser, self).dispatch(*args, **kwargs)
 
 
 class EditUser(View):
-    pass
+    model = Client
+    initial = {}
+    form_class = ContactForm
+    template_name = 'registration/edit_staff.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('pharmacies:contact_list'))
+        return render(request, self.template_name, {'form': form})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(EditUser, self).dispatch(*args, **kwargs)
 
 
 class ChangePassword(View):

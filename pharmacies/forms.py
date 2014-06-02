@@ -1,8 +1,16 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from pharmacies.models import Pharmacy, Client
+from pharmacies.models import Pharmacy, Client, Staff
 
 User = get_user_model()
+
+
+class StaffForm(forms.ModelForm):
+    class Meta:
+        model = Staff
+
+    def save(self, commit=True):
+        user = super(StaffForm, self).save(commit=False)
 
 
 class EditProfileForm(forms.ModelForm):

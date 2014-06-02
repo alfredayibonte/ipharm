@@ -1,0 +1,113 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+   <!--main content start-->
+<section class="main-content-wrapper">
+    <section id="main-content">
+        <div class="row">
+            <div class="col-md-12">
+                <!--breadcrumbs start -->
+                <ul class="breadcrumb">
+                    <li><a href="#">Dashboard</a>
+                    </li>
+
+                </ul>
+                <!--breadcrumbs end -->
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add Staff</h3>
+                        <div class="actions pull-right">
+                            <i class="fa fa-chevron-down"></i>
+                            <i class="fa fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        {% if  form.errors %}
+                            <p class="alert alert-danger">invalid</p>
+                        {% endif %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+
+
+                                </thead>
+                                <form method="post" action="{% url 'pharmacies:add_user' %}" class="form-group">{% csrf_token %}
+                                    <tbody>
+                                    <tr>
+                                        <th>Username</th>
+                                        <td><input type="text" class="form-control"  name="username" placeholder="username">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Telephone</th>
+                                        <td>
+                                            <input type="text" class="form-control"  name="telephone" placeholder="telephone" required>
+                                        </td>
+                                    </tr>
+                                      <tr>
+                                        <th>Date Joined</th>
+                                        <td>
+                                            <input type="text" class="form-control"  id="datepicker1" name="date_joined" placeholder=" eg. 2014-12-24">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>
+                                            <input type="email" class="form-control"  name="email" placeholder="email">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Password</th>
+                                        <td>
+                                            <input type="password" class="form-control"  name="password" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Repeat</th>
+                                        <td>
+                                            <input type="password" class="form-control"  name="repeat">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><input type="submit" value="add inventory" class="btn btn-primary pull-right"></td>
+                                    </tr>
+                                    </tbody>
+                                </form>
+                            </table>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+
+    </section>
+</section>
+    <!--main content end-->
+    <!--sidebar right end-->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

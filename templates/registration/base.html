@@ -95,11 +95,11 @@
                         <a href="javascript:void(0);"><i class="fa fa-cogs"></i><span>General</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
 
-                            <li><a href="#"><i class="fa fa-plus"></i> User</a>
+                            <li><a href="{% url 'pharmacies:add_user' %}"><i class="fa fa-plus"></i> User</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-pencil"></i> User</a>
+                            <li><a href="{% url 'pharmacies:edit_user' %}"><i class="fa fa-pencil"></i> User</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-trash-o"></i> User</a>
+                            <li><a href="{% url 'pharmacies:delete_user' %}"><i class="fa fa-trash-o"></i> User</a>
                             </li>
 
                         </ul>

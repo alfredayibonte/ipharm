@@ -1,0 +1,80 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+    <!--main content start-->
+<section class="main-content-wrapper">
+            <section id="main-content">
+            <div class="row">
+                    <div class="col-md-12">
+                        <!--breadcrumbs start -->
+                        <ul class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li>{{ user.username }}</li>
+                            <li class="active">profile</li>
+                        </ul>
+                        <!--breadcrumbs end -->
+                    <h3 class="h3">{{ user.pharmacy.name }} staff list</h3>
+                </div>
+                </div>
+
+
+
+                 <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">Staff list</h3>
+                            <div class="actions pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-times"></i>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+
+                            <div class="table-responsive">
+                              <table class="table table-bordered table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Email</th>
+                                    <th>Name</th>
+                                   <th>Address</th>
+                                    <th>Date Joined</th>
+                                    <th>Telephone</th>
+                                    <th> Edit</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                {% for u in client %}
+                                    <form method="POST" >
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ u.email }}</td>
+                                        <td>{{ u.name }}</td>
+                                        <td>{{ u.address }}</td>
+                                        <td>{{ u.date_joined }}</td>
+                                        <td>{{ u.telephone }}</td>
+                                        <td>
+                                            <input type="hidden">
+                                            <button type="submit"><i class="fa fa-edit"></i></button>
+                                        </td>
+
+                                    </tr>
+                                    </form>
+                                {% endfor %}
+
+
+                                </tbody>
+                              </table>
+                            </div>
+
+                    </div>
+                </div>
+               </div>
+             </div>
+
+
+            </section>
+         </section>
+        <!--main content end-->
+{% endblock %}
