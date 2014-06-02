@@ -95,7 +95,11 @@
                         <a href="javascript:void(0);"><i class="fa fa-cogs"></i><span>General</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
 
-                            <li><a href="#">Panels</a>
+                            <li><a href="#"><i class="fa fa-plus"></i> User</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-pencil"></i> User</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-trash-o"></i> User</a>
                             </li>
 
                         </ul>
@@ -104,16 +108,16 @@
                         <a href="javascript:void(0);"><i class="fa fa-table"></i><span>Client</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                             <li><a href="{% url 'pharmacies:contact' %}"><i class="fa fa-plus"></i>Add contact </a></li>
-                            <li><a href="{% url 'pharmacies:contact_list' %}">Contact List</a>
+                            <li><a href="{% url 'pharmacies:contact_list' %}"><i class="fa fa-pencil"></i>Contact List</a>
                             </li>
                             <li><a href="#">Purchase history</a>
                             </li>
-                            <li><a href="{% url 'pharmacies:email' %}"><i class="fa fa fa-envelope"></i>Email</a>
+                            <li><a href="{% url 'pharmacies:email' %}"><i class="fa fa-envelope"></i>Email</a>
                             </li>
                             <li>
-                                <a href="{% url 'pharmacies:sms' %}"><i class="fa fa fa-envelope"></i>SMS</a>
+                                <a href="{% url 'pharmacies:sms' %}"><i class="fa fa-envelope"></i>SMS</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-plus"></i>add note</a></li>
+
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -123,7 +127,7 @@
                             </li>
                             <li><a href="{% url 'inventories:drug_list' %}"><i class="fa fa-plus"></i>Inventory</a>
                             </li>
-                            <li><a href="{% url 'inventories:inventory_list' %}">Inventory List</a>
+                            <li><a href="{% url 'inventories:inventory_list' %}"><i class="fa fa-pencil"></i>Inventory List</a>
                             </li>
                             <li><a href="#">Stock history</a>
                             </li>
@@ -144,8 +148,6 @@
                         <a href="javascript:void(0);"><i class="fa fa-map-marker"></i><span>Maps</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
                             <li><a href="{% url 'pharmacies:map' %}">Edit location</a>
-                            </li>
-                            <li><a href="#">Vector Map</a>
                             </li>
                         </ul>
                     </li>
@@ -170,15 +172,20 @@
     <!--<script src=" 'js/waypoints.min.js' "></script>-->
     <script src="{% static 'js/application.js' %}"></script>
     <!-- map js addition -->
-    <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
+
     <!--Page Level JS-->
     <!--script src="{ static 'js/icheck.min.js' }"></script-->
     <script>
         $(function() {
+            $("#edit_me").hide();
             $( "#datepicker1" ).datepicker();
             $( "#datepicker1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
             $( "#datepicker2" ).datepicker();
             $( "#datepicker2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+            $("#edit").on('click', function(){
+                $("#profile_me").hide();
+                $("#edit_me").show();
+            });
 
 
         });

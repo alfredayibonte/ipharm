@@ -49,4 +49,3 @@ class InventoryForm(forms.Form):
                                                  price=price, expiry_date=expiry_date,
                                                  stocked_date=stocked_date)
             return inventory
-        raise forms.ValidationError('inventory already exist')
