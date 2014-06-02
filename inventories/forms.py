@@ -2,9 +2,6 @@ from django import forms
 from inventories.models import Inventory, Drug, Upload
 from ipharmProject.settings import BASE_DIR
 from ipharmProject.utils import load_drugs
-from pharmacies.models import Pharmacy
-
-# class MyRegistrationForm(forms.ModelForm):
 
 
 class DrugForm(forms.ModelForm):
@@ -58,10 +55,15 @@ class EditInventoryForm(forms.Form):
         super(EditInventoryForm, self).__init__(*args, **kwargs)
 
     def save(self, commit=True):
-        print self.id
         inventory = Inventory.objects.get(id=self.id)
-        price = self.request.POST['price']
-        quantity = self.request.POST['quantity']
-        expiry_date = self.request.POST['expiry_date']
-        stocked_date = self.request.POST['stocked_date']
+        if self.request.POST.get('price'):
+            price = self.request.POST.get('price')
+            quantity = self.request.POST.get('quantity')
+            expiry_date = self.request.POST.get('expiry_date')
+            stocked_date = self.request.POST.get('stocked_date')
+            inventory.price = price
+            inventory.quantity = quantity
+            inventory.expiry_date = expiry_date
+            inventory.stocked_date = stocked_date
+            inventory.save()
 

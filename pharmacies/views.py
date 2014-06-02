@@ -42,6 +42,12 @@ class Main(generic.View):
         return super(Main, self).dispatch(*args, **kwargs)
 
 
+class LocationSearch(generic.View):
+    template_name = 'map2.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
 class DeleteContact(View):
     pass
 
