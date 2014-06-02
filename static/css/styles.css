@@ -505,3 +505,8 @@ ul.social li:nth-child(6):before {
     font-size: 14px !important;
   }
 }
+
+/*Personal edit*/
+body {
+  background-image:url("/static/img/bg.jpg");
+}
