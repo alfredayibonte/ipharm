@@ -507,15 +507,6 @@ ul.social li:nth-child(6):before {
 }
 
 /*Personal edit*/
-
-.top-push {
-  padding-top: 200px;
-}
-
-.move-up {
-  padding-top: 10px;
-}
-
 body {
   background-image:url("/static/img/bg.jpg");
 }
