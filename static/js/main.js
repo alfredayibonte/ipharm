@@ -36,7 +36,7 @@ function init() {
     //search ajax
     $("#search").keyup(function() {
         $("#first_heading").hide();
-        $("#find").addClass("move_up");
+        //$("#find").addClass("move_up");
         $(".header-features ").addClass("me");
     });
 
