@@ -17,17 +17,17 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
-	</script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
-	<link href="{% static 'css/styles.css' %}" rel="stylesheet">
-	<style rel="stylesheet">
-		.move-up{
-			padding-top: -1000px;
-		}
-	</style>
+    </script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <style rel="stylesheet">
+        .move-up{
+            padding-top: -1000px;
+        }
+    </style>
 
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -35,82 +35,141 @@
 
 <body>
 
-	<div class="container">
-		<h1>
-			<a class="site-title pull-left" href=""><img src="{% static 'img/logo.png' %}" alt="iPharm"></a>
-		</h1>
+<div class="container">
+    <h1>
+        <a class="site-title pull-left" href=""><img src="{% static 'img/logo.png' %}" alt="iPharm"></a>
+    </h1>
 		
 
-		<!-- header -->
-		<div class="btn-users text-right hidden-md hidden-lg">
-                <i style="cursor:pointer" class="fa fa-align-justify"></i>
-                <div id="somestuff" style="cursor:pointer; display:none; margin-right:10px"> 
-                    <a class="btn btn-login" href="{% url 'login' %}">Sign In</a>
-                    <a class="btn btn-register" href="{% url 'register' %}">Sign Up</a>
-                </div>
-            </div>
-            <!-- end drop -->
+    <!-- header -->
+    <div class="btn-users text-right hidden-md hidden-lg">
+        <i style="cursor:pointer" class="fa fa-align-justify"></i>
+        <div id="somestuff" style="cursor:pointer; display:none; margin-right:10px">
+            <a class="btn btn-login" href="{% url 'login' %}">Sign In</a>
+            <a class="btn btn-register" href="{% url 'register' %}">Sign Up</a>
+        </div>
+    </div>
+    <!-- end drop -->
 
-            <div class="btn-users text-right hidden-xs hidden-sm">
-                <a class="btn btn-login" href="{% url 'login' %}">Login</a>
-                &nbsp;
-                <a class="btn btn-register" href="{% url 'register' %}">Register</a>
-            </div>
-            <!-- end of header -->
+    <div class="btn-users text-right hidden-xs hidden-sm">
+        <a class="btn btn-login" href="{% url 'login' %}">Login</a>
+        &nbsp;
+        <a class="btn btn-register" href="{% url 'register' %}">Register</a>
+    </div>
+    <!-- end of header -->
 
 
 
-			</div>
-		</div><!-- end .row -->
-	</div><!-- end .container -->
+</div>
+
 	
-    <div class="container" id="find">
+<div class="container" id="find">
 			
 			
-        <div class="header-description">
+    <div class="header-description">
 
-            <h2 class="brand h3">find your drug</h2>
+        <h2 class="brand h3">find your drug</h2>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="centered col-md-8 input-group input-group-lg"  >
-                        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="centered col-md-8 input-group input-group-lg"  >
+                    {% csrf_token %}
 
-                        <input type="text" class="form-control rounded" placeholder="search for drug" id="search"  >
-                        <span class="input-group-addon btn-primary"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control rounded" placeholder="search for drug" id="search"  >
+                    <span class="input-group-addon btn-primary"><i class="fa fa-search"></i></span>
 
-                    </div>
-                    <div class="col-md-2">
+                </div>
+                <div class="col-md-2">
 
-                    </div>
                 </div>
             </div>
+        </div>
 
-        </div><!--end section-headings -->
+    </div><!--end section-headings -->
+</div>
+
+<div class="page-container">
+    <div class="container">
+
+
+        <!-- start of page content -->
+        <div class="page-content">
+
+            <!-- Basic Home Page Template -->
+
+            <div class="col-md-7">
+                <section>
+                    <h3>Search results</h3>
+                    <ul>
+        						
+                        <li>
+                            Shabba labba
+
+                        </li>
+                        <li>
+                            Shabba labba
+                        </li>
+                        <li >
+                            Shabba labba
+                        </li>
+                        <li>
+                            Shabba labba
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <!-- end of page content -->
+            <div class="col-md-1"></div>
+            <!-- start of sidebar -->
+            <div class="col-md-4">
+                <section 	>
+                    <h3>Search results</h3>
+                    <ul>
+        						
+                        <li>
+                            Shabba labba
+
+                        </li>
+                        <li>
+                            Shabba labba
+                        </li>
+                        <li >
+                            Shabba labba
+                        </li>
+                        <li>
+                            Shabba labba
+                        </li>
+                    </ul>
+        				
+                </section>
+                <!-- end of sidebar -->
+            </div>
+
+        </div>
 
 
 
     </div><!-- end .container -->
 
-
+</div>
 
 	
-	<!-- Javascript -->
+    <!-- Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
 
 
 	<script>
-	$(document).ready(function(){ 
+	$(document).ready(function(){
 		$('#search').keyup(function(){
             $(".h3").hide();
             $(this).parent().parent().css({'marginTop':'-70px'});
-		}); 
+		});
 	});
 	</script>
 
 	<script>
-	$(document).ready(function(){                 
+	$(document).ready(function(){
 		$('.fa-align-justify').click(function(){
 			$('#somestuff').slideToggle('fast')
 		});

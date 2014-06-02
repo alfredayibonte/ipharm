@@ -510,3 +510,25 @@ ul.social li:nth-child(6):before {
 body {
   background-image:url("/static/img/bg.jpg");
 }
+
+.page-container > .container {
+padding: 40px 35px;
+background-color: #fff;
+}
+
+.page-content {
+margin-bottom: 20px;
+}
+
+.span8 {
+width: 770px;
+}
+
+.widget h3 {
+font-weight: 600;
+font-size: 20px;
+}
+
+li {
+  list-style: none;
+}
