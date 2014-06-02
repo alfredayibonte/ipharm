@@ -21,7 +21,7 @@
                                 <h1 class="text-left timer" data-from="0" data-to="56" data-speed="2500">{{ client | length }}</h1>
                                 <p>Contact List</p>
                             </div>
-                            <div class="icon"><i class="fa fa-users"></i>
+                            <div class="icon"><a href="{% url 'pharmacies:contact_list' %}"><i class="fa fa-users"></i></a>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                 <h1 class="text-left timer" data-from="0" data-to="32" data-speed="2500">{{ inventory | length }}</h1>
                                 <p>Inventory</p>
                             </div>
-                            <div class="icon"><i class="fa fa-codepen"></i>
+                            <div class="icon"><a href="{% url 'inventories:inventory_list' %}"><i class="fa fa-codepen"></i></a>
                             </div>
                         </div>
                     </div>

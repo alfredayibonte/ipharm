@@ -1,47 +1,101 @@
+{% load static %}
 <!DOCTYPE html>
-<html> 
-<head> 
-   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-   <title>Google Maps Geocoding Demo</title> 
-   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-   <script src="http://maps.google.com/maps/api/js?sensor=false" 
-           type="text/javascript"></script> 
-   <style type="text/css">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>ipharm</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBWDK8TRLNEAx8IP0G0WLzo3fErSXVajc4&sensor=false"
+            type="text/javascript"></script>
+
+    <!-- Stylesheets -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+      <style type="text/css">
      html { height: 100% }
      body { height: 100%; margin: 0px; padding: 0px }
      #map { height: 100% }
    </style>
-</head> 
-<body> 
-   <div id="map"></div> 
 
-   <script type="text/javascript"> 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
 
-   var address = 'Oxford Street, London, UK';
+<header id="site-header" class="site-header">
+    <div class="container">
+        <h1>
+            <a class="site-title pull-left" href="{% url 'home' %}"><img src="{% static 'img/ipharm.png' %}" alt="iPharm" width="50" height="50"></a>
+        </h1>
 
-   var map = new google.maps.Map(document.getElementById('map'), { 
-       mapTypeId: google.maps.MapTypeId.TERRAIN,
-       zoom: 12
+
+        <!-- header -->
+        <div class="btn-users text-right hidden-md hidden-lg">
+            <i style="cursor:pointer" class="fa fa-align-justify"></i>
+            <div id="somestuff" style="cursor:pointer; display:none; margin-right:10px">
+                <a class="btn btn-login" href="#">Sign In</a>
+                <a class="btn btn-register" href="#">Sign Up</a>
+            </div>
+        </div>
+        <!-- end drop -->
+
+        <div class="btn-users text-right hidden-xs hidden-sm">
+            <a class="btn btn-login" href="{% url 'login' %}">Login</a>
+            &nbsp;
+            <a class="btn btn-register" href="{% url 'register' %}">Register</a>
+        </div>
+        <!-- end of header -->
+    </div>
+    </div>
+
+    </div>
+    </div><!-- end .row -->
+    </div><!-- end .container -->
+</header>
+
+   <div id="map"></div>
+
+   <script type="text/javascript">
+
+       var lng = parseFloat('{{ lng }}');
+   var lat = parseFloat('{{ lat }}');
+   var address = 'A & C Mall, East Legon, Accra ‎';
+   var map = new google.maps.Map(document.getElementById('map'), {
+       mapTypeId: google.maps.MapTypeId.ROADMAP,
+       zoom: 14
    });
+
+       new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),//results[0].geometry.location,
+            map: map
+         });
 
    var geocoder = new google.maps.Geocoder();
 
    geocoder.geocode({
       'address': address
-   }, 
+   },
    function(results, status) {
       if(status == google.maps.GeocoderStatus.OK) {
-         new google.maps.Marker({
-            position: results[0].geometry.location,
-            map: map
-         });
-         map.setCenter(results[0].geometry.location);
+
+         map.setCenter(new google.maps.LatLng(lat, lng));//results[0].geometry.location
       }
       else {
          // Google couldn't geocode this request. Handle appropriately.
       }
    });
 
-   </script> 
+
+   </script>
 </body> 
 </html>
