@@ -322,8 +322,8 @@ class Map(generic.ListView):
     def post(self, request, *args, **kwargs):
         pharmacy = request.user
         if request.POST.get('lng'):
-            pharmacy.lat = request.POST.get('lng')
-            pharmacy.lng = request.POST.get('lat')
+            pharmacy.lng = request.POST.get('lng')
+            pharmacy.lat = request.POST.get('lat')
             pharmacy.save()
         return HttpResponseRedirect(reverse('pharmacies:map'))
 

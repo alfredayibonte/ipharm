@@ -27,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pharmacies/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="243" column="23" selection-start="7903" selection-end="7903" vertical-scroll-proportion="0.0" vertical-offset="3009" max-vertical-offset="4905">
+            <state line="325" column="40" selection-start="10808" selection-end="10808" vertical-scroll-proportion="0.60264903" vertical-offset="4301" max-vertical-offset="4905">
               <folding />
             </state>
           </provider>
@@ -54,15 +54,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/client_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="28" selection-start="0" selection-end="3625" vertical-scroll-proportion="-10.5" vertical-offset="618" max-vertical-offset="1365">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="delete_user.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/delete_user.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -72,40 +63,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit_user.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/edit_user.html">
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pharmacies/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="14" selection-start="3625" selection-end="3625" vertical-scroll-proportion="-22.916666" vertical-offset="725" max-vertical-offset="1365">
+            <state line="7" column="31" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="117" column="28" selection-start="4593" selection-end="4593" vertical-scroll-proportion="-13.625" vertical-offset="1428" max-vertical-offset="2055">
               <folding>
-                <marker date="1401721118822" expanded="true" signature="126:3577" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="166:3557" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="196:720" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="240:697" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="338:548" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="758:3532" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="802:3512" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="861:3490" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="915:1241" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="1046:1208" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="1292:3467" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="1352:3439" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="1433:3404" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="1473:2016" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="1512:1975" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="2056:3365" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="2167:3277" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="2209:3233" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="2713:3190" placeholder="..." />
-                <marker date="1401721118822" expanded="true" signature="2819:2962" placeholder="..." />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pharmacies/urls.py">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/staticfiles/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="31" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+            <state line="0" column="1062" selection-start="1062" selection-end="1062" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
               <folding />
             </state>
           </provider>
@@ -120,10 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="map.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="3093" selection-end="3093" vertical-scroll-proportion="1.4215168" vertical-offset="439" max-vertical-offset="4035">
+            <state line="83" column="0" selection-start="3093" selection-end="3093" vertical-scroll-proportion="-33.583332" vertical-offset="439" max-vertical-offset="4035">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -150,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/registration/sms.html" />
         <option value="$PROJECT_DIR$/static/js/edit.js" />
         <option value="$PROJECT_DIR$/templates/search_results.html" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
@@ -186,7 +167,6 @@
         <option value="$PROJECT_DIR$/inventories/views.py" />
         <option value="$PROJECT_DIR$/templates/registration/inventory_list.html" />
         <option value="$PROJECT_DIR$/ipharmProject/urls.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/map2.html" />
         <option value="$PROJECT_DIR$/templates/registration/main.html" />
         <option value="$PROJECT_DIR$/templates/registration/base.html" />
@@ -199,8 +179,10 @@
         <option value="$PROJECT_DIR$/templates/registration/edit_staff.html" />
         <option value="$PROJECT_DIR$/templates/registration/delete_staff.html" />
         <option value="$PROJECT_DIR$/pharmacies/urls.py" />
-        <option value="$PROJECT_DIR$/pharmacies/views.py" />
         <option value="$PROJECT_DIR$/templates/registration/map.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/staticfiles/css/main.css" />
+        <option value="$PROJECT_DIR$/pharmacies/views.py" />
       </list>
     </option>
   </component>
@@ -337,6 +319,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ipharmProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ipharmProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="staticfiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -789,13 +789,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="593" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="593">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/add_drug.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="19" selection-start="1921" selection-end="1921" vertical-scroll-proportion="-11.166667" vertical-offset="302" max-vertical-offset="2775">
@@ -901,17 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="122" column="67" selection-start="4510" selection-end="4510" vertical-scroll-proportion="0.0" vertical-offset="1238" max-vertical-offset="1920">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1489" selection-end="3348" vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="2025">
-          <folding>
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1028,26 +1010,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="14" selection-start="3625" selection-end="3625" vertical-scroll-proportion="-22.916666" vertical-offset="725" max-vertical-offset="1365">
           <folding>
-            <marker date="1401721118822" expanded="true" signature="126:3577" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="166:3557" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="196:720" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="240:697" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="338:548" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="758:3532" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="802:3512" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="861:3490" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="915:1241" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="1046:1208" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="1292:3467" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="1352:3439" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="1433:3404" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="1473:2016" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="1512:1975" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="2056:3365" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="2167:3277" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="2209:3233" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="2713:3190" placeholder="..." />
-            <marker date="1401721118822" expanded="true" signature="2819:2962" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401721118822" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1094,19 +1076,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pharmacies/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/registration/map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="243" column="23" selection-start="7903" selection-end="7903" vertical-scroll-proportion="0.0" vertical-offset="3009" max-vertical-offset="4905">
+        <state line="83" column="0" selection-start="3093" selection-end="3093" vertical-scroll-proportion="-33.583332" vertical-offset="439" max-vertical-offset="4035">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="28" selection-start="4593" selection-end="4593" vertical-scroll-proportion="-13.625" vertical-offset="1428" max-vertical-offset="2055">
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/staticfiles/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="1062" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="564">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/map.html">
+    <entry file="file://$PROJECT_DIR$/pharmacies/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="3093" selection-end="3093" vertical-scroll-proportion="1.4215168" vertical-offset="439" max-vertical-offset="4035">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="325" column="40" selection-start="10808" selection-end="10808" vertical-scroll-proportion="0.60264903" vertical-offset="4301" max-vertical-offset="4905">
+          <folding />
         </state>
       </provider>
     </entry>
