@@ -23,6 +23,7 @@
         .move-up{
             padding-top: -1000px;
         }
+
     </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -98,49 +99,19 @@
 
             <!-- Basic Home Page Template -->
 
-            <div class="col-md-7">
-                <section>
-                    <h3>Search results</h3>
-                    <ul>
-        						
-                        <li>
-                            Shabba labba
+            <div class="col-md-7" >
+                <section id="boto">
+                    <h3>Pharmacies</h3>
 
-                        </li>
-                        <li>
-                            Shabba labba
-                        </li>
-                        <li >
-                            Shabba labba
-                        </li>
-                        <li>
-                            Shabba labba
-                        </li>
-                    </ul>
                 </section>
             </div>
             <!-- end of page content -->
             <div class="col-md-1"></div>
             <!-- start of sidebar -->
             <div class="col-md-4">
-                <section 	>
-                    <h3>Search results</h3>
-                    <ul>
-        						
-                        <li>
-                            Shabba labba
-
-                        </li>
-                        <li>
-                            Shabba labba
-                        </li>
-                        <li >
-                            Shabba labba
-                        </li>
-                        <li>
-                            Shabba labba
-                        </li>
-                    </ul>
+                <section >
+                   <h3 id="drug"></h3>
+                    <p id="description" ></p>
         				
                 </section>
                 <!-- end of sidebar -->
@@ -157,19 +128,16 @@
 	
     <!-- Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
-
-
 	<script>
 	$(document).ready(function(){
-		$('#search').keyup(function(){
+         $('.page-container').hide();
+        $('#search').keyup(function(){
             $(".h3").hide();
             $(this).parent().parent().css({'marginTop':'-70px'});
-		});
-	});
-	</script>
+            $('.page-container').show();
 
-	<script>
-	$(document).ready(function(){
+		});
+
 		$('.fa-align-justify').click(function(){
 			$('#somestuff').slideToggle('fast')
 		});
