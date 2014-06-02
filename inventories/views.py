@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.generic.base import View
 from django.views import generic
-from inventories.forms import DrugForm, UploadDrugForm, InventoryForm
+from inventories.forms import DrugForm, UploadDrugForm, InventoryForm, EditInventoryForm
 from inventories.models import Drug, Inventory
 from ipharmProject.utils import load_drugs
 
@@ -107,3 +107,26 @@ class InventoryList(generic.ListView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(InventoryList, self).dispatch(*args, **kwargs)
+
+
+class EditInventory(generic.ListView):
+    template_name = 'registration/inventory_list.html'
+    initial = {}
+    form_class = EditInventoryForm
+
+    def get(self, request, *args, **kwargs):
+        self.initial['inventory'] = Inventory.objects.filter(pharmacy=self.request.user)
+        return render(request, self.template_name, self.initial)
+
+    def post(self, request, *args, **kwargs):
+        id = kwargs['id']
+        form = self.form_class(request.POST, id=id, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('inventories:inventory_list'))
+        return HttpResponseRedirect(reverse('inventories:edit_inventory', args={'id':id}))
+
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(EditInventory, self).dispatch(*args, **kwargs)

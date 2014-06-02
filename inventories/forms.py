@@ -49,3 +49,19 @@ class InventoryForm(forms.Form):
                                                  price=price, expiry_date=expiry_date,
                                                  stocked_date=stocked_date)
             return inventory
+
+
+class EditInventoryForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+        self.id = kwargs.pop('id', None)
+        super(EditInventoryForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        print self.id
+        inventory = Inventory.objects.get(id=self.id)
+        price = self.request.POST['price']
+        quantity = self.request.POST['quantity']
+        expiry_date = self.request.POST['expiry_date']
+        stocked_date = self.request.POST['stocked_date']
+

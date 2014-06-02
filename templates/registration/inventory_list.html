@@ -1,80 +1,80 @@
 {% extends 'registration/base.html' %}
 {% block content %}
     <!--main content start-->
-<section class="main-content-wrapper">
-            <section id="main-content">
+    <section class="main-content-wrapper">
+        <section id="main-content">
             <div class="row">
-                    <div class="col-md-12">
-                        <!--breadcrumbs start -->
-                        <ul class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li>{{ user.username }}</li>
-                            <li class="active">profile</li>
-                        </ul>
-                        <!--breadcrumbs end -->
+                <div class="col-md-12">
+                    <!--breadcrumbs start -->
+                    <ul class="breadcrumb">
+                        <li><a href="#">Dashboard</a></li>
+                        <li>{{ user.username }}</li>
+                        <li class="active">profile</li>
+                    </ul>
+                    <!--breadcrumbs end -->
                     <h4 class="h4">drugs available</h4>
                 </div>
-                </div>
+            </div>
 
 
 
-                 <div class="row">
-                    <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
 
-                        <div class="panel panel-default">
-                          <div class="panel-heading">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
                             <h3 class="panel-title">List of Available Drugs</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
                             </div>
-                          </div>
-                          <div class="panel-body">
+                        </div>
+                        <div class="panel-body">
 
                             <div class="table-responsive">
-                              <table class="table table-bordered table-striped">
-                                <thead>
-                                  <tr>
-                                      <th>#</th>
-                                      <th>Drug</th>
-                                      <th>Expiry Date</th>
-                                      <th>Stocked Date</th>
-                                      <th>Quantity</th>
-                                      <th>Price</th>
-                                      <th>Detail</th>
-                                      <th>#</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                {% for u in inventory %}
-                                    <form>
+                                <table class="table table-bordered table-striped">
+                                    <thead>
                                     <tr>
-                                        <td>{{ forloop.counter }}</td>
-                                        <td><input class="form-control" value="{{ u.drug.name }}" disabled ></td>
-                                        <td><input class="form-control" value="{{ u.expiry_date }}" disabled="disabled"></td>
-                                        <td><input class="form-control" value="{{ u.stocked_date }}" disabled></td>
-                                        <td><input class="form-control" value="{{ u.quantity }}" disabled></td>
-                                        <td><input class="form-control" value="{{ u.price }}" disabled></td>
-                                        <td><input class="form-control" value="{{ u.details }}" disabled></td>
-                                        <td>
-                                        <a href="." id="pencil"><i class="fa fa-pencil"></i></a>
-                                        </td>
+                                        <th>#</th>
+                                        <th>Drug</th>
+                                        <th>Expiry Date</th>
+                                        <th>Stocked Date</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>edit / update</th>
                                     </tr>
-                                    </form>
-                                {% endfor %}
+                                    </thead>
+                                    <tbody>
+                                    {% for u in inventory %}
+                                        <form method="post"  action="{% url 'inventories:edit_inventory' u.id %}">
+                                            {% csrf_token %}
+                                            <tr>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td><input class="form-control" value="{{ u.drug.name }}"  name="name" disabled></td>
+                                                <td><input class="form-control" value="{{ u.expiry_date }}"  name="expiry_date" disabled></td>
+                                                <td><input class="form-control" value="{{ u.stocked_date }}"  name="stocked_date" disabled></td>
+                                                <td><input class="form-control" value="{{ u.quantity }}"  name="quantity" disabled></td>
+                                                <td><input class="form-control" value="{{ u.price }}" name="price"  disabled></td>
+                                                <td>
+                                                    <i type="submit" class="fa fa-pencil"></i>&nbsp;&nbsp;
+                                                    <button type="submit"><i class="fa fa-arrow-circle-up"></i></button>
+                                                </td>
+                                            </tr>
+                                        </form>
+                                    {% endfor %}
 
 
-                                </tbody>
-                              </table>
+                                    </tbody>
+                                </table>
                             </div>
 
+                        </div>
                     </div>
                 </div>
-               </div>
-             </div>
+            </div>
 
 
-            </section>
-         </section>
-        <!--main content end-->
+        </section>
+    </section>
+    <!--main content end-->
 {% endblock %}

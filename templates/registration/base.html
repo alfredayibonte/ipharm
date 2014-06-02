@@ -186,6 +186,11 @@
                 $("#profile_me").hide();
                 $("#edit_me").show();
             });
+            $(".fa-pencil").on('click', function(){
+               $(this).parent().parent().find("input[class='form-control']").removeAttr('disabled');
+
+            });
+
 
 
         });
