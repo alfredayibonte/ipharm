@@ -13,6 +13,7 @@ class StaffForm(forms.ModelForm):
         user = super(StaffForm, self).save(commit=False)
 
 
+
 class EditProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)

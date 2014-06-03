@@ -47,8 +47,9 @@ class LocationSearch(generic.View):
     initial = {}
 
     def get(self, request, *args, **kwargs):
-        self.initial['lat'] = '5.641728147355868'
-        self.initial['lng'] = '-0.15193238854408264'
+        pharmacy = Pharmacy.objects.get(username=kwargs['username'])
+        self.initial['lat'] = pharmacy.lat
+        self.initial['lng'] = pharmacy.lng
         return render(request, self.template_name, self.initial)
 
 
@@ -235,17 +236,20 @@ class Register(View):
     template_name = 'registration/register.html'
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, self.initial)
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
+        self.initial['email'] = request.POST.get('email')
+        self.initial['name'] = request.POST.get('name')
+        self.initial['username'] = request.POST.get('username')
         if form.is_valid():
             form.save()
             user = auth.authenticate(email=form.cleaned_data['email'], password=form.cleaned_data['password'])
             auth.login(request, user)
             return HttpResponseRedirect(reverse('pharmacies:main'))
-        return render(request, self.template_name, {'form': form})
+        self.initial['errors'] = form.errors
+        return HttpResponseRedirect(reverse('register'))
 
 
 class PharmacyProfile(View):

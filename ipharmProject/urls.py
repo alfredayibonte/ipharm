@@ -12,7 +12,7 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.Home.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^map/$', pharmacy.LocationSearch.as_view(), name='location_map'),
+    url(r'^map/(?P<username>\w+)/$', pharmacy.LocationSearch.as_view(), name='location_map'),
     url(r'^inventory/', include('inventories.urls', namespace='inventories')),
     url(r'^pharmacy/', include('pharmacies.urls', namespace='pharmacies')),
     url(r'^upload/', drug.UploadFile.as_view(), name='upload'),

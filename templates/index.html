@@ -23,6 +23,12 @@
         .move-up{
             padding-top: -1000px;
         }
+        .change{
+            font-size: 1.3em;
+            color: #000;
+            font-weight: bold;
+        }
+
     </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,7 +39,7 @@
 <![endif]-->
 </head>
 
-<body>
+<body class="bg-home">
 
 <div class="container">
     <h1>
@@ -98,49 +104,19 @@
 
             <!-- Basic Home Page Template -->
 
-            <div class="col-md-7">
-                <section>
-                    <h3>Search results</h3>
-                    <ul>
-        						
-                        <li>
-                            Shabba labba
+            <div class="col-md-7" >
+                <section id="boto">
 
-                        </li>
-                        <li>
-                            Shabba labba
-                        </li>
-                        <li >
-                            Shabba labba
-                        </li>
-                        <li>
-                            Shabba labba
-                        </li>
-                    </ul>
+
                 </section>
             </div>
             <!-- end of page content -->
             <div class="col-md-1"></div>
             <!-- start of sidebar -->
             <div class="col-md-4">
-                <section 	>
-                    <h3>Search results</h3>
-                    <ul>
-        						
-                        <li>
-                            Shabba labba
-
-                        </li>
-                        <li>
-                            Shabba labba
-                        </li>
-                        <li >
-                            Shabba labba
-                        </li>
-                        <li>
-                            Shabba labba
-                        </li>
-                    </ul>
+                <section >
+                   <h3 id="drug" class="text-primary"></h3>
+                    <p id="description" class="change"></p>
         				
                 </section>
                 <!-- end of sidebar -->
@@ -157,19 +133,16 @@
 	
     <!-- Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
-
-
 	<script>
 	$(document).ready(function(){
-		$('#search').keyup(function(){
+         $('.page-container').hide();
+        $('#search').keyup(function(){
             $(".h3").hide();
             $(this).parent().parent().css({'marginTop':'-70px'});
-		});
-	});
-	</script>
+            $('.page-container').show();
 
-	<script>
-	$(document).ready(function(){
+		});
+
 		$('.fa-align-justify').click(function(){
 			$('#somestuff').slideToggle('fast')
 		});
