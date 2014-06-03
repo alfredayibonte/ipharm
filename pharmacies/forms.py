@@ -12,6 +12,10 @@ class StaffForm(forms.ModelForm):
     def save(self, commit=True):
         user = super(StaffForm, self).save(commit=False)
 
+        
+class StaffEditForm(forms.form):
+    pass
+
 
 class EditProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
