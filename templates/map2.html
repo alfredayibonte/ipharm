@@ -35,7 +35,7 @@
 <header id="site-header" class="site-header">
     <div class="container">
         <h1>
-            <a class="site-title pull-left" href="{% url 'home' %}"><img src="{% static 'img/ipharm.png' %}" alt="iPharm" width="50" height="50"></a>
+            <a class="site-title pull-left" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt="iPharm" width="50" height="50"></a>
         </h1>
 
 
@@ -77,7 +77,8 @@
 
        new google.maps.Marker({
             position: new google.maps.LatLng(lat, lng),//results[0].geometry.location,
-            map: map
+            map: map,
+            animation: google.maps.Animation.BOUNCE
          });
 
    var geocoder = new google.maps.Geocoder();
