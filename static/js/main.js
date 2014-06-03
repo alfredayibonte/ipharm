@@ -1,11 +1,5 @@
 $(document).ready(init);
 
-var lng;
-var lat;
-var search;
-var inventory;
-var drug;
-var pharmacy;
 var drug_id;
 
 function ajaxCall1() {
@@ -32,6 +26,8 @@ function ajaxCall2(id) {
 
 
 function init() {
+    $('.page-container').hide();
+
     ajaxCall1();
 
 
@@ -40,6 +36,11 @@ function init() {
         $("#first_heading").hide();
         //$("#find").addClass("move_up");
         $(".header-features ").addClass("me");
+        //count the number of text
+        if (this.value.length <= 0) {
+            return false;
+        }
+        $("#boto").html("");
     });
 
 
@@ -47,7 +48,6 @@ function init() {
 }
 
 function success_func(response) {
-    drug = response;
     var tags = [];
     for (var i = 0; i < response.length; i++) {
         tags.push(response[i].name);
@@ -62,12 +62,11 @@ function success_func(response) {
             }));
         },
         select: function(event, ui) {
-            console.log(ui.item.value);
             for (var i = 0; i < response.length; i++) {
-                if (drug[i].name == ui.item.value) {
-                    $("#drug").html(drug[i].name + ": ");
+                if (response[i].name == ui.item.value) {
+                    $("#drug").html(response[i].name + ": ");
                     $("#description").html(response[i].description);
-                    drug_id = drug[i].id;
+                    drug_id = response[i].id;
                 }
             }
             ajaxCall2(drug_id);
@@ -88,17 +87,24 @@ function error_func(err) {
 }
 
 function inventory_success(response) {
-    console.log(response);
-    for (var i = 0; i < response.length; i++) {
-        var name = "<h3 ><a href=\"/map/" + response[i].username + "/\" class='text-primary'>" + response[i].name + "</a><h3>";
-        var email = "<i class=\"fa fa-envelope-square\"></i> &nbsp;<span class='change'>" + response[i].email + "</span>";
-        var address = "<br><i class=\"fa fa-map-marker\"></i>&nbsp;<span class='change'>" + response[i].address + "</span>";
-        var telephone = "<br><i class=\"fa fa-phone\"></i>&nbsp;<span class='change'>" + response[i].telephone + "</span>";
-        $(name, {}).appendTo("#boto");
-        $(email, {}).appendTo("#boto");
-        $(address, {}).appendTo("#boto");
-        $(telephone, {}).appendTo("#boto");
+
+    if (response.length >= 1) {
+        $('.page-container').show();
+        $("<h1>PHARMACIES</h1>", {}).appendTo("#boto");
+        for (var i = 0; i < response.length; i++) {
+            var name = "<h3 ><a href=\"/map/" + response[i].username + "/\" class='text-primary'>" + response[i].name + "</a><h3>";
+            var email = "<i class=\"fa fa-envelope-square\"></i> &nbsp;<span class='change'>" + response[i].email + "</span>";
+            var address = "<br><i class=\"fa fa-map-marker\"></i>&nbsp;<span class='change'>" + response[i].address + "</span>";
+            var telephone = "<br><i class=\"fa fa-phone\"></i>&nbsp;<span class='change'>" + response[i].telephone + "</span>";
+            $(name, {}).appendTo("#boto");
+            $(email, {}).appendTo("#boto");
+            $(address, {}).appendTo("#boto");
+            $(telephone, {}).appendTo("#boto");
+
+        }
+
 
     }
+
 
 }
