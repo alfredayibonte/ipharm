@@ -88,15 +88,16 @@ function error_func(err) {
 }
 
 function inventory_success(response) {
-    inventory = response;
+    console.log(response);
     for (var i = 0; i < response.length; i++) {
-        var name = "<h3><a href='www.google.com'>" + inventory[i].name + "</a><h3>";
-        var email = "<i class=\"fa fa-envelope-square\"></i> &nbsp;<span>" + inventory[i].email + "</span>";
-        var address = "<br><i class=\"fa fa-map-marker\"></i>&nbsp;<span>" + inventory[i].address + "</span>";
-        inventory[i].name;
+        var name = "<h3 ><a href=\"/map/" + response[i].username + "/\" class='text-primary'>" + response[i].name + "</a><h3>";
+        var email = "<i class=\"fa fa-envelope-square\"></i> &nbsp;<span class='change'>" + response[i].email + "</span>";
+        var address = "<br><i class=\"fa fa-map-marker\"></i>&nbsp;<span class='change'>" + response[i].address + "</span>";
+        var telephone = "<br><i class=\"fa fa-phone\"></i>&nbsp;<span class='change'>" + response[i].telephone + "</span>";
         $(name, {}).appendTo("#boto");
         $(email, {}).appendTo("#boto");
         $(address, {}).appendTo("#boto");
+        $(telephone, {}).appendTo("#boto");
 
     }
 

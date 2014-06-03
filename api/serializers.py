@@ -13,6 +13,7 @@ class DrugSerializer(serializers.ModelSerializer):
 class PharmacySerializer(serializers.Serializer):
     email = serializers.EmailField()
     name = serializers.CharField()
+    username = serializers.CharField()
     lat = serializers.CharField()
     lng = serializers.CharField()
     telephone = serializers.CharField()
@@ -21,7 +22,7 @@ class PharmacySerializer(serializers.Serializer):
 
     class Meta:
         model = Pharmacy
-        fields = ('id', 'email', 'name', 'lat', 'lng', 'telephone', 'address')
+        fields = ('id', 'email', 'name', 'lat', 'lng', 'telephone', 'address', 'username')
 
 
 class InventorySerializer(serializers.ModelSerializer):

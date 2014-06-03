@@ -47,8 +47,9 @@ class LocationSearch(generic.View):
     initial = {}
 
     def get(self, request, *args, **kwargs):
-        self.initial['lat'] = '5.641728147355868'
-        self.initial['lng'] = '-0.15193238854408264'
+        pharmacy = Pharmacy.objects.get(username=kwargs['username'])
+        self.initial['lat'] = pharmacy.lat
+        self.initial['lng'] = pharmacy.lng
         return render(request, self.template_name, self.initial)
 
 
