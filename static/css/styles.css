@@ -508,7 +508,8 @@ ul.social li:nth-child(6):before {
 
 /*Personal edit*/
 .bg-home {
-  background-image:url("/static/img/bg.jpg");
+  background: #1E1D30;
+  /*background-image:url("/static/img/bg.jpg");*/
 }
 
 .page-container > .container {
