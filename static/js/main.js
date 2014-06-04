@@ -1,5 +1,7 @@
 $(document).ready(init);
 
+
+var drug;
 var drug_id;
 
 function ajaxCall1() {
@@ -27,20 +29,17 @@ function ajaxCall2(id) {
 
 function init() {
     $('.page-container').hide();
-
     ajaxCall1();
 
 
     //search ajax
     $("#search").keyup(function() {
+        $(".h3").hide();
+        $(this).parent().parent().css({
+            'marginTop': '-70px'
+        });
         $("#first_heading").hide();
-        //$("#find").addClass("move_up");
-        $(".header-features ").addClass("me");
-        //count the number of text
-        if (this.value.length <= 0) {
-            return false;
-        }
-        $("#boto").html("");
+
     });
 
 
@@ -62,6 +61,7 @@ function success_func(response) {
             }));
         },
         select: function(event, ui) {
+            $('.page-container').show();
             for (var i = 0; i < response.length; i++) {
                 if (response[i].name == ui.item.value) {
                     $("#drug").html(response[i].name + ": ");
@@ -89,7 +89,6 @@ function error_func(err) {
 function inventory_success(response) {
 
     if (response.length >= 1) {
-        $('.page-container').show();
         $("<h1>PHARMACIES</h1>", {}).appendTo("#boto");
         for (var i = 0; i < response.length; i++) {
             var name = "<h3 ><a href=\"/map/" + response[i].username + "/\" class='text-primary'>" + response[i].name + "</a><h3>";
@@ -102,7 +101,6 @@ function inventory_success(response) {
             $(telephone, {}).appendTo("#boto");
 
         }
-
 
     }
 
