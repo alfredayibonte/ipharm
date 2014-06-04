@@ -28,6 +28,12 @@
             color: #000;
             font-weight: bold;
         }
+        .ui-autocomplete {
+            height: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: 200px;
+        }
 
     </style>
 
@@ -136,7 +142,7 @@
     <script src="{% static 'js/main.js' %}"></script>
 	<script>
 	$(document).ready(function(){
- 
+
 
 		$('.fa-align-justify').click(function(){
 			$('#somestuff').slideToggle('fast')
