@@ -84,8 +84,11 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="25" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.83302414" vertical-offset="61" max-vertical-offset="2385">
-              <folding />
+            <state line="131" column="45" selection-start="4475" selection-end="4475" vertical-scroll-proportion="0.92416227" vertical-offset="1441" max-vertical-offset="2445">
+              <folding>
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +97,17 @@
         <entry file="file://$PROJECT_DIR$/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="39" column="28" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0" vertical-offset="1192" max-vertical-offset="1755">
-              <folding />
+              <folding>
+                <marker date="1401875376687" expanded="true" signature="443:813" placeholder="{...}" />
+                <marker date="1401875376687" expanded="true" signature="549:806" placeholder="{...}" />
+                <marker date="1401875376687" expanded="true" signature="1037:1253" placeholder="{...}" />
+                <marker date="1401875376687" expanded="true" signature="1291:1697" placeholder="{...}" />
+                <marker date="1401875376687" expanded="true" signature="1388:1655" placeholder="{...}" />
+                <marker date="1401875376687" expanded="true" signature="1445:1641" placeholder="{...}" />
+                <marker date="1401875376687" expanded="true" signature="1741:1767" placeholder="{...}" />
+                <marker date="1401875376687" expanded="true" signature="1806:2667" placeholder="{...}" />
+                <marker date="1401875376687" expanded="true" signature="1947:2656" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -183,9 +196,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1301" />
-    <option name="height" value="744" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -709,7 +722,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1051,14 +1064,27 @@
     <entry file="file://$PROJECT_DIR$/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="28" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0" vertical-offset="1192" max-vertical-offset="1755">
-          <folding />
+          <folding>
+            <marker date="1401875376687" expanded="true" signature="443:813" placeholder="{...}" />
+            <marker date="1401875376687" expanded="true" signature="549:806" placeholder="{...}" />
+            <marker date="1401875376687" expanded="true" signature="1037:1253" placeholder="{...}" />
+            <marker date="1401875376687" expanded="true" signature="1291:1697" placeholder="{...}" />
+            <marker date="1401875376687" expanded="true" signature="1388:1655" placeholder="{...}" />
+            <marker date="1401875376687" expanded="true" signature="1445:1641" placeholder="{...}" />
+            <marker date="1401875376687" expanded="true" signature="1741:1767" placeholder="{...}" />
+            <marker date="1401875376687" expanded="true" signature="1806:2667" placeholder="{...}" />
+            <marker date="1401875376687" expanded="true" signature="1947:2656" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="25" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.83302414" vertical-offset="61" max-vertical-offset="2385">
-          <folding />
+        <state line="131" column="45" selection-start="4475" selection-end="4475" vertical-scroll-proportion="0.92416227" vertical-offset="1441" max-vertical-offset="2445">
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
