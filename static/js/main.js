@@ -34,6 +34,10 @@ function init() {
 
     //search ajax
     $("#search").keyup(function() {
+        if (this.value.length <= 0) {
+            return false;
+        }
+        $("#boto").html("");
         $(".h3").hide();
         $(this).parent().parent().css({
             'marginTop': '-70px'
