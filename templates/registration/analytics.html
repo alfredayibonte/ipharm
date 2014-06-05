@@ -30,73 +30,38 @@
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
 
     <!-- Google Map Script -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+	["Element", "Remaining", { role: "style" } ],
+        ["ADVAIR", 8, "#ff0000"],
+	["Zidovudine", 10, "#ffa500"],
+	["Abatacept", 19, "gold"],
+	["Codeine", 21, "color: #397D02"]
+      ]);
 
-    <script>
-   function initialize() {
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
 
-   var lng = parseFloat('{{ lng }}');
-    var lat = parseFloat('{{ lat }}');
-    var mapOptions;
-    var marker;
-    if (isNaN(lng) || isNaN(lat)) {
-        mapOptions = {
-            zoom: 12,
-            center: new google.maps.LatLng(5.55571, -0.19630),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-    } else {
-        mapOptions = {
-            zoom: 12,
-            center: new google.maps.LatLng(lat, lng),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-    }
-
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    //inistantiation of marker
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, lng),
-        map: map,
-        draggable: true,
-        animation: google.maps.Animation.BOUNCE
-    });
-
-    // This is what happens when you click the map.
-    google.maps.event.addListener(map, 'click', function(event) {
-        marker.setMap(map);
-        marker.setPosition(event.latLng);
-        lat = event.latLng.lat();
-        lng = event.latLng.lng();
-        document.getElementById("lng").value = lng;
-        document.getElementById("lat").value = lat;
-
-
-    });
-    // This is what happens when you dragg the marker
-
-    google.maps.event.addListener(marker, 'dragend', function() {
-        lat = marker.getPosition().lat();
-        lng = marker.getPosition().lng();
-        document.getElementById("lng").value = lng;
-        document.getElementById("lat").value = lat;
-        var myCenter = new google.maps.LatLng(lat, lng);
-        marker.setPosition(myCenter);
-    });
-
-
-}
-
-function loadScript() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
-      'callback=initialize';
-  document.body.appendChild(script);
-}
-
-window.onload = loadScript;
- </script>
+      var options = {
+	title: "Quantity of drugs remaining",
+	width: 600,
+	height: 400,
+	bar: {groupWidth: "95%"},
+        legend: { position: "none" }
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -150,7 +115,6 @@ window.onload = loadScript;
             </div>
         </header>
          <!--sidebar left start-->
-        <!--sidebar left start-->
         <aside class="sidebar">
             <div id="leftside-navigation" class="nano">
                 <ul class="nano-content">
@@ -229,15 +193,11 @@ window.onload = loadScript;
                         <div class="col-md-5"></div>
                         <div class="col-sm-7">
                             <!--breadcrumbs start -->
-                            <form method="post" action="{% url 'pharmacies:map' %}">{% csrf_token %}
-                                <input type="hidden" name="lat" id="lat">
-                                <input type="hidden" name="lng" id="lng">
-                                <button type="submit" class="btn btn-primary">update location</button>
-                            </form>
+
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 col-sm-12" id="map-canvas" style="height: 700px;">
+                        <div class="col-md-12 col-sm-12" id="columnchart_values" style="height: 700px;">
 
                         </div>
                     </div>

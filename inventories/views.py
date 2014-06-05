@@ -109,6 +109,27 @@ class InventoryList(generic.ListView):
         return super(InventoryList, self).dispatch(*args, **kwargs)
 
 
+class Analytics(View):
+    template_name = 'registration/analytics.html'
+    initial = {}
+    def get(self, request, *args, **kwargs):
+        self.initial['inventory'] = Inventory.objects.filter(pharmacy=self.request.user)
+        return render(request, self.template_name, self.initial)
+
+    def post(self, request, *args, **kwargs):
+        id = kwargs['id']
+        form = self.form_class(request.POST, id=id, request=request)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('inventories:inventory_list'))
+        return HttpResponseRedirect(reverse('inventories:edit_inventory', args={'id':id}))
+
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(Analytics, self).dispatch(*args, **kwargs)
+
+
 class EditInventory(generic.ListView):
     template_name = 'registration/inventory_list.html'
     initial = {}

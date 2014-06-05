@@ -84,7 +84,7 @@
                 </ul>
             </div>
         </header>
-        <!--sidebar left start-->
+       <!--sidebar left start-->
         <aside class="sidebar">
             <div id="leftside-navigation" class="nano">
                 <ul class="nano-content">
@@ -137,9 +137,9 @@
                         <ul>
                             <li><a href="#">Customer statistics</a>
                             </li>
-                            <li><a href="#">Medicine statistics</a>
+                            <li><a href="{% url 'inventories:analytics' %}">Medicine statistics</a>
                             </li>
-                            <li><a href="#">Inventory statistics</a>
+                            <li><a href="{% url 'inventories:analytics' %}">Inventory statistics</a>
                             </li>
                         </ul>
                     </li>
@@ -154,6 +154,7 @@
             </div>
 
         </aside>
+        <!--sidebar left end-->
         <!--sidebar left end-->
         <!--main content start-->
         {% block content %}

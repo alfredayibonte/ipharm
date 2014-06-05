@@ -7,5 +7,6 @@ urlpatterns = patterns(
     url(r'^drug_list/$', views.DrugList.as_view(), name='drug_list'),
     url(r'^inventory_list/$', views.InventoryList.as_view(), name='inventory_list'),
     url(r'add_inventory/$', views.AddInventory.as_view(), name='add_inventory'),
+     url(r'^analytics/$', views.Analytics.as_view(), name='analytics'),
     url(r'edit_inventory/(?P<id>\d+)/$', views.EditInventory.as_view(), name='edit_inventory'),
 )
