@@ -56,17 +56,19 @@
 
     <!-- header -->
     <div class="btn-users text-right hidden-md hidden-lg">
+        <span style="color: white; font-weight: 350; font-size: small;">Are you a pharmacy? </span>
+        &nbsp;
         <i style="cursor:pointer" class="fa fa-align-justify"></i>
 
         <div id="somestuff" style="cursor:pointer; display:none; margin-right:10px">
-            <span style="color: white; font-weight: bold;">are you a pharmacy?</span>
             <a class="btn btn-login" href="{% url 'login' %}">Sign In</a>
             <a class="btn btn-register" href="{% url 'register' %}">Sign Up</a>
         </div>
     </div>
     <!-- end drop -->
     <div class="btn-users text-right hidden-xs hidden-sm">
-        <span style="color: white; font-weight: bold;">Are you a pharmacy?&nbsp; </span>
+        <span style="color: white; font-weight: 350; font-size: small;">Are you a pharmacy?&nbsp; &nbsp;</span>
+        <br>
         <a class="btn btn-login" href="{% url 'login' %}">Login</a>
         &nbsp;
         <a class="btn btn-register" href="{% url 'register' %}">Register</a>

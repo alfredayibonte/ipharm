@@ -33,7 +33,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body  style="background: #1E1D30">
+<body  class="bg-home">
 
 <div class="container">
     <h1>
@@ -41,6 +41,8 @@
       </h1>
 
       <div class="btn-users text-right hidden-md hidden-lg">
+        <span style="color: white; font-weight: 350; font-size: small;">Are you a pharmacy? </span>
+        &nbsp;
         <i style="cursor:pointer" class="fa fa-align-justify"></i>
         <div id="somestuff" style="cursor:pointer; display:none; margin-right:10px">
           <a class="btn btn-login" href="{% url 'login' %}">Sign In</a>
@@ -50,6 +52,9 @@
       <!-- end drop -->
 
       <div class="btn-users text-right hidden-xs hidden-sm">
+        <span style="color: white; font-weight: 350; font-size: small;">Are you a pharmacy? </span>
+        &nbsp;
+        <br>
         <a class="btn btn-login" href="{% url 'login' %}">Login</a>
         &nbsp;
         <a class="btn btn-register" href="{% url 'register' %}">Register</a>

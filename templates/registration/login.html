@@ -28,12 +28,17 @@
     <link rel="stylesheet" src="{% static 'js/modernizr-2.6.2.min.js' %}">
     <style type="text/css">
         .pattern-bg{
-            background-image: url('/static/img/bg.png');
-            background-color: whitesmoke;
+            /*background-image: url('/static/img/bg.png');
+            background-color: whitesmoke*/;
+            background: #1E1D30;
+            background-image:url("/static/img/bg_pattern.png");
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
         }
 
         .box-sw{
-            box-shadow: 10px 10px 5px #888888;
+            box-shadow: 10px 10px 5px #1E1D30;
         }
     </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
