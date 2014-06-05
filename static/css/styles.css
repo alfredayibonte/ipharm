@@ -510,6 +510,9 @@ ul.social li:nth-child(6):before {
 .bg-home {
   background: #1E1D30;
   background-image:url("/static/img/bg_pattern.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 
 .page-container > .container {
